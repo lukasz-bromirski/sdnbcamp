@@ -23,7 +23,7 @@ resource "esxi_guest" "leaf_switch" {
   network_interfaces {
      # Mgmt0
      # (3X18) PODX_VM
-     virtual_network = format("(3%s18) POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
+     virtual_network = format("(31%s8) POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
      mac_address=format("02:00:fa:b%s:1%s:09", substr(each.value,0,1), substr(each.value,1,1))
   }
   network_interfaces {
@@ -72,7 +72,7 @@ resource "esxi_guest" "spine_switch" {
   network_interfaces {
      # Mgmt0
      # (3X18) PODX_VM
-     virtual_network = format("(3%s18) POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
+     virtual_network = format("(31%s8) POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
      mac_address=format("02:00:fa:b%s:2%s:09", substr(each.value,0,1), substr(each.value,1,1))
   }
   network_interfaces {
