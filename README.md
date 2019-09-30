@@ -1,7 +1,7 @@
 # SDN Bootcamp
 ## by Łukasz Bromirski & Robert Ślaski
 
-This repository contains SDN bootcamp materials. You can use them without attending bootcamp and owning a workbook.
+This repository contains SDN bootcamp materials. You can use them without attending bootcamp and owning a workbook. If you want to attend the training, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288).
 
 ## Agenda
 
