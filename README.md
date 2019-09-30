@@ -8,8 +8,8 @@ This repository contains SDN bootcamp materials. You can use them without attend
 ### Day 1:
 
    * SDN - fifteen years in the making - overview of history and future of SDN networks
-   * Classical Ethernet recap - configuring VLANs and routing on switches (SVI) + routers
-   * VXLAN+EVPN+MP-BGP - building modern DCs "by hand"
+   * Classical Ethernet recap - configuring VLANs and routing on switches - Cisco Catalyst and Cisco Nexus and on Cisco ISR routers
+   * MP-BGP with EVPAN and VXLAN as data plane - building modern DCs "by hand"
    
 ### Day 2:
 
