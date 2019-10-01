@@ -1,21 +1,25 @@
 {
-	"variables": [],
 	"info": {
-		"name": "SDN Bootcamp Postman DNAC collection",
-		"_postman_id": "ffb0b936-2218-7a96-d518-e3a9fc62a9e3",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"_postman_id": "47b797e3-d163-4f7b-9c29-25cf7b958852",
+		"name": "SDN Bootcam DNAC collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Auth",
-			"description": "",
 			"item": [
 				{
 					"name": "Auth",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46QWRtZWVuOXNpc2tv"
+							}
+						],
 						"url": {
-							"raw": "https://{{HOST}}/api/system/v1/auth/login",
+							"raw": "https://{{HOST}}/api/system/v1/auth/login?",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
@@ -29,68 +33,76 @@
 							],
 							"query": [
 								{
-									"description": "",
-									"equals": true,
 									"key": "",
 									"value": "",
 									"disabled": true
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46QWRtZWVuOXNpc2tv",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Devices",
-			"description": "",
 			"item": [
 				{
 					"name": "Get devices",
 					"request": {
-						"url": "https://{{HOST}}/dna/intent/api/v1/network-device",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/network-device",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"network-device"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Get device count",
 					"request": {
-						"url": "https://{{HOST}}/dna/intent/api/v1/interface/count",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/interface/count",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"interface",
+								"count"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Latest device config status",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW46QWRtZWVuOXNpc2tv"
+							}
+						],
 						"url": {
 							"raw": "https://{{HOST}}/api/v2/data/device-config-status?isLatest=true",
 							"protocol": "https",
@@ -106,46 +118,38 @@
 							"query": [
 								{
 									"key": "isLatest",
-									"value": "true",
-									"equals": true,
-									"description": ""
+									"value": "true"
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic YWRtaW46QWRtZWVuOXNpc2tv",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Site",
-			"description": "",
 			"item": [
 				{
 					"name": "Get sites",
 					"request": {
-						"url": "https://{{HOST}}//dna/intent/api/v1/site",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/site",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"site"
+							]
+						}
 					},
 					"response": []
 				},
@@ -155,24 +159,26 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
+								"id": "8f39eb9c-e706-420b-b96f-85886e22b4a0",
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);\r",
 									"postman.setEnvironmentVariable(\"SITE_UUID\", jsonData.response[0].id);\r",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"method": "GET",
+						"header": [],
 						"url": {
-							"raw": "https://{{HOST}}//dna/intent/api/v1/site?name=global/Area 51",
+							"raw": "https://{{HOST}}/dna/intent/api/v1/site?name=global/Polska/Warszawa/Hector",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"dna",
 								"intent",
 								"api",
@@ -182,20 +188,10 @@
 							"query": [
 								{
 									"key": "name",
-									"value": "global/Area 51",
-									"equals": true,
-									"description": ""
+									"value": "global/Polska/Warszawa/Hector"
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				},
@@ -214,14 +210,28 @@
 						}
 					],
 					"request": {
-						"url": "https://{{HOST}}//dna/intent/api/v1/site/{{SITE_UUID}}",
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}//dna/intent/api/v1/site/{{SITE_UUID}}",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"",
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"site",
+								"{{SITE_UUID}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -240,40 +250,58 @@
 						}
 					],
 					"request": {
-						"url": "https://{{HOST}}//dna/intent/api/v1/site",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n\t\"type\":\"area\",\r\n\t\"site\": {\r\n\t\t\"area\": {\r\n\t\t\t\"name\":\"site51\",\r\n\t\t\t\"parentName\":\"global\"\r\n\t\t}\r\n\t}\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}//dna/intent/api/v1/site",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"",
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"site"
+							]
+						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "IP Pools",
-			"description": "",
 			"item": [
 				{
 					"name": "Get IP Pools",
 					"request": {
-						"url": "https://{{HOST}}//api/v2/ippool",
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippools",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippools"
+							]
+						}
 					},
 					"response": []
 				},
@@ -292,14 +320,15 @@
 						}
 					],
 					"request": {
+						"method": "GET",
+						"header": [],
 						"url": {
-							"raw": "https://{{HOST}}//api/v2/ippool?ipPoolName=POD{{POD}}_POOL_UNDERLAY",
+							"raw": "https://{{HOST}}/api/v2/ippool?ipPoolName=POD{{POD}}_POOL_UNDERLAY",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"api",
 								"v2",
 								"ippool"
@@ -307,45 +336,43 @@
 							"query": [
 								{
 									"key": "ipPoolName",
-									"value": "POD{{POD}}_POOL_UNDERLAY",
-									"equals": true,
-									"description": ""
+									"value": "POD{{POD}}_POOL_UNDERLAY"
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Create IP Pool PODX_POOL_UNDERLAY",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"ipPoolCidr\":\"10.1{{POD}}.64.0/18\",\n  \"ipPoolName\":\"POD{{POD}}_POOL_UNDERLAY\",\n  \"gateways\":[],\n  \"dhcpServerIps\":[\"10.16.2.3\"],\n  \"dnsServerIps\":[\"8.8.8.8\"]\n\n}\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool"
+							]
+						}
 					},
 					"response": []
 				},
@@ -364,14 +391,15 @@
 						}
 					],
 					"request": {
+						"method": "GET",
+						"header": [],
 						"url": {
-							"raw": "https://{{HOST}}//api/v2/ippool?ipPoolName=POD{{POD}}_POOL_OVERLAY",
+							"raw": "https://{{HOST}}/api/v2/ippool?ipPoolName=POD{{POD}}_POOL_OVERLAY",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"api",
 								"v2",
 								"ippool"
@@ -379,45 +407,43 @@
 							"query": [
 								{
 									"key": "ipPoolName",
-									"value": "POD{{POD}}_POOL_OVERLAY",
-									"equals": true,
-									"description": ""
+									"value": "POD{{POD}}_POOL_OVERLAY"
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Create IP Pool PODX_POOL_OVERLAY",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n  \"ipPoolCidr\":\"10.1{{POD}}.128.0/17\",\n  \"ipPoolName\":\"POD{{POD}}_POOL_OVERLAY\",\n  \"gateways\":[],\n  \"dhcpServerIps\":[\"10.16.2.3\"],\n  \"dnsServerIps\":[\"8.8.8.8\"]\n\n}\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool"
+							]
+						}
 					},
 					"response": []
 				},
@@ -436,14 +462,15 @@
 						}
 					],
 					"request": {
+						"method": "GET",
+						"header": [],
 						"url": {
-							"raw": "https://{{HOST}}//api/v2/ippool?ipPoolName=POD{{POD}}_POOL6_OVERLAY",
+							"raw": "https://{{HOST}}/api/v2/ippool?ipPoolName=POD{{POD}}_POOL6_OVERLAY",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"api",
 								"v2",
 								"ippool"
@@ -451,159 +478,200 @@
 							"query": [
 								{
 									"key": "ipPoolName",
-									"value": "POD{{POD}}_POOL6_OVERLAY",
-									"equals": true,
-									"description": ""
+									"value": "POD{{POD}}_POOL6_OVERLAY"
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Create IP Pool PODX_POOL6_OVERLAY",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"ipPoolCidr\":\"2001:db8:1{{POD}}::/48\",\n\t\"ipPoolName\":\"POD{{POD}}_POOL6_OVERLAY\",\n\t\"gateways\":[],\n\t\"dhcpServerIps\":[],\n\t\"dnsServerIps\":[\"2001:4860:4860::8888\"]\n}"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Reserve IP Pool NET131",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool/group",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"groupName\":\"NET131\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"ffaa4722-6e21-408c-8a7e-8a60c860fd8f\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"bc337bca-8156-41b6-a873-9b9cf3b077f0\",\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.11.131.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.11.131.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"d6e20167-67f4-4e6e-89de-87df6e49b902\",\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:11:131::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:11:131::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
+							"raw": "{\r\n\t\"groupName\":\"NET131\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"{{SITE_UUID}}\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.1{{POD}}.131.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.1{{POD}}.131.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL6_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:1{{POD}}:131::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:1{{POD}}:131::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool/group",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool",
+								"group"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Reserve IP Pool NET132",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool/group",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n\t\"groupName\":\"NET132\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"{{SITE_UUID}}\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.11.132.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.11.132.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL6_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:11:132::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:11:132::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool/group",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool",
+								"group"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Reserve IP Pool NET133",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool/group",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n\t\"groupName\":\"NET133\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"{{SITE_UUID}}\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.11.133.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.11.133.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL6_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:11:133::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:11:133::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool/group",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool",
+								"group"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Reserve IP Pool NET140",
 					"request": {
-						"url": "https://{{HOST}}/api/v2/ippool/group",
 						"method": "POST",
 						"header": [
 							{
 								"key": "__runsync",
-								"value": "True",
-								"description": ""
+								"value": "True"
 							},
 							{
 								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"groupName\":\"NET140\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"ffaa4722-6e21-408c-8a7e-8a60c860fd8f\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":{{POOL_OVERLAY_UUID}},\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.1{{POD}}.140.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.1{{POD}}.140.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":{{POOL6_OVERLAY_UUID}},\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[\"2001:4860:4860::8888\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:1{{POD}}:140::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:1{{POD}}:140::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
+							"raw": "{\r\n\t\"groupName\":\"NET140\",\r\n\t\"type\":\"lan\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"{{SITE_UUID}}\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[\"10.16.2.3\"],\r\n\t\t\t\"dnsServerIps\":[\"8.8.8.8\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"10.1{{POD}}.140.1\"],\r\n\t\t\t\"ipPoolCidr\":\"10.1{{POD}}.140.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL6_OVERLAY_UUID}}\",\r\n\t\t\t\"dhcpServerIps\":[],\r\n\t\t\t\"dnsServerIps\":[\"2001:4860:4860::8888\"],\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"gateways\":[\"2001:db8:1{{POD}}:140::1\"],\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:1{{POD}}:140::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n"
 						},
-						"description": null
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool/group",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool",
+								"group"
+							]
+						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Border",
-			"description": "",
 			"item": [
 				{
 					"name": "Border cfg",
 					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic cnNsYXNraTphcTFAV1MuNzg5"
+							}
+						],
 						"url": {
-							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device/1.1.1.1",
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device/1.1.1.1?",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
@@ -622,76 +690,38 @@
 								{
 									"key": "",
 									"value": "",
-									"equals": true,
-									"description": "",
 									"disabled": true
 								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic cnNsYXNraTphcTFAV1MuNzg5",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
-					},
-					"response": []
-				},
-				{
-					"name": "Border cfg copy",
-					"request": {
-						"url": {
-							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device/1.1.1.1",
-							"protocol": "https",
-							"host": [
-								"{{HOST}}"
-							],
-							"path": [
-								"dna",
-								"intent",
-								"api",
-								"v1",
-								"business",
-								"sda",
-								"border-device",
-								"1.1.1.1"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": "",
-									"equals": true,
-									"description": "",
-									"disabled": true
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Basic cnNsYXNraTphcTFAV1MuNzg5",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
-						},
-						"description": null
+							]
+						}
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
-	]
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b39ad922-afc8-429a-a7a8-952cf2a9fc62",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1661df8b-6ac2-4e5a-ae42-a28fcf174634",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }
