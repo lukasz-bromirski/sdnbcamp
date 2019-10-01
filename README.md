@@ -19,6 +19,9 @@ We invite you however to enlist and attend the bootcamp - if you're network engi
    * git
       * Intro and usage for local and remote repositories
       * Best practices, tips & tricks 
+   * Cisco Guest Shell
+      * Guest Shell on Cisco Catalyst IOS-XE switches
+      * Guest Shell on Cisco Nexus switches
    * Ansible
       * Intro and usage with basic playbooks
       * Creating playbooks for Cisco Catalyst and Cisco Nexus switches
