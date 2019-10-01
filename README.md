@@ -1,6 +1,5 @@
 # SDN Bootcamp
-### by [Łukasz Bromirski](https://www.linkedin.com/in/lukaszbromirski/), CCIE #15929 R&S/SP, CCDE #2012:17
-###  & [Robert Ślaski](https://www.linkedin.com/in/mikrobi/), CCIE #10877 R&S/Security
+### by [Łukasz Bromirski](https://www.linkedin.com/in/lukaszbromirski/) & [Robert Ślaski](https://www.linkedin.com/in/mikrobi/)
 
 This repository contains SDN bootcamp materials. You can use them without attending bootcamp and owning a workbook. If you want to attend the training, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288).
 
