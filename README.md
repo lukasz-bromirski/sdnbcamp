@@ -42,11 +42,11 @@ We invite you however to enlist and attend the bootcamp - if you're network engi
    
 ### Day 3:
 
-   * Cisco ACI
+   * Cisco SDA
    
 ### Day 4:
 
-   * Cisco SDA
+   * Cisco ACI
    
 ### Day 5:
 
