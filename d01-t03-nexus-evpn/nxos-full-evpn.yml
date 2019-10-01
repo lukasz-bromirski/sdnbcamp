@@ -1,0 +1,80 @@
+---
+- name: Configure EVPN overlay
+  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
+  connection: local
+  gather_facts: no
+
+  tasks:
+   - name: Ensure BGP is enabled
+     nxos_feature:
+      feature: bgp
+      state: enabled
+
+   - name: Ensure PIM is enabled
+     nxos_feature:
+      feature: pim
+      state: enabled
+
+   - name: Ensure VN-Segment is enabled
+     nxos_feature:
+      feature: vn-segment-vlan-based
+      state: enabled
+
+   - name: Ensure NV overlay is enabled
+     nxos_feature:
+      feature: "nv overlay"
+      state: enabled
+
+   - name: Check that EVPN overlay is enabled
+     nxos_evpn_global:
+       nv_overlay_evpn: true
+
+   - name: Make sure AS 65000 is enabled
+     nxos_bgp:
+      asn: 65000
+      state: present
+
+   - name: Check that VNI is configured
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_evpn_vni:
+      vni: 5012X0
+      route_distinguisher: auto
+      route_target_both: auto
+
+   - name: Create new VXLAN VTEP VNI configuration
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_vxlan_vtep_vni:
+      interface: nve1
+      vni: 5012X0
+      multicast_group: 230.1.1.1
+
+   - name: Delete old VXLAN VTEP VNI configuration
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_vxlan_vtep_vni:
+      interface: nve1
+      vni: 5011X0
+      state: absent
+
+   - name: Delete VLAN 1140
+     nxos_vlan:
+      vlan_id: 11X0
+      state: absent
+
+   - name: Create VLAN 1240
+     nxos_vlan:
+      vlan_id: 12X0
+      name: SERVERS
+      state: present
+
+   - name: Ensure switches are using VLAN12X0 and not VLAN11X0
+     nxos_switchport:
+      interface: eth1/3
+      mode: access
+      access_vlan: 12X0
+
+   - name: Configure VLAN mapping
+     nxos_config:
+      lines:
+       - vn-segment 501240
+      parents: vlan 1240
+      match: none

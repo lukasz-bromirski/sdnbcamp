@@ -1,0 +1,16 @@
+!
+! BGP IPv4 configuration for Nexus 9000 LEAF
+!
+
+router bgp 65000
+ address-family ipv4 unicast
+ address-family ipv6 unicast
+ template peer BGP-RR
+   remote-as 65000
+   update-source loopback0
+   address-family ipv4 unicast
+   address-family ipv6 unicast
+ neighbor 100.100.1.1
+  inherit peer BGP-RR
+ neighbor 100.100.1.2
+  inherit peer BGP-RR
