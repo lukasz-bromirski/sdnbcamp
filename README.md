@@ -8,16 +8,35 @@ This repository contains SDN bootcamp materials. You can use them without attend
 ### Day 1:
 
    * SDN - fifteen years in the making - overview of history and future of SDN networks
-   * Classical Ethernet recap - configuring VLANs and routing on switches - Cisco Catalyst and Cisco Nexus and on Cisco ISR routers
-   * MP-BGP with EVPAN and VXLAN as data plane - building modern DCs "by hand"
+   * Classical Ethernet recap
+      * Configuring VLANs and routing on switches - Cisco Catalyst 9300 and Cisco ISR 4200 routers
+      * Configuring VLANs and rotuing on switches - Cisco Nexus 9000
+   * Leaf & Spine DCs
+      * Configuring DC flood & learn VXLAN
+      * Configuring DC MP-BGP with EVPN
+   * git
+      * Intro and usage for local and remote repositories
+      * Best practices, tips & tricks 
+   * Ansible
+      * Intro and usage with basic playbooks
+      * Creating playbooks for Cisco Catalyst and Cisco Nexus switches
    
 ### Day 2:
 
-   * git - intro and usage
-   * Ansible - intro and usage
-   * RESTful APIs - Postman - intro and usage
-   * NSO - Cisco Network Services Orchestration - intro, usage and Ethernet+VXLAN automation
-   * VTS - Cisco Virtual Topology System - intro and usage
+   * RESTful APIs
+      * Introduction to APIs
+      * YANG, NETCONF & RESTCONF
+      * Using wget, cURL and Postman to work with APIs
+   * NSO - Cisco Network Services Orchestration
+      * Introduction
+      * Basic usage
+      * Building feature and service templates
+      * Building Ethernet+VXLAN automation
+      * Using Postman with NSO API
+      * Virtualizing using nso-netsim
+   * VTS - Cisco Virtual Topology System
+      * Introduction
+      * Using VTS with Nexus 9000 and MP-BGP EVPN
    
 ### Day 3:
 
