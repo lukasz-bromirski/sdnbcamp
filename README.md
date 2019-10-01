@@ -1,7 +1,9 @@
 # SDN Bootcamp
 ### by [Łukasz Bromirski](https://www.linkedin.com/in/lukaszbromirski/) & [Robert Ślaski](https://www.linkedin.com/in/mikrobi/)
 
-This repository contains SDN bootcamp materials. You can use them without attending bootcamp and owning a workbook. If you want to attend the training, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288).
+This repository contains SDN bootcamp materials, that can be used (obviously) even without attending the bootcamp.
+
+We invite you however to enlist and attend the bootcamp - if you're network engineer, you may even consider it a must :) If you want to join us, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288) and secure your slot!
 
 ## Agenda
 
