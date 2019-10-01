@@ -1,6 +1,6 @@
 ---
 - name: Configure EVPN overlay
-  hosts: POD4_LEAF11 POD4_LEAF12 POD4_SPINE11 POD4_SPINE12
+  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
   connection: local
   gather_facts: no
 
@@ -35,34 +35,34 @@
       state: present
 
    - name: Check that VNI is configured
-     when: inventory_hostname in ( 'POD4_LEAF11', 'POD4_LEAF12' )
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
      nxos_evpn_vni:
-      vni: 501240
+      vni: 5012X0
       route_distinguisher: auto
       route_target_both: auto
 
    - name: Create new VXLAN VTEP VNI configuration
-     when: inventory_hostname in ( 'POD4_LEAF11', 'POD4_LEAF12' )
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
      nxos_vxlan_vtep_vni:
       interface: nve1
-      vni: 501240
+      vni: 5012X0
       multicast_group: 230.1.1.1
 
    - name: Delete old VXLAN VTEP VNI configuration
-     when: inventory_hostname in ( 'POD4_LEAF11', 'POD4_LEAF12' )
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
      nxos_vxlan_vtep_vni:
       interface: nve1
-      vni: 501140
+      vni: 5011X0
       state: absent
 
    - name: Delete VLAN 1140
      nxos_vlan:
-      vlan_id: 1140
+      vlan_id: 11X0
       state: absent
 
    - name: Create VLAN 1240
      nxos_vlan:
-      vlan_id: 1240
+      vlan_id: 12X0
       name: SERVERS
       state: present
 
@@ -70,7 +70,7 @@
      nxos_switchport:
       interface: eth1/3
       mode: access
-      access_vlan: 1240
+      access_vlan: 12X0
 
    - name: Configure VLAN mapping
      nxos_config:
