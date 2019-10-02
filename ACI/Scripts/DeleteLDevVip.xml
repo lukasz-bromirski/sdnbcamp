@@ -1,0 +1,7 @@
+<polUni>
+    <fvTenant
+    dn="uni/tn-ACILab"
+    name="ACILab">
+        <vnsLDevVip name="Firewall" status="deleted"/>
+    </fvTenant>
+</polUni>

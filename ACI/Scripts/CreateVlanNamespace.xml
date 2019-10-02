@@ -1,0 +1,7 @@
+<polUni>
+<infraInfra>
+     <fvnsVlanInstP name="ACILab_VLAN_Pool" allocMode="dynamic">
+        <fvnsEncapBlk name="encap" from="vlan-1001" to="vlan-1100"/>
+     </fvnsVlanInstP>
+</infraInfra>
+</polUni>

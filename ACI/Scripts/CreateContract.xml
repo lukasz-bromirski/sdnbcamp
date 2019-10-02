@@ -1,0 +1,35 @@
+<polUni>
+    <fvTenant dn="uni/tn-ACILab" name="ACILab">
+
+        <vzFilter name="Web_Filter">
+             <vzEntry dFromPort="http" dToPort="http" etherT="ip" name="web_filter" prot="tcp" sFromPort="unspecified" sToPort="unspecified" />
+        </vzFilter>
+
+        <vzBrCP name="Web_Con">
+            <vzSubj name="web_subj" provMatchT="All"  consMatchT="All">
+                <vzRsSubjFiltAtt tnVzFilterName="Web_Filter"/>
+            </vzSubj>
+        </vzBrCP>
+
+        <vzFilter name="App_Filter">
+             <vzEntry dFromPort="1433" dToPort="1433" etherT="ip" name="app_filter" prot="tcp" sFromPort="unspecified" sToPort="unspecified" />
+        </vzFilter>
+
+        <vzBrCP name="App_Con">
+            <vzSubj name="app_subj" provMatchT="All"  consMatchT="All">
+                <vzRsSubjFiltAtt tnVzFilterName="App_Filter"/>
+            </vzSubj>
+        </vzBrCP>
+
+        <vzFilter name="DB_Filter">
+             <vzEntry dFromPort="1521" dToPort="1521" etherT="ip" name="db_filter" prot="tcp" sFromPort="unspecified" sToPort="unspecified" />
+        </vzFilter>
+
+        <vzBrCP name="DB_Con">
+            <vzSubj name="db_subj" provMatchT="All"  consMatchT="All">
+                <vzRsSubjFiltAtt tnVzFilterName="DB_Filter"/>
+            </vzSubj>
+        </vzBrCP>
+
+    </fvTenant>
+</polUni>

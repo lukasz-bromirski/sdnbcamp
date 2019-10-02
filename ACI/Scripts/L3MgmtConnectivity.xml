@@ -1,0 +1,45 @@
+<polUni>
+<fvTenant name="mgmt">
+   <l3extOut name="vmm">
+      <l3extInstP name="extMgmt">
+      </l3extInstP>
+      <l3extLNodeP name="borderLeaf">    
+         <l3extRsNodeL3OutAtt tDn="topology/pod-1/node-101" rtrId="1.0.0.1">
+             <ipRouteP ip="192.168.64.0/16">
+                <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>
+		
+             <ipRouteP ip="172.21.158.0/24">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>
+             <ipRouteP ip="10.30.12.0/21">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>
+             <ipRouteP ip="10.193.208.0/24">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>
+             <ipRouteP ip="172.31.157.0/24">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>
+             <ipRouteP ip="172.21.157.0/24">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>     
+             <ipRouteP ip="172.23.48.0/21">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>     
+             <ipRouteP ip="172.23.75.0/21">
+                 <ipNexthopP nhAddr="192.168.105.1"/>
+             </ipRouteP>     
+         </l3extRsNodeL3OutAtt>         
+
+<!--
+         <l3extLIfP name='portProfile'>
+           <l3extRsPathL3OutAtt tDn="topology/pod-1/paths-101/pathep-[eth1/40]" ifInstT='l3-port' addr="192.168.105.2/24"/>
+         </l3extLIfP>
+-->
+      </l3extLNodeP>
+<!--      <l3extRsEctx tnFvCtxName="inb"/>
+-->
+   </l3extOut>   
+</fvTenant>
+</polUni>

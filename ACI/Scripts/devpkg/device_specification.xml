@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<polUni>
+  <infraInfra>
+    <vnsMDev vendor="CISCO"
+             model="ASA"
+             version="1.0.1.19"
+             funcMask="GoTo,GoThrough">
+      <vnsMIfLbl name="external" shortName="ext"/>
+      <vnsMIfLbl name="internal" shortName="int"/>
+      <vnsMIfLbl name="mgmt"     shortName="mgmt"/>
+      <vnsMIfLbl name="utility"  shortName="util"/>
+      <vnsMIfLbl name="failover_lan"  shortName="lan"/>
+      <vnsMIfLbl name="failover_link" shortName="link"/>
+      <vnsMIfLbl name="cluster_control_link" shortName="ccl"/>
+
+      <vnsMCred name="username"
+                key="username"/>
+
+      <vnsMCred name="password"
+                key="password"/>
+
+      <vnsDevScript name="Cisco"
+                    packageName="device_script.py"
+                    ctrlrVersion="1.0"
+                    versionExpr="8\.([4-9]|\d\d+)|(9|\d\d+)\."/>
+
+      <vnsComparison name="isDigit" cmp="match" value="\d+"/>
+      <vnsComparison name="enable" cmp="match" value="^enable$" />
+      <vnsComparison name="enableDisable" cmp="match" value="^(enable|disable)$" />
+      <vnsComparison name="commonLevel" cmp="match" value="^([0-7]|emergencies|alerts|critical|errors|warnings|notifications|informational|debugging)$" />
+      <vnsComparison name="lanUnit" cmp="match" value="^(primary|secondary)$" />
+      <vnsComparison name="unitInterface" cmp="match" value="^(unit|interface)$" />
+      <vnsComparison name="intfPolicy" cmp="match" value="^(100|[1-9][0-9]|[1-9])[%]{0,1} {0,9}$" />
+      <vnsComparison name="macAddress" cmp="match" value="^([0-9a-fA-F]{4}.){2}[0-9a-fA-F]{4}$" />
+      <vnsComparison name="IPSOperateMode" cmp="match" value="^(inline|promiscuous)$" />
+      <vnsComparison name="IPSFailMode" cmp="match" value="^(fail-open|fail-close)$" />
+      <vnsComparison name="clusterRole" cmp="match" value="^(master|slave)$" />
+      <vnsComparison name="clacpMac" cmp="match" value="^(auto|([0-9a-fA-F]{1,4}.){2}[0-9a-fA-F]{1,4})$" />
+      <vnsComparison name="ipv4Addr" cmp="match" value="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" />
+      <vnsComparison name="netmask" cmp="match" value="^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$" />
+      <vnsComparison name="hexKey" cmp="match" value="^[0-9a-fA-F]{32}$" />
+      <vnsComparison name="str38" cmp="match" value="^\S{1,38}$" />
+      <vnsComparison name="str128" cmp="match" value="^\S{1,128}$" />
+      <vnsComparison name="tunneled" cmp="match" value="^tunneled$" />
+      <vnsComparison name="trafficSel" cmp="match" value="^(any|(access-list \S+))$" />
+      <vnsComparison name="connToEmb" cmp="match" value="^((0+:0+:0+)|(0+:(0?[1-9][0-9]?):[0-9]{1,2})|(0+:0+:(0?[5-9]|([1-9][0-9])))|(((119[0-2])|(11[0-8][0-9])|(10[0-9]{1,2})|(0*[1-9]{1,3})):[0-9]{1,2}:([0-9]{1,2}))|(1193:0+:0+)|0)$"/>
+      <vnsComparison name="connToIdle" cmp="match" value="^((((119[0-2])|(11[0-8][0-9])|(10[0-9]{1,2})|(0*[0-9]{1,3})):[0-9]{1,2}:[0-9]{1,2})|(1193:0+:0+)|0)$"/>
+      <vnsComparison name="connToDcdInt" cmp="match" value="^((0+:0+:[0-9]?[1-9])|(0+:([0-9]?[1-9]):[0-9]{1,2})|(((0?[1-9])|(1[0-9])|(2[0-3])):[0-9]{1,2}:[0-9]{1,2})|(24:0+:0+))$"/>
+
+      <vnsComparison name="any46"
+                     cmp="match"
+                     value="^any[46]?$"/>
+
+      <vnsComposite name="domainName" comp="and">
+        <vnsComparison name="dn_len" cmp="match" value="^.{1,63}$"/>
+        <vnsComparison name="dn_str" cmp="match" value="^[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,})$"/>
+      </vnsComposite>
+      <vnsComparison name="name64" cmp="match" value="^[^\s,/?\\\\]{1,64}$" />
+      <vnsComparison name="description" cmp="match" value="^.{1,200}$" />
+
+      <vnsComposite name="protocolPort" comp="or">
+        <vnsComparison name="tcp" cmp="match" value="^([tT][cC][pP]|6)/(102[5-9]|10[3-9][0-9]|1[1-9][0-9]{2}|[2-9][0-9]{3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"/>
+        <vnsComparison name="udp" cmp="match" value="^([uU][dD][pP]|17)/(51[4-9]|5[2-9][0-9]|[6-9][0-9]{2}|10[0-3][0-9]|104[0-7])$"/>
+      </vnsComposite>
+      <vnsComposite name="shunDuration" comp="and">
+          <vnsComparison name="duration_ge" cmp="ge" value="10"/>
+          <vnsComparison name="duration_le" cmp="le" value="2592000"/>
+      </vnsComposite>
+      <vnsComposite name="NetFlowPort" comp="and">
+        <vnsComparison name="nfport_ge" cmp="ge" value="1"/>
+        <vnsComparison name="nfport_le" cmp="le" value="65535"/>
+      </vnsComposite>
+      <vnsComposite name="NetFlowRefresh" comp="and">
+        <vnsComparison name="nfref_ge" cmp="ge" value="1"/>
+        <vnsComparison name="nfref_le" cmp="le" value="60"/>
+      </vnsComposite>
+      <vnsComposite name="NetFlowDelay" comp="and">
+        <vnsComparison name="nfdelay_ge" cmp="ge" value="1"/>
+        <vnsComparison name="nfdelay_le" cmp="le" value="180"/>
+      </vnsComposite>
+      <vnsComposite name="NetFlowTimeOut" comp="and">
+        <vnsComparison name="nftime_ge" cmp="ge" value="1"/>
+        <vnsComparison name="nftime_le" cmp="le" value="3600"/>
+      </vnsComposite>
+
+      <vnsComposite name="bufferSize" comp="and">
+        <vnsComparison name="bs_ge" cmp="ge" value="4096"/>
+        <vnsComparison name="bs_le" cmp="le" value="1048576"/>
+      </vnsComposite>
+
+      <vnsComposite name="fma" comp="and">
+        <vnsComparison name="fma_ge" cmp="ge" value="4"/>
+        <vnsComparison name="fma_le" cmp="le" value="61558"/>
+      </vnsComposite>
+
+      <vnsComposite name="fmf" comp="and">
+        <vnsComparison name="fmf_ge" cmp="ge" value="0"/>
+        <vnsComparison name="fmf_le" cmp="le" value="61558"/>
+      </vnsComposite>
+
+      <vnsComposite name="facility" comp="and">
+        <vnsComparison name="facility_ge" cmp="ge" value="16"/>
+        <vnsComparison name="facility_le" cmp="le" value="23"/>
+      </vnsComposite>
+
+      <vnsComposite name="loggingMessage" comp="and">
+        <vnsComparison name="lm_ge" cmp="ge" value="100000"/>
+        <vnsComparison name="lm_le" cmp="le" value="999999"/>
+      </vnsComposite>
+
+      <vnsComposite name="intSec" comp="and">
+        <vnsComparison name="int_sec_ge" cmp="ge" value="1"/>
+        <vnsComparison name="int_sec_le" cmp="le" value="5"/>
+      </vnsComposite>
+
+      <vnsComposite name="intMsec" comp="and">
+        <vnsComparison name="int_msec_ge" cmp="ge" value="200"/>
+        <vnsComparison name="int_msec_le" cmp="le" value="999"/>
+      </vnsComposite>
+
+      <vnsComposite name="holdSec" comp="and">
+        <vnsComparison name="hold_sec_ge" cmp="ge" value="1"/>
+        <vnsComparison name="hold_sec_le" cmp="le" value="45"/>
+      </vnsComposite>
+
+      <vnsComposite name="holdMsec" comp="and">
+        <vnsComparison name="hold_msec_ge" cmp="ge" value="800"/>
+        <vnsComparison name="hold_msec_le" cmp="le" value="999"/>
+      </vnsComposite>
+
+      <vnsComposite name="connRebalance" comp="and">
+        <vnsComparison name="conn_ge" cmp="ge" value="1"/>
+        <vnsComparison name="conn_le" cmp="le" value="360"/>
+      </vnsComposite>
+
+      <vnsComposite name="healthCheck" comp="and">
+        <vnsComparison name="health_ge" cmp="ge" value="0.8"/>
+        <vnsComparison name="health_le" cmp="le" value="45"/>
+      </vnsComposite>
+
+      <vnsComposite name="btPriority" comp="and">
+        <vnsComparison name="bootstrap_ge" cmp="ge" value="1"/>
+        <vnsComparison name="bootstrap_le" cmp="le" value="100"/>
+      </vnsComposite>
+
+      <vnsComposite name="clacpPriority" comp="and">
+        <vnsComparison name="clacp_ge" cmp="ge" value="1"/>
+        <vnsComparison name="clacp_le" cmp="le" value="65535"/>
+      </vnsComposite>
+
+      <vnsComposite name="inOut" comp="or">
+        <vnsComparison name="in" cmp="eq" value="in"/>
+        <vnsComparison name="out" cmp="eq" value="out"/>
+      </vnsComposite>
+
+      <vnsComposite name="mtu" comp="and">
+        <vnsComparison name="mtu_ge" cmp="ge" value="64"/>
+        <vnsComparison name="mtu_le" cmp="le" value="65535"/>
+      </vnsComposite>
+
+      <vnsComposite name="metric" comp="and">
+        <vnsComparison name="metric_ge" cmp="ge" value="1"/>
+        <vnsComparison name="metric_le" cmp="le" value="255"/>
+      </vnsComposite>
+
+      <vnsComposite name="permitDeny" comp="or">
+        <vnsComparison name="permit" cmp="eq" value="permit"/>
+        <vnsComparison name="deny" cmp="eq" value="deny"/>
+      </vnsComposite>
+
+      <vnsComparison name="portOperator"
+                     cmp="match"
+                     value="^(?:lt|gt|eq|neq|range)$"/>
+
+      <vnsComposite name="staticDynamic" comp="or">
+        <vnsComparison name="static" cmp="eq" value="static"/>
+        <vnsComparison name="dynamic" cmp="eq" value="dynamic"/>
+      </vnsComposite>
+
+      <vnsComposite name="connToDcdRetries" comp="and">
+        <vnsComparison name="retries_ge" cmp="ge" value="1"/>
+        <vnsComparison name="retries_le" cmp="le" value="255"/>
+      </vnsComposite>
+
+      <vnsMDevCfg name="DeviceConfig">
+        <!--  For VXLAN config in Greenfield
+        <vnsMFolder key="VxlanPort" description="">
+          <vnsMParam key="vxlan_port" dType="str" description="Specify VXLAN outer frame UDP destination port number.  Default is 4789"/>
+        </vnsMFolder>
+        <vnsMFolder key="NVE" description="Network Virtualization Endpoint">
+          <vnsMParam key="source_interface" dType="str" description="VXLAN tunnel carrier interface name.  The interface an be physical, port-channel or sub interface" />
+          <vnsMFolder key="Peer" description="Network Virtualization Endpoint">
+            <vnsMParam key="peer_ip" dType="str" description="IP and MAC address of the peer VTEP in the case where there is only one VTEP peer" />
+            <vnsMParam key="peer_mac" dType="str" description="MAC address of the peer VTEP" />
+          </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="TVI" description="Tenant Virtual Interface">
+          <vnsMParam key="mac-address" dType="str" description="MAC address of this interface" />
+          <vnsMParam key="nameif" dType="str" description="Name of this interface" />
+          <vnsMParam key="ipv4_address" dType="str" description="IPv4 address, example: 10.10.10.10/255.255.255.128" />
+          <vnsMParam key="ipv6_enable" dType="str" description="To enable IPv6 processing, value is enable" />
+          <vnsMParam key="ipv6_nd_dad_attempts" description="Number of consecutive neighbor solicitation messages, range from 0-600, default is 1" />
+          <vnsMParam key="ipv6_nd_ns_interval" description="Interval between IPv6 neighbor solicitation retransmissions, range from 1000-3600000 ms, default is 1000" />
+          <vnsMParam key="ipv6_nd_reachable_time" description="Amount of time that a remote IPv6 node is considered reachable, range from 0-3600000 ms, default is 0" />
+          <vnsMParam key="ipv6_address_with_prefix" cardinality="n" dType="str" description="Must be of the form x:x:x:x::x/prefix"/>
+        </vnsMFolder>
+        -->
+        <vnsMFolder key="InterfaceConfig" cardinality="n" description="Interface configuration referenced by Connector">
+          <!-- For VXLAN config in Greenfield
+          <vnsMParam key="segment_id_secondary" dType="int" description="Secondary segment-id, range from 1 to 16 million, first 4k IDs are reserved for traditional VLAN IDs" />
+          <vnsMParam key="segment_id_originate" dType="int" description="Originate segment-id, range from 1 to 16 million, first 4k IDs are reserved for traditional VLAN IDs" />
+          -->
+          <vnsMParam key="ipv4_address" dType="str" description="IPv4 address, example: 10.10.10.10/255.255.255.128" />
+          <vnsMParam key="security_level" dType="int" description="Security-level range from 0-100, ASA default to 0 if not set" />
+          <vnsMFolder key="IPv6Address" cardinality="n" description="IPv6 address">
+             <vnsMParam key="ipv6_address_with_prefix" mandatory="true" dType="str" description="Must be of the form x:x:x:x::x/prefix"/>
+             <vnsMParam key="eui64" dType="str" description="Specifies the use of the interface ID in the low order 64 bits of the IPv6 address"/>
+          </vnsMFolder>
+          <vnsMParam key="ipv6_link_local_address" dType="str" description="The link-local address is composed of the link-local prefix FE80::/64 and the interface ID in modified EUI-64 format." />
+          <vnsMParam key="ipv6_autoconfig" dType="str" description="Enables stateless autoconfiguration on the interface, value is enable" />
+          <vnsMParam key="ipv6_enable" dType="str" description="To enable IPv6 processing, value is enable" />
+          <vnsMFolder key="IPv6NeighborDiscovery" cardinality="n" description="To configure which IPv6 prefixes are included in IPv6 router advertisements. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192">
+            <vnsMParam key="prefix_or_default" mandatory="true" dType="str" description="The IPv6 network number to include in router advertisements. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="valid_lifetime_in_seconds" dType="str" description="The amount of time that the specified IPv6 prefix is advertised as being valid. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="prefered_lifetime_in_seconds" dType="str" description="The amount of time (in seconds) that the specified IPv6 prefix is advertised as being preferred. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="valid_lifetime_in_date" dType="str" description="The date at which the lifetime expire. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="prefered_lifetime_in_date" dType="str" description="The date at which the prefered expire. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="off_link" dType="str" description="Indicates that the specified prefix is not used for on-link determination, valid value is enable. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="no_autoconfig" dType="str" description="Indicates to hosts on the local link that the specified prefix cannot be used for IPv6 autoconfiguration, valid value is enable. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+            <vnsMParam key="no_advertise" dType="str" description="Indicates to hosts on the local link that the specified prefix cannot be used for IPv6 autoconfiguration, valid value is enable. Please see http://www.cisco.com/en/US/docs/security/asa/command-reference/i4.html#wp1917192" />
+          </vnsMFolder>
+          <vnsMParam key="ipv6_nd_dad_attempts" dType="int" description="Number of consecutive neighbor solicitation messages, range from 0-600, default is 1" />
+          <vnsMParam key="ipv6_nd_ns_interval" dType="int" description="Interval between IPv6 neighbor solicitation retransmissions, range from 1000-3600000 ms, default is 1000" />
+          <vnsMParam key="ipv6_nd_reachable_time" dType="int" description="Amount of time that a remote IPv6 node is considered reachable, range from 0-3600000 ms, default is 0" />
+          <vnsMParam key="ipv6_nd_ra_interval" dType="int" description="Interval between IPv6 router advertisement transmissions, range from 500 to 1800000 ms, default is 200000 " />
+          <vnsMParam key="ipv6_nd_ra_lifetime" dType="int" description="Router lifetime value in IPv6 router advertisements, range from 0-9000 seconds, default is 1800" />
+        </vnsMFolder>
+        <vnsMFolder key="PortChannelMember" cardinality="n" description="Add physical interface to a port channel">
+          <vnsMParam key="port_channel_id" mandatory="true" description="Port-channel ID, range from 1-48" />
+          <vnsMParam key="interface" mandatory="true" description="Member interface, for example, GigabitEthernet0/1"/>
+        </vnsMFolder>
+
+        <vnsMFolder key="HostObject" cardinality="n" description="A network object of type host">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="host_ip_address" dType="str" mandatory="true" description="IPv4 or IPv6 address, used when type is host" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+        <vnsMFolder key="SubnetObject" cardinality="n" description="A network object of type subnet">
+          <vnsMParam key="name" mandatory="true" dType="str"  validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="network_ip_address" mandatory="true" dType="str" description="IPv4 address/netmask or IPv6 address/prefix" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+        <vnsMFolder key="RangeObject" cardinality="n" description="A network object of type range">
+          <vnsMParam key="name" mandatory="true" dType="str"  validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="ip_address_range" mandatory="true" dType="str" description="Value format: start_address-end_address. e.g. 1.1.2.1-1.1.2.120" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+        <vnsMFolder key="FQDNObject" cardinality="n" description="A network object of type fqdn">
+           <vnsMParam key="name" mandatory="true" dType="str"  validation="name64" description="Object name, max 64 characters" />
+           <vnsMParam key="fqdn" mandatory="true" dType="str" description="Value of the form: version hostname, where version is v4 or v6. e.g. v6 www.cisco.com" />
+           <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+
+        <vnsMFolder key="NetworkObjectGroup" cardinality="n" description="Network Object Group">
+            <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Network object group name, max 64 characters" />
+            <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+            <vnsMParam key="host_ip_address" cardinality="n" dType="str" description="IPv4 or IPv6 address" />
+            <vnsMParam key="network_ip_address" cardinality="n" dType="str" description="IPv4 address/netmask or IPv6 address/prefix" />
+            <vnsMParam key="object_name" cardinality="n" dType="str" validation="name64" description="Network object name, max 64 characters" />
+            <vnsMParam key="object_group_name" cardinality="n" dType="str" validation="name64" description="Network object group name, max 64 characters" />
+        </vnsMFolder>
+
+        <vnsMFolder key="TCPObject" cardinality="n" description="A tcp service object">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+          <vnsMFolder key="tcp" description="TCP service parameters">
+            <vnsMFolder key="source"  description="A tcp source operator port">
+              <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+              <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+              <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+            </vnsMFolder>
+            <vnsMFolder key="destination" description="A tcp destination operator port">
+              <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+              <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+              <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+            </vnsMFolder>
+          </vnsMFolder>
+        </vnsMFolder>
+
+        <vnsMFolder key="UDPObject" cardinality="n" description="A udp service object">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+          <vnsMFolder key="udp" description="UDP service parameters">
+            <vnsMFolder key="source"  description="A udp source operator port">
+              <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+              <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+              <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+            </vnsMFolder>
+            <vnsMFolder key="destination"  description="A udp destination operator port">
+              <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+              <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+              <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+            </vnsMFolder>
+          </vnsMFolder>
+        </vnsMFolder>
+
+        <vnsMFolder key="ICMPObject" cardinality="n" description="An icmp service object">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMFolder key="icmp" description="ICMP service parameters">
+             <vnsMParam key="type" mandatory="true" dType="str" description="Specify by number, between 0 and 255; or a protocol name from: alternate-address, conversion-error, echo, echo-reply, information-reply, information-request, mask-reply, mask-request, mobile-redirect, parameter-problem, redirect, router-advertisement, router-solicitation, source-quench, time-exceeded,  timestamp-reply, timestamp-request, traceroute, unreachable" />
+             <vnsMParam key="code" dType="str" description="Specify a number, between 0 and 255" />
+          </vnsMFolder>
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+
+        <vnsMFolder key="ICMP6Object" cardinality="n" description="An icmp6 service object">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMFolder key="icmp" description="ICMP service parameters">
+             <vnsMParam key="type" mandatory="true" dType="str" description="Specify by number, between 0 and 255; or a protocol name from: echo, echo-reply, membership-query, membership-reduction, membership-report, neighbor-advertisement, neighbor-redirect, neighbor-solicitation, packet-too-big, parameter-problem, router-advertisement, router-renumbering,  router-solicitation, time-exceeded, unreachable" />
+             <vnsMParam key="code" dType="str" description="Specify a number, between 0 and 255" />
+          </vnsMFolder>
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+
+        <vnsMFolder key="ProtocolObject" cardinality="n" description="A protocol service object">
+          <vnsMParam key="name" mandatory="true" dType="str" validation="name64" description="Object name, max 64 characters" />
+          <vnsMParam key="protocol_type" mandatory="true" dType="str" description="Protocol number, between 0 and 255; or protocol name from: ah, eigrp, esp, gre, icmp, icmp6, igmp, igrp, ip, ipinip, ipsec, nos, opsf, pcp, pim, pptp, snp, tcp, tcp-udp, udp" />
+          <vnsMParam key="description" dType="str" validation="description" description="Contains max 200 characters" />
+        </vnsMFolder>
+
+        <vnsMFolder key="ServiceObjectGroup" cardinality="n" description="Service Object Group">
+            <vnsMParam key="name" mandatory="true"  dType="str" validation="name64" description="Service object group name, max 64 characters" />
+            <vnsMParam  key="description" dType="str" validation="description" description="Contains max 200 characters" />
+            <vnsMParam  key="object_name" cardinality="n" dType="str" validation="name64" description="Service object name, max 64 characters" />
+            <vnsMParam  key="object_group_name" cardinality="n" dType="str" validation="name64" description="Service object group name, max 64 characters" />
+            <vnsMParam  key="protocol_type" cardinality="n" dType="str" description="Protocol number, between 0 and 255; or protocol name from: ah, eigrp, esp, gre, icmp, icmp6, igmp, igrp, ip, ipinip, ipsec, nos, opsf, pcp, pim, pptp, snp, tcp, tcp-udp, udp" />
+            <vnsMFolder key="tcp" cardinality="n" description="A tcp service">
+                  <vnsMFolder key="source"  description="A tcp source operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+                  <vnsMFolder key="destination"  description="A tcp destination operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+            </vnsMFolder>
+            <vnsMFolder key="udp" cardinality="n" description="A udp service">
+                  <vnsMFolder key="source"  description="A udp source operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+                  <vnsMFolder key="destination"  description="A udp destination operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+            </vnsMFolder>
+            <vnsMFolder key="tcp-udp" cardinality="n" description="A tcp-udp service">
+                  <vnsMFolder key="source"  description="A tcp-udp source operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+                  <vnsMFolder key="destination"  description="A tcp-udp destination operator port">
+                      <vnsMParam key="operator" mandatory="true" dType="str" validation="portOperator" description="eq - equals, gt - greater than, lt - less than, neq - not equal to, range - two ports; low and high port" />
+                      <vnsMParam key="low_port" mandatory="true" dType="str" description="Name or number, between 0 and 65535" />
+                      <vnsMParam key="high_port" dType="str" description="Name or number, between 0 and 65535" />
+                  </vnsMFolder>
+            </vnsMFolder>
+            <vnsMFolder key="icmp" cardinality="n" description="An icmp service">
+                  <vnsMParam key="type" mandatory="true" dType="str" description="Specify by number, between 0 and 255; or a protocol name from: alternate-address, conversion-error, echo, echo-reply, information-reply, information-request, mask-reply, mask-request, mobile-redirect, parameter-problem, redirect, router-advertisement, router-solicitation, source-quench, time-exceeded,  timestamp-reply, timestamp-request, traceroute, unreachable" />
+                  <vnsMParam key="code" dType="str" description="Specify a number, between 0 and 255" />
+            </vnsMFolder>
+            <vnsMFolder key="icmp6" cardinality="n" description="An icmp6 service">
+                  <vnsMParam key="type" mandatory="true" dType="str" description="Specify by number, between 0 and 255; or a protocol name from: echo, echo-reply, membership-query, membership-reduction, membership-report, neighbor-advertisement, neighbor-redirect, neighbor-solicitation, packet-too-big, parameter-problem, router-advertisement, router-renumbering,  router-solicitation, time-exceeded, unreachable" />
+                  <vnsMParam key="code" dType="str" description="Specify a number, between 0 and 255" />
+            </vnsMFolder>
+        </vnsMFolder>
+
+        <vnsMFolder key="AccessGroupGlobal"
+                    description="Specify an access list to be used globally">
+          <vnsMRel key="access_list_name"
+                   mandatory="true"
+                   description="The name of the access list">
+            <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mDevCfg/mFolder-AccessList"/>
+          </vnsMRel>
+        </vnsMFolder>
+
+        <vnsMFolder key="AccessList"
+                    cardinality="n"
+                    description="Configure a list of access control entries">
+          <vnsMFolder key="AccessControlEntry"
+                      cardinality="n"
+                      description="An access control entry">
+            <vnsMParam key="action"
+                       dType="str"
+                       validation="permitDeny"
+                       mandatory="true"
+                       description="Specify 'permit' to forward packets, or 'deny' to reject packets"/>
+            <vnsMFolder key="destination_address"
+                        description="Specify the destination address.  It can be either a network object name, or a network object group name.  If not specified, the default is any destination address.">
+              <vnsMParam key="any"
+                         dType="str"
+                         validation="any46"
+                         description="Specify 'any', 'any4', or 'any6' for both IPv4 and IPv6, only IPv4, or only IPv6 addresses respectively.  The default is 'any'."/>
+              <vnsMParam key="object_name"
+                         dType="str"
+                         description="Specify a network object name"/>
+              <vnsMParam key="object_group_name"
+                         dType="str"
+                         description="Specify a network object group name."/>
+            </vnsMFolder>
+            <vnsMFolder key="destination_service"
+                        description="For a protocol of TCP or UDP, specifies the destination service information">
+              <vnsMParam key="operator"
+                         dType="str"
+                         validation="portOperator"
+                         mandatory="true"
+                         description="Specify the operator.  It can be 'lt', 'gt', 'eq', 'neq', or 'range'."/>
+              <vnsMParam key="low_port"
+                         dType="str"
+                         mandatory="true"
+                         description="Port number.  For a range, this is the first port of the range."/>
+              <vnsMParam key="high_port"
+                         dType="str"
+                         description="Port number used for a range.  This is the last port of the range."/>
+            </vnsMFolder>
+            <vnsMFolder key="icmp"
+                        description="For a protocol of ICMP or ICMP6, specifies the ICMP information">
+              <vnsMParam key="type"
+                         dType="str"
+                         mandatory="true"
+                         description="Specify the ICMP type by name or number."/>
+              <vnsMParam key="code"
+                         description="Specify the ICMP code."/>
+            </vnsMFolder>
+            <vnsMParam key="order"
+                       validation="isDigit"
+                       mandatory="true"
+                       description="A number to specify the order of the access control entry within the access list"/>
+            <vnsMFolder key="protocol"
+                        description="Specify the protocol.  It can be either an IP protocol name or number, a service object name, or a service object group name.  If not specified, the default is 'ip'.">
+              <vnsMParam key="name_number"
+                         dType="str"
+                         description="Specify an IP protocol name or number.  Specify 'ip' to apply to all protocols."/>
+              <vnsMParam key="object_name"
+                         dType="str"
+                         description="Specify a service object name"/>
+              <vnsMParam key="object_group_name"
+                         dType="str"
+                         description="Specify a service object group name."/>
+            </vnsMFolder>
+            <vnsMFolder key="source_address"
+                        description="Specify the source address.  It can be either a network object name, or a network object group name.  If not specified, the default is any source address.">
+              <vnsMParam key="any"
+                         dType="str"
+                         validation="any46"
+                         description="Specify 'any', 'any4', or 'any6' for both IPv4 and IPv6, only IPv4, or only IPv6 addresses respectively.  The default is 'any'."/>
+              <vnsMParam key="object_name"
+                         dType="str"
+                         description="Specify a network object name"/>
+              <vnsMParam key="object_group_name"
+                         dType="str"
+                         description="Specify a network object group name."/>
+            </vnsMFolder>
+            <vnsMFolder key="source_service"
+                        description="For a protocol of TCP or UDP, specifies the source service information">
+              <vnsMParam key="operator"
+                         dType="str"
+                         validation="portOperator"
+                         mandatory="true"
+                         description="Specify the operator.  It can be 'lt', 'gt', 'eq', 'neq', or 'range'."/>
+              <vnsMParam key="low_port"
+                         dType="str"
+                         mandatory="true"
+                         description="Port number.  For a range, this is the first port of the range."/>
+              <vnsMParam key="high_port"
+                         dType="str"
+                         description="Port number used for a range.  This is the last port of the range."/>
+            </vnsMFolder>
+          </vnsMFolder>
+        </vnsMFolder>
+
+        <vnsMFolder key="AccessListDeployment"
+                    description="Access list deployment options">
+            <vnsMParam key="clear_translation"
+                       description="Specify this parameter (the value is ignored) to clear dynamic translations when deploying access lists."/>
+        </vnsMFolder>
+
+        <vnsMFolder key="LoggingConfig" description="Logging configuration">
+            <vnsMParam key="enable_logging" dType="str" validation="enable" description="Enable logging to all output supported destinations, valid input is 'enable'" />
+            <vnsMParam key="standby" dType="str" validation="enable" description="Enable logging on standby unit with failover enabled, valid input is 'enable'" />
+            <vnsMParam key="buffered_level" dType="str" validation="commonLevel" description="Set logging buffered level, value could be 0-7, or emergencies, alerts, critical, errors, warnings, notifications, informational, or debugging" />
+            <vnsMParam key="buffer_size" validation="bufferSize" description="Specify logging buffer size in bytes, valid range is a number between 4096 and 1048576" />
+            <vnsMParam key="flash_bufferwrap" dType="str" validation="enable" description="Save logging buffer to flash when buffer wrap-around, valid input is 'enable'" />
+            <vnsMParam key="flash_maximum_allocation" validation="fma" description="Specify logging maximum flash space allocation, valid range is a number between 4 and 61558" />
+            <vnsMParam key="flash_minimum_free" validation="fmf" description="Specify logging minimum flash free space threshold, valid range is a number between 0 and 61558" />
+            <vnsMParam key="trap_level" dType="str" validation="commonLevel" description="Set logging level for syslog server, value could be 0-7, or emergencies, alerts, critical, errors, warnings, notifications, informational, or debugging" />
+            <vnsMParam key="permit_hostdown" dType="str" validation="enable" description="Allow new connection even if TCP syslog server is down, valid input is 'enable'" />
+            <vnsMParam key="facility" validation="facility" description="Specify the syslog facility, valid range is a number between 16 and 23" />
+            <vnsMFolder key="logging_host" cardinality="n" description="Send syslog messages to a host">
+                <vnsMParam key="interface" dType="str" description="Specify the interface" />
+                <vnsMParam key="ip" dType="str" description="Specify the IP address or name of the syslog server" />
+                <vnsMParam key="protocol_port" dType="str" validation="protocolPort" description="Enter 'protocol/port', The protocol over which the syslog message is sent, could be TCP or UDP. The allowable range for ports is 1025 through 65535. The default is port 514 for UDP and 1470 for TCP" />
+                <vnsMParam key="secure" dType="str" validation="enable" description="Establish secure TLS/SSL connection with TLS/SSL capable Syslog Server, valid input is 'enable'" />
+                <vnsMParam key="emblem" dType="str" validation="enable" description="Enable EMBLEM format logging, available only for udp syslog messages, valid input is 'enable'" />
+            </vnsMFolder>
+            <vnsMFolder key="logging_message" cardinality="n" description="Specify a message to be allowed">
+                <vnsMParam key="message" validation="loggingMessage" mandatory="true" description="Specify a message number, valid range is a number between 100000 and 999999" />
+                <vnsMParam key="level" dType="str" validation="commonLevel" description="Value could be 0-7, or emergencies, alerts, critical, errors, warnings, notifications, informational, or debugging" />
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="FailoverConfig" description="Configure failover">
+            <vnsMParam key="failover" dType="str" validation="enable" description="Enable or disable failover" />
+            <vnsMParam key="lan_unit" dType="str" validation="lanUnit" description="Set the failover device to 'primary' or 'secondary'" />
+            <vnsMParam key="key_secret" dType="str" description="Configure the failover shared secret" />
+            <vnsMParam key="key_in_hex" dType="str" validation="hexKey" description="Configure the failover shared secret or key in hex, value is 32-character key in hexadecimal format" />
+            <vnsMParam key="interface_policy" dType="str" validation="intfPolicy" description="Set the policy for failover due to interface failures, valid input could be [1-100] or [1-100]%" />
+            <vnsMParam key="http_replication" dType="str" validation="enable" description="Enable or disable HTTP (port 80) connection replication, valid input is 'enable'" />
+            <vnsMFolder key="failover_lan_interface" description="The LAN based failover connection between the two failover devices">
+                <vnsMParam key="interface_name" dType="str" mandatory="true" description="The interface name of the failover connection" />
+            </vnsMFolder>
+            <vnsMFolder key="failover_link_interface" description="The link(stateful) failover connection between the two failover devices">
+                <vnsMParam key="interface_name" dType="str" mandatory="true" description="The interface name of the failover connection" />
+            </vnsMFolder>
+            <vnsMFolder key="failover_ip" description="Configure the IP address to be used for failover and/or stateful update information">
+                <vnsMParam key="interface_name" dType="str" mandatory="true" description="The interface name of the failover connection" />
+                <vnsMParam key="active_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The IP of the failover connection for the active failover unit" />
+                <vnsMParam key="netmask" dType="str" validation="netmask" mandatory="true" description="The netmask of the failover connection" />
+                <vnsMParam key="standby_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The IP of the failover connection for the standby failover unit" />
+            </vnsMFolder>
+            <vnsMFolder key="mgmt_standby_ip" description="Configure the standby IP address for management interface">
+                <vnsMParam key="active_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The IP of the management interface on active failover unit" />
+                <vnsMParam key="netmask" dType="str" validation="netmask" mandatory="true" description="The netmask on the interface" />
+                <vnsMParam key="standby_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The IP of the management interface on the standby failover unit" />
+            </vnsMFolder>
+            <vnsMFolder key="polltime" cardinality="n" description="Configure failover poll time">
+                <vnsMParam key="unit_or_interface" dType="str" validation="unitInterface" description="Configure failover poll time for the failover unit or interface, default is unit" />
+                <vnsMParam key="interval_in_second" validation="intSec" description="Poll interval in seconds, valid range is a number between 1 and 15. Mutually exclusive with interval_in_msec." />
+                <vnsMParam key="interval_in_msec" validation="intMsec" description="Specify poll interval in miliseconds, valid range is a number between 200 and 999. Mutually exclusive with interval_in_second." />
+                <vnsMParam key="holdtime_in_second" validation="holdSec" description="Hold time in second, valid range is a number between 1 and 45. Mutually exclusive with holdtime_in_msec." />
+                <vnsMParam key="holdtime_in_msec" validation="holdMsec" description="Hold time in millisecond, valid range is a number between 800 and 999. Mutually exclusive with holdtime_in_second." />
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="ClusterConfig" description="Configure ASA Cluster">
+            <vnsMParam key="cluster_role" dType="str" validation="clusterRole" description="Specify if this device will be the first one to join the cluster and be the master. Valid input is 'master' or 'slave'" />
+            <vnsMFolder key="pool_config" description="Define cluster pool for the management interface">
+                <vnsMParam key="pool_name" dType="str" mandatory="true" description="The name of the cluster pool" />
+                <vnsMParam key="start_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The first IP in the cluster pool" />
+                <vnsMParam key="end_ip" dType="str" validation="ipv4Addr" mandatory="true" description="The last(end) IP in the cluster pool" />
+                <vnsMParam key="mask" dType="str" validation="netmask" description="The netmask of the subnet that IP addresses belong to" />
+            </vnsMFolder>
+            <vnsMFolder key="bootstrap_config" description="Cluster bootstrap config">
+                <vnsMParam key="group_name" dType="str" validation="str38" mandatory="true" description="Specify the name for the whole cluster, it is a string less than 39 charactors. Passing an empty string will delete the cluster group." />
+                <vnsMParam key="conn_rebalance" validation="connRebalance" description="Configure cluster connection re-balance frequency, valid range is a number between 1 and 360" />
+                <vnsMParam key="console_replicate" dType="str" validation="enable" description="Tunnel slave's console output to master, valid input is 'enable'" />
+                <vnsMParam key="health_check" validation="healthCheck" description="Configure cluster health monitoring holdtime in seconds, when it timed out the corresponding unit is declared down. The valid range is between 0.8 and 45" />
+                <vnsMParam key="key" dType="str" validation="str128" description="Specify the secret used to authenticate units in a cluster, the value is an alphanumeric string up to 128 characters" />
+                <vnsMParam key="local_unit" dType="str" validation="str38" mandatory="true" description="Specify the local unit name for the master, it is a string less than 39 characters" />
+                <vnsMParam key="priority" mandatory="true" validation="btPriority" description="Specify priority level to a cluster unit for master election, valid range is a number between 1 and 100. The higher the number, the lower the priority." />
+                <vnsMFolder key="clacp" description="Configure Cluster LACP(CLACP) parameters for span-cluster port-channels">
+                    <vnsMParam key="system_mac" mandatory="true" validation="clacpMac" description="MAC address in the form of H.H.H (where H is 1 to 4 digit of hex number), or use the keyword 'auto' (without quotes) to indicate automatic generate MAC address " />
+                    <vnsMParam key="priority" validation="clacpPriority" description="Configure Cluster LACP system-priority for span-cluster port-channels, valid range is a number between 1 and 65535" />
+                </vnsMFolder>
+                <vnsMFolder key="cluster_interface" description="Specify clustering control link (CCL)">
+                    <vnsMParam key="ip" dType="str" validation="ipv4Addr" mandatory="true" description="Specify the cluster control link IP" />
+                    <vnsMParam key="mask" dType="str" validation="netmask" mandatory="true" description="Specify the netmask of the cluster control link" />
+                </vnsMFolder>
+                <vnsMParam key="enable" dType="str" validation="enable" description="Specify if a device should be enabled in a cluster. Input 'enable' when setting up cluster, including both master and slaves." />
+            </vnsMFolder>
+            <vnsMParam key="mtu" validation="mtu" description="Specify the MTU (Maximum Transmission Unit) on the clustering interface (also known as CCL). Valid range is a number between 64 and 65535." />
+        </vnsMFolder>
+        <vnsMFolder key="BasicThreatDetection" description="Basic Threat Detection, see http://www.cisco.com/en/US/products/ps6120/products_tech_note09186a0080bd3913.shtml">
+            <vnsMParam key="basic_threat" description="Basic threat detection; value is enable or disable"/>
+            <vnsMFolder key="BasicThreatDetectionRateAclDrop" cardinality="n" description="Basic Threat Detection rate for ACL drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateBadPacketDrop" cardinality="n" description="Basic Threat Detection rate for bad packet drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>e
+            <vnsMFolder key="BasicThreatDetectionRateConnLimitDrop" cardinality="n" description="Basic Threat Detection rate for connection limit drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateDosDrop" cardinality="n" description="Basic Threat Detection rate for DOS drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateFwDrop" cardinality="n" description="Basic Threat Detection rate for Firewall drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateIcmpDrop" cardinality="n" description="Basic Threat Detection rate for ICMP drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateInspectDrop" cardinality="n" description="Basic Threat Detection rate for inspection drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateInterfaceDrop" cardinality="n" description="Basic Threat Detection rate for interface drop">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="BasicThreatDetectionRateSynAttack" cardinality="n" description="Basic Threat Detection rate for TCP SYN attach">
+                <vnsMParam key="rate_status" description="Rate enable status; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Basic threat detection rate interval value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Basic threat detection average rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Basic threat detection burst rate value. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="AdvancedThreatDetection" description="Advanced threat detection, see http://www.cisco.com/en/US/products/ps6120/products_tech_note09186a0080bd3913.shtml">
+            <vnsMParam key="statistics" description="Advanced threat detection statistics; value is enabled or disable"/>
+            <vnsMParam key="access_list" description="Advanced threat detection statistics access-list; value is enable or disable"/>
+            <vnsMFolder key="AdvancedThreatDetectionTcpIntercept" description="Advanced threat detection TCP intercept">
+               <vnsMParam key="status" description="Enable TCP intercept; value is enable or disable"/>
+               <vnsMParam key="rate_interval" description="Advanced threat detection TCP intercept rate interval value. Range is 1 to 1440 minutes. The default is 30 minutes. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+               <vnsMParam key="average_rate" description="Advanced threat detection TCP intercept average rate value. Range is 25 and 2147483647. The default is 200 per second. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+               <vnsMParam key="burst_rate" description="Advanced threat detection TCP intercept burst rate value. Range is 25 to 2147483647. The default is 400 per second. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="AdvancedThreatDetectionHost" description="Advanced threat detection for host">
+                <vnsMParam key="status" description="Enable rate option; value is enable or disable"/>
+                <vnsMParam key="number_of_rate" description="Advanced threat detection statistics number of rate (value is 1, 2, or 3). For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="AdvancedThreatDetectionPort" description="Advanced threat detection for port">
+                <vnsMParam key="status" description="Enable rate option; value is enable or disable"/>
+                <vnsMParam key="number_of_rate" description="Advanced threat detection statistics number of rate (value is 1, 2, or 3). For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="AdvancedThreatDetectionProtocol" description="Advanced threat detection for protocol">
+                <vnsMParam key="status" description="Enable rate option; value is enable or disable"/>
+                <vnsMParam key="number_of_rate" description="Advanced threat detection statistics number of rate (value is 1, 2, or 3). For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="ScanningThreatDetection" description="Scanning threat detection, see http://www.cisco.com/en/US/products/ps6120/products_tech_note09186a0080bd3913.shtml">
+            <vnsMParam key="scanning_threat" description="Scanning threat detection; value is enable or disable"/>
+            <vnsMParam key="shun_status" dType="str" validation="enableDisable" description="Enable shun option; value is enable or disable"/>
+            <vnsMFolder key="ScanningThreatRate" cardinality="n" description="Scanning threat rate options">
+                <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable rate option; value is enable or disable"/>
+                <vnsMParam key="rate_interval" description="Scanning threat rate interval. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="burst_rate" description="Scanning threat burst rate. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+                <vnsMParam key="average_rate" description="Scanning threat average rate. For details see http://www.cisco.com/en/US/docs/security/asa/command-reference/t1.html#wp1563523"/>
+            </vnsMFolder>
+            <vnsMFolder key="ScanningThreatShunDuration" description="Scanning threat shun duration option">
+                <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable shun duration option; value is enable or disable"/>
+                <vnsMParam key="duration" validation="shunDuration" description="Scanning threat shun duration; value range is 10 to 2592000 seconds, default is 3600."/>
+            </vnsMFolder>
+            <vnsMFolder key="ScanningThreatShunExceptIP" cardinality="n" description="Scanning threat shun IP options">
+                <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable shun except option; value is enable or disable"/>
+                <vnsMParam key="except_ip" description="Scanning threat shun except IP address"/>
+                <vnsMParam key="except_mask" description="Scanning threat shun except IP mask"/>
+            </vnsMFolder>
+            <vnsMFolder key="ScanningThreatShunExceptObject" cardinality="n" description="Scanning threat shun object-group options">
+                <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable shun except object-group option; value is enable or disable"/>
+                <vnsMParam key="except_object_group" description="Scanning threat shun except object group name"/>
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="IPAudit">
+            <vnsMParam key="IPAuditAttack" description="The action can be any or all of the following: alarm, drop, reset"/>
+            <vnsMParam key="IPAuditInfo" description="The action can be any or all of the following: alarm, drop, reset"/>
+        </vnsMFolder>
+        <vnsMFolder key="NTP">
+            <vnsMFolder key="NTPServer" cardinality="n" description="Configure NTP server">
+                <vnsMParam key="server" description="NTP server hostname or ip address"/>
+                <vnsMParam key="key" description="Configure peer authentication key number"/>
+                <vnsMParam key="prefer" description="Prefer this peer when possible; value is enable"/>
+            </vnsMFolder>
+            <vnsMParam key="NTPTrustedKey" cardinality="n" description="Provides a key ID for the adaptive security appliance to use in packets for authentication with an NTP server."/>
+            <vnsMParam key="NTPAuthenticate" description="Enables NTP authentication. No default value or behavior."/>
+            <vnsMFolder key="NTPAuthenticationKey" cardinality="n" description="Sets an encrypted authentication key to synchronize with an NTP server.">
+                <vnsMParam key="key_number" description="Authentication key number"/>
+                <vnsMParam key="key" description="Authentication key value, which is a string that can be up to 32 characters long"/>
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="DNS" description="Configure a DNS server to access external serves by domain name.">
+            <vnsMParam key="domain_name" dType="str" validation="domainName" description="Sets the default domain name globally, up to 63 characters."/>
+            <vnsMParam key="name_server" dType="str" cardinality="n" description="Configure the DNS server addresses to which you want to send DNS requests, up to 6 entries."/>
+        </vnsMFolder>
+        <vnsMFolder key="SmartCallHome" description="Configure Anonymous Reporting, a subfeature of the Smart Call Home feature. See details at http://www.cisco.com/en/US/docs/security/asa/asa91/configuration/general/monitor_smart_call_home.html">
+            <vnsMParam key="anonymous_reporting" dType="str" validation="enable" description="Specify this parameter (the value is ignored), valid input is 'enable'."/>
+        </vnsMFolder>
+        <vnsMFolder key="NetFlowObjects" description="NetFlow parameters. See details at http://www.cisco.com/en/US/docs/security/asa/asa84/configuration/guide/monitor_nsel.html">
+            <vnsMFolder key="TemplateAndCollectors" description="Template and collector parameters. See details at http://www.cisco.com/en/US/docs/security/asa/asa84/configuration/guide/monitor_nsel.html">
+                <vnsMParam key="template_timeout_rate" validation="NetFlowTimeOut" description="Template timeout rate, in minutes. Default value is 30. Range is 1 to 3600 minutes."/>
+                <vnsMParam key="delay_flow_create" validation="NetFlowDelay" description="Delay sending flow-create event, in seconds. Default value is 0. Value is 1 to 180 seconds."/>
+                <vnsMParam key="active_refresh_interval" validation="NetFlowRefresh" description="Active refresh interval, in minutes. Default value is 1. Range is 1 to 60 minutes."/>
+                <vnsMFolder key="NetFlowCollectors" cardinality="n" description="NetFlow collectors">
+                    <vnsMParam key="status" dType="str" validation="enableDisable" description="Status of collector, value is enable or disable"/>
+                    <vnsMParam key="host" mandatory="true" description="Collector host IP"/>
+                    <vnsMParam key="port" validation="NetFlowPort" mandatory="true" description="Collector port number"/>
+                </vnsMFolder>
+            </vnsMFolder>
+        </vnsMFolder>
+        <vnsMFolder key="Timeouts">
+
+              <vnsMParam key="Connection"
+                         description="Idle time after which a TCP connection state will be closed, default is 01:00:00. Range is 0:5:0 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="HalfClosedConnection"
+                         description="Idle time after which a TCP half-closed connection will be freed, default is 00:10:00. Range is 0:0:30 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="Udp"
+                         description="Idle time after which general UDP states will be closed, default is 0:02:00. This timer does not apply to DNS or SUNRPC. Range is 0:1:0 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="Icmp"
+                         description="Idle timeout for ICMP, default is 0:00:02. Range is 0:0:2 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="H323"
+                         description="Idle time after which an H.323 control connection will be closed, default is 0:05:00. Range is 0:0:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="H225"
+                         description="Idle time after which an H.225 signaling connection will be closed, default is 1:00:00. Range is 0:0:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="Mgcp"
+                         description="Idle time after which an MGCP media connection will be closed, default is 0:05:00. Range is 0:0:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="MgcpPat"
+                         description="Idle time after which an MGCP PAT Xlate will be removed, default is 0:05:00. Range is 0:0:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="TcpProxyReassembly"
+                         description="Idle time after which buffered packets waiting for reassembly in tcp-proxy are dropped, default is 0:01:00. Range is 0:0:10 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="FloatingConn"
+                         description="Idle time after which connections using the backup route will be closed once lower metric route becomes available, default is 0:0:0. Range is 0:0:30 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="SunRpc"
+                         description="Idle time after which a SUNRPC slot will be closed, default is 00:10:00. Range is 0:1:0 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="Sip"
+                         description="Idle time after which a SIP control connection will be closed, default is 0:30:00. Range is 0:5:0 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="SipMedia"
+                         description="Idle time after which a SIP Media connection will be closed, default is 0:02:00. Range is 0:1:0 to 1193:0:0. 0:0:0 means never timeout."
+                         validation="" />
+
+              <vnsMParam key="SipProvisionalMedia"
+                         description="Idle time after which a SIP Provisional Media connection will be closed, default is 0:2:0. Range is 0:1:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="SipInvite"
+                         description="Idle time after which pinholes for PROVISIONAL responsesand media xlates will be closed, default is 0:1:0. Range is 0:0:30 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="SipDisconnect"
+                         description="Idle timeout after which SIP session is deleted if 200 OK is not received for a CANCEL or BYE message, default s 0:2:0. Range is 0:0:1 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="Xlate"
+                         description="Idle time after which a dynamic address will be returned to the free pool, default is 3:00:00.Range is 0:1:0 to 1193:0:0."
+                         validation="" />
+
+              <vnsMParam key="PatXlate"
+                         description="Idle time after which a dynamic port will be returned to the free PAT pool, default is 0:00:30. Range is 0:0:30 to 0:5:0."
+                         validation="" />
+
+              <vnsMParam key="AuthenAbsolute"
+                         description="Idle time after which an authentication will no longer be cached and the user will need to re-authenticate on their connection, default is 0:05:00. Range is 0:0:0 to 1193:0:0. Run the timer continuously."
+                         validation="" />
+
+              <vnsMParam key="AuthenInactivity"
+                         description="Idle time after which an authentication will no longer be cached and the user will need to re-authenticate on their connection, default is 0:05:00. Range is 0:0:0 to 1193:0:0. Re-start the timer after a connection becomes idle."
+                         validation="" />
+        </vnsMFolder>
+
+        <vnsMFolder key="GlobalServicePolicy" description="Global configuration for NetFLow reporting and connection limits, application inspection, and NetFflow report">
+           <vnsMParam key="ServicePolicyState" dType="str" validation="enableDisable" mandatory="true" description="Global Service Policy enable state. Value: enable or disable."/>
+           <vnsMFolder key="ConnectionLimits" description="Configure global connection limits. See details at http://www.cisco.com/en/US/docs/security/asa/asa91/configuration/firewall/conns_connlimits.html">
+              <vnsMParam key="TrafficSelection" dType="str" validation="trafficSel" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+              <vnsMFolder key="ConnectionSettings" description="Sets connection limits">
+                <vnsMParam key="conn_max" description="Set the maximum number of all simultaneous connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                <vnsMParam key="conn_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                <vnsMParam key="per_client_max" description="Set the maximum number of all simultaneous connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                <vnsMParam key="per_client_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                <vnsMParam key="random_seq_num" dType="str" validation="enableDisable" description="Enable or disable TCP sequence number randomization, value is enable or disable. Default is enable."/>
+                <vnsMParam key="timeout_embryonic" dType="str" validation="connToEmb" description="Set the timeout period until a TCP embryonic connection is closed, in hh:mm:ss format between 0:0:5 and 1193:00:00. Default is 0:0:30. 0 means the  which means the connection never times out."/>
+                <vnsMParam key="timeout_half_closed" dType="str" description="Set the idle timeout period until a half-closed connection is closed, in hh:mm:ss format between 0:5:0(fpr 9.1.(1) and earlier) or 0:0:30(for 9.1(2) and later) and 1193:00:00. Default is 0:10:0."/>
+                <vnsMFolder key="timeout_idle" description="Connection timeout idle setting">
+                    <vnsMParam key="idle_time" dType="str" validation="connToIdle" description="Set the idle time out period after which an established connection of any protocol closes, in hh:mm:ss format between 0:0:1 and 1193:0:0. The default is 1:0:0. 0 means the connection never times out." />
+                    <vnsMParam key="idle_reset" dType="str" validation="enableDisable" description="It's for TCP taffic, the reset keyword sends a reset to TCP endpoints when the connection timesout. Default is disable." />
+                </vnsMFolder>
+                <vnsMFolder key="timeout_dcd" description="Connection timeout DCD setting. You configure DCD when you want idle, but valid hosts to determine the validity of the connections.">
+                    <vnsMParam key="retry_interval" dType="str" validation="connToDcdInt" description="Sets the retry-interval duration to wait after each unresponsive DCD probe before sending out another probe, in hh:mm:ss format between 0:0:1 and 24:0:0. The default is 0:0:15. " />
+                    <vnsMParam key="max_retries" validation="connToDcdRetries" description="Sets the number of consecutive failed retries for DCD before declaring the connection as dead, between 1 and 255. Default is 5." />
+                </vnsMFolder>
+              </vnsMFolder>
+           </vnsMFolder>
+           <vnsMFolder key="ApplicationInspection"  description="Configure global inspection.">
+               <vnsMParam key="TrafficSelection" mandatory="true" description="should contain default-inspection-traffic" />
+               <vnsMFolder key="InspectionSettings" description="Sets inspection type">
+                   <vnsMParam key="dcerpc" dType="str" validation="enableDisable" description="dcerpc inspection, value is enable or disable"/>
+                   <vnsMParam key="dns" dType="str" validation="enableDisable" description="dns inspection, value is enable or disable"/>
+                   <vnsMParam key="dns_preset" dType="str" validation="enableDisable" description="dns preset map inspection, value is enable or disable"/>
+                   <vnsMParam key="esmtp" dType="str" validation="enableDisable" description="esmtp inspection, value is enable or disable"/>
+                   <vnsMParam key="ftp" dType="str" validation="enableDisable" description="ftp inspection, value is enable or disable"/>
+                   <vnsMParam key="ftp_strict" dType="str" validation="enableDisable" description="ftp_strict inspection, value is enable or disable"/>
+                   <vnsMParam key="gtp" dType="str" validation="enableDisable" description="gtp inspection, value is enable or disable"/>
+                   <vnsMParam key="h323_h225" dType="str" validation="enableDisable" description="h323 h225 inspection, value is enable or disable"/>
+                   <vnsMParam key="h323_ras" dType="str" validation="enableDisable" description="h323 ras inspection, value is enable or disable"/>
+                   <vnsMParam key="http" dType="str" validation="enableDisable" description="http inspection, value is enable or disable"/>
+                   <vnsMParam key="icmp" dType="str" validation="enableDisable" description="icmp inspection, value is enable or disable"/>
+                   <vnsMParam key="icmp_error" dType="str" validation="enableDisable" description="icmp error inspection, value is enable or disable"/>
+                   <vnsMParam key="ils" dType="str" validation="enableDisable" description="ils inspection, value is enable or disable"/>
+                   <vnsMParam key="ip_options" dType="str" validation="enableDisable" description="ip-options inspection, value is enable or disable"/>
+                   <vnsMParam key="mgcp" dType="str" validation="enableDisable" description="mgcp inspection, value is enable or disable"/>
+                   <vnsMParam key="netbios" dType="str" validation="enableDisable" description="netbios inspection, value is enable or disable"/>
+                   <vnsMParam key="pptp" dType="str" validation="enableDisable" description="pptp inspection, value is enable or disable"/>
+                   <vnsMParam key="rsh" dType="str" validation="enableDisable" description="rsh inspection, value is enable or disable"/>
+                   <vnsMParam key="rtsp" dType="str" validation="enableDisable" description="rtsp inspection, value is enable or disable"/>
+                   <vnsMParam key="sip" dType="str" validation="enableDisable" description="sip inspection, value is enable or disable"/>
+                   <vnsMParam key="skinny" dType="str" validation="enableDisable" description="skinny inspection, value is enable or disable"/>
+                   <vnsMParam key="snmp" dType="str" validation="enableDisable" description="snmp inspection, value is enable or disable"/>
+                   <vnsMParam key="sqlnet" dType="str" validation="enableDisable" description="sqlnet inspection, value is enable or disable"/>
+                   <vnsMParam key="sunrpc" dType="str" validation="enableDisable" description="sunrpc inspection, value is enable or disable"/>
+                   <vnsMParam key="tftp" dType="str" validation="enableDisable" description="tftp inspection, value is enable or disable"/>
+                   <vnsMParam key="waas" dType="str" validation="enableDisable" description="waas inspection, value is enable or disable"/>
+                   <vnsMParam key="xdmcp" dType="str" validation="enableDisable" description="xdmcp inspection, value is enable or disable"/>
+              </vnsMFolder>
+           </vnsMFolder>
+           <vnsMFolder key="NetFlow"  description="Configure global NetFlow report control.">
+               <vnsMParam key="TrafficSelection" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+               <vnsMFolder key="NetFlowSettings" description="Set NetFlow event export">
+                   <vnsMFolder key="ExportAllEvent" description="Export All NetFlow events">
+                       <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable all event export to destination collector. Value is 'enable' or 'disable"/>
+                       <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                   </vnsMFolder>
+                   <vnsMFolder key="ExportCreationEvent" description="Export only flow creation events">
+                       <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow creation event export destination collector. Value is 'enable' or 'disable"/>
+                       <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                   </vnsMFolder>
+                   <vnsMFolder key="ExportDenyEvent" description="Export only flow denied events">
+                       <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow deny event export destination collector. Value is 'enable' or 'disable"/>
+                       <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                   </vnsMFolder>
+                </vnsMFolder>
+           </vnsMFolder>
+           <vnsMFolder key="IPS"  description="Configure global IPS.">
+               <vnsMParam key="TrafficSelection" dType="str" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+               <vnsMFolder key="IPSSettings" description="Sets IPS mode and fail mode">
+                   <vnsMParam key="operate_mode" mandatory="true" dType="str" validation="IPSOperateMode" description="value must be either inline or promiscuous"/>
+                   <vnsMParam key="fail_mode" mandatory="true" dType="str" validation="IPSFailMode" description="value must be either fail-open or fail-close"/>
+                   <vnsMParam key="sensor" dType="str" description="optional sensor name"/>
+               </vnsMFolder>
+           </vnsMFolder>
+        </vnsMFolder>
+      </vnsMDevCfg>
+      <vnsMGrpCfg name="SharedConfig">
+      </vnsMGrpCfg>
+      <vnsMFunc name="Firewall">
+          <vnsMImage name="cisco.gif"/>
+
+          <vnsMFolder key="ExIntfConfigRelFolder" cardinality="1" description="A list of additional interface parameters for external connector">
+              <vnsMRel key="ExIntfConfigRel"
+                  mandatory="true"
+                  description="Bind Connector with IPAddress in InterfaceConfig">
+                  <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mDevCfg/mFolder-InterfaceConfig"/>
+                  <vnsRsConnector tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mConn-external" />
+              </vnsMRel>
+          </vnsMFolder>
+
+          <vnsMFolder key="InIntfConfigRelFolder" cardinality="1" description="A list of additional interface parameters for internal connector">
+              <vnsMRel key="InIntfConfigRel"
+                  mandatory="true"
+                  description="Bind Connector with IPAddress in InterfaceConfig">
+                  <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mDevCfg/mFolder-InterfaceConfig"/>
+                  <vnsRsConnector tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mConn-internal" />
+              </vnsMRel>
+          </vnsMFolder>
+
+          <vnsMConn name="external"
+              dir="output"
+              encType="vlan">
+              <vnsRsInterface tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mIfLbl-external" />
+          </vnsMConn>
+
+          <vnsMConn name="internal"
+                    dir="input"
+                    encType="vlan">
+                    <vnsRsInterface tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mIfLbl-internal" />
+          </vnsMConn>
+
+          <vnsMFolder key="BridgeGroupIntf" description="In transparent mode, add interface to a bridge group">
+              <vnsMParam key="bvi_id" mandatory="true" description="Bridge-group ID, range from 1-100" />
+              <vnsMParam key="ipv4_address" dType="str" description="Member interface, for example, 10.10.10.10/255.255.255.255"/>
+              <vnsMParam key="ipv6_address_with_prefix" cardinality="n" dType="str" description="Must be of the form x:x:x:x::x/prefix"/>
+              <vnsMParam key="ipv6_enable" dType="str" description="To enable IPv6 processing, value is enable" />
+              <vnsMParam key="ipv6_nd_dad_attempts" dType="int" description="Number of consecutive neighbor solicitation messages, range from 0-600, default is 1" />
+              <vnsMParam key="ipv6_nd_ns_interval" dType="int" description="Interval between IPv6 neighbor solicitation retransmissions, range from 1000-3600000 ms, default is 1000" />
+              <vnsMParam key="ipv6_nd_reachable_time" dType="int" description="Amount of time that a remote IPv6 node is considered reachable, range from 0-3600000 ms, default is 0" />
+          </vnsMFolder>
+
+          <vnsMFolder key="InIPv6EnforceEUI64" description="IPv6 enforce eui64 for internal interface">
+              <vnsMParam key="ipv6_enforce_eui64" dType="str" description="Global command to enforce eui64 of this interface, value is enable" />
+          </vnsMFolder>
+
+          <vnsMFolder key="ExIPv6EnforceEUI64" description="IPv6 enforce eui64 for external interface">
+              <vnsMParam key="ipv6_enforce_eui64" dType="str" description="Global command to enforce eui64 of this interface, value is enable" />
+          </vnsMFolder>
+
+          <vnsMFolder key="ExtAccessGroup"
+                      description="Bind an access list to the external connector to filter traffic">
+            <vnsMRel key="access_list_name"
+                     mandatory="true"
+                     description="The name of the access list">
+              <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mDevCfg/mFolder-AccessList"/>
+            </vnsMRel>
+            <vnsMParam key="direction"
+                       dType="str"
+                       validation="inOut"
+                       mandatory="true"
+                       description="Specify 'in' for input traffic or 'out' for output traffic"/>
+          </vnsMFolder>
+
+          <vnsMFolder key="IntAccessGroup"
+                      description="Bind an access list to the internal connector to filter traffic">
+            <vnsMRel key="access_list_name"
+                     mandatory="true"
+                     description="The name of the access list">
+              <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mDevCfg/mFolder-AccessList"/>
+            </vnsMRel>
+            <vnsMParam key="direction"
+                       dType="str"
+                       validation="inOut"
+                       mandatory="true"
+                       description="Specify 'in' for input traffic or 'out' for output traffic"/>
+          </vnsMFolder>
+
+          <vnsMFolder key="StaticRouteConfigIntRelFolder" description="A list of additional route parameters for internal connector" cardinality="n">
+              <vnsMRel key="StaticRouteConfigIntRel" description="Bind Connector with static route config on internal interface" mandatory="true">
+                  <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mFolder-IntStaticRoute"/>
+                  <vnsRsConnector tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mConn-internal"/>
+              </vnsMRel>
+          </vnsMFolder>
+          <vnsMFolder key="StaticRouteConfigExtRelFolder" description="A list of additional route parameters for external connector" cardinality="n">
+              <vnsMRel key="StaticRouteConfigExtRel" description="Bind Connector with static route config on external interface" mandatory="true">
+                  <vnsRsTarget tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mFolder-ExtStaticRoute"/>
+                  <vnsRsConnector tDn="uni/infra/mDev-CISCO-ASA-1.0.1.19/mFunc-Firewall/mConn-external"/>
+              </vnsMRel>
+          </vnsMFolder>
+          <vnsMFolder key="IntStaticRoute" description="Internal Static route configuration">
+              <vnsMFolder key="route" cardinality="n" description="A static route">
+                  <vnsMParam key="network" dType="str" mandatory="true" description="The foreign network for this route, could be a hostname or in A.B.C.D form" />
+                  <vnsMParam key="netmask" dType="str" validation="netmask" mandatory="true" description="The netmask for the destined foreign network" />
+                  <vnsMParam key="gateway" dType="str" mandatory="true" description="The address of the gateway by which the foreign network is reached" />
+                  <vnsMParam key="metric" validation="metric" description="Distance metric for this route, valid range is a number between 1 and 255, inclusive." />
+              </vnsMFolder>
+              <vnsMFolder key="ipv6_route" cardinality="n" description="An IPv6 static route">
+                  <vnsMParam key="prefix" dType="str" mandatory="true" description="The IPv6 prefix, in the form of X:X:X:X::X/[0-128]" />
+                  <vnsMParam key="gateway" dType="str" mandatory="true" description="IPv6 name or address" />
+                  <vnsMParam key="hop_count" validation="metric" description="Maximum hop count for this route, valid range is a number between 1 and 255, inclusive." />
+                  <vnsMParam key="tunneled" dType="str" validation="tunneled" description="Enable the default tunnel gateway option, metric is set to 255. valid input is 'tunneled'." />
+              </vnsMFolder>
+          </vnsMFolder>
+          <vnsMFolder key="ExtStaticRoute" description="External Static route configuration">
+              <vnsMFolder key="route" cardinality="n" description="A static route">
+                  <vnsMParam key="network" dType="str" mandatory="true" description="The foreign network for this route, could be a hostname or in A.B.C.D form" />
+                  <vnsMParam key="netmask" dType="str" validation="netmask" mandatory="true" description="The netmask for the destined foreign network" />
+                  <vnsMParam key="gateway" dType="str" mandatory="true" description="The address of the gateway by which the foreign network is reached" />
+                  <vnsMParam key="metric" validation="metric" description="Distance metric for this route, valid range is a number between 1 and 255, inclusive." />
+              </vnsMFolder>
+              <vnsMFolder key="ipv6_route" cardinality="n" description="An IPv6 static route">
+                  <vnsMParam key="prefix" dType="str" mandatory="true" description="The IPv6 prefix, in the form of X:X:X:X::X/[0-128]" />
+                  <vnsMParam key="gateway" dType="str" mandatory="true" description="IPv6 name or address" />
+                  <vnsMParam key="hop_count" validation="metric" description="Maximum hop count for this route, valid range is a number between 1 and 255, inclusive." />
+                  <vnsMParam key="tunneled" dType="str" validation="tunneled" description="Enable the default tunnel gateway option, metric is set to 255. valid input is 'tunneled'." />
+              </vnsMFolder>
+          </vnsMFolder>
+
+          <vnsMFolder key="NATRule"
+                      cardinality="n"
+                      description="A network address translation (NAT) rule.">
+            <vnsMFolder key="destination_translation"
+                        description="Specify the destination address translation.">
+              <vnsMParam key="mapped_object_name"
+                         dType="str"
+                         description="Specify a network object name or network object group name for the mapped address."/>
+              <vnsMParam key="real_object_name"
+                         dType="str"
+                         description="Specify a network object name or network object group name for the real address."/>
+            </vnsMFolder>
+            <vnsMParam key="dns"
+                       dType="str"
+                       description="Specify this parameter (the value is ignored) to translate DNS replies."/>
+            <vnsMParam key="order"
+                       validation="isDigit"
+                       mandatory="true"
+                       description="A number to specify the order of the NAT rule."/>
+            <vnsMFolder key="service_translation"
+                        description="Specify the service translation.">
+              <vnsMParam key="mapped_object_name"
+                         dType="str"
+                         description="Specify a service object name for the source mapped port and destination real port."/>
+              <vnsMParam key="real_object_name"
+                         dType="str"
+                         description="Specify a service object name for the source real port and destination mapped port."/>
+            </vnsMFolder>
+            <vnsMFolder key="source_translation"
+                        description="Specify the source address translation.">
+              <vnsMParam key="mapped_object_name"
+                         dType="str"
+                         description="Specify a network object name or network object group name for the mapped address."/>
+              <vnsMParam key="nat_type"
+                         dType="str"
+                         validation="staticDynamic"
+                         mandatory="true"
+                         description="Specify the NAT type of either 'static' or 'dynamic'."/>
+              <vnsMParam key="real_object_name"
+                         dType="str"
+                         description="Specify a network object name or network object group name for the real address."/>
+            </vnsMFolder>
+            <vnsMParam key="unidirectional"
+                       dType="str"
+                       description="Specify this parameter (the value is ignored), for static NAT, to make the translation unidirection from the source to the destination; the destination addresses cannot initiate traffic to the source addresses."/>
+          </vnsMFolder>
+
+          <vnsMFolder key="NATRuleDeployment"
+                      description="NAT rule deployment options">
+            <vnsMParam key="clear_translation"
+                       description="Specify this parameter (the value is ignored) to clear the translations for NAT rules that are changed."/>
+          </vnsMFolder>
+
+          <vnsMFolder key="IntServicePolicy" description="Configuration for NetFLow reporting and connection limits, application inspection, and NetFflow report for internal connector">
+               <vnsMParam key="ServicePolicyState" dType="str" validation="enableDisable" mandatory="true" description="Connector Service Policy enable state. Value: enable or disable."/>
+               <vnsMFolder key="ConnectionLimits" description="Configure connector connection limits. See details at http://www.cisco.com/en/US/docs/security/asa/asa91/configuration/firewall/conns_connlimits.html">
+                  <vnsMParam key="TrafficSelection" dType="str" validation="trafficSel" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+                  <vnsMFolder key="ConnectionSettings" description="Sets connection limits">
+                    <vnsMParam key="conn_max" description="Set the maximum number of all simultaneous connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="conn_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="per_client_max" description="Set the maximum number of all simultaneous connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="per_client_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="random_seq_num" dType="str" validation="enableDisable" description="Enable or disable TCP sequence number randomization, value is enable or disable. Default is enable."/>
+                    <vnsMParam key="timeout_embryonic" dType="str" validation="connToEmb" description="Set the timeout period until a TCP embryonic connection is closed, in hh:mm:ss format between 0:0:5 and 1193:00:00. Default is 0:0:30. 0 means the  which means the connection never times out."/>
+                    <vnsMParam key="timeout_half_closed" dType="str" description="Set the idle timeout period until a half-closed connection is closed, in hh:mm:ss format between 0:5:0(fpr 9.1.(1) and earlier) or 0:0:30(for 9.1(2) and later) and 1193:00:00. Default is 0:10:0."/>
+                   <vnsMFolder key="timeout_idle" description="Connection timeout idle setting">
+                        <vnsMParam key="idle_time" dType="str" validation="connToIdle" description="Set the idle time out period after which an established connection of any protocol closes, in hh:mm:ss format between 0:0:1 and 1193:0:0. The default is 1:0:0. 0 means the connection never times out." />
+                        <vnsMParam key="idle_reset" dType="str" validation="enableDisable" description="It's for TCP taffic, the reset keyword sends a reset to TCP endpoints when the connection timesout. Default is disable." />
+                    </vnsMFolder>
+                    <vnsMFolder key="timeout_dcd" description="Connection timeout DCD setting. You configure DCD when you want idle, but valid hosts to determine the validity of the connections.">
+                        <vnsMParam key="retry_interval" dType="str" validation="connToDcdInt" description="Sets the retry-interval duration to wait after each unresponsive DCD probe before sending out another probe, in hh:mm:ss format between 0:0:1 and 24:0:0. The default is 0:0:15. " />
+                        <vnsMParam key="max_retries" validation="connToDcdRetries" description="Sets the number of consecutive failed retries for DCD before declaring the connection as dead, between 1 and 255. Default is 5." />
+                    </vnsMFolder>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="ApplicationInspection"  description="Configure inspection for internal connector">
+                  <vnsMParam key="TrafficSelection"  mandatory="true" description="Name of the access-list to match for traffic to apply the settings, or 'any'. Default 'any'." />
+                  <vnsMFolder key="InspectionSettings" description="Sets inspection type">
+                     <vnsMParam key="dcerpc" dType="str" validation="enableDisable" description="dcerpc inspection, value is enable or disable"/>
+                     <vnsMParam key="dns" dType="str" validation="enableDisable" description="dns inspection, value is enable or disable"/>
+                     <vnsMParam key="dns_preset" dType="str" validation="enableDisable" description="dns preset map inspection, value is enable or disable"/>
+                     <vnsMParam key="esmtp" dType="str" validation="enableDisable" description="esmtp inspection, value is enable or disable"/>
+                     <vnsMParam key="ftp" dType="str" validation="enableDisable" description="ftp inspection, value is enable or disable"/>
+                     <vnsMParam key="ftp_strict" dType="str" validation="enableDisable" description="ftp_strict inspection, value is enable or disable"/>
+                     <vnsMParam key="gtp" dType="str" validation="enableDisable" description="gtp inspection, value is enable or disable"/>
+                     <vnsMParam key="h323_h225" dType="str" validation="enableDisable" description="h323 h225 inspection, value is enable or disable"/>
+                     <vnsMParam key="h323_ras" dType="str" validation="enableDisable" description="h323 ras inspection, value is enable or disable"/>
+                     <vnsMParam key="http" dType="str" validation="enableDisable" description="http inspection, value is enable or disable"/>
+                     <vnsMParam key="icmp" dType="str" validation="enableDisable" description="icmp inspection, value is enable or disable"/>
+                     <vnsMParam key="icmp_error" dType="str" validation="enableDisable" description="icmp error inspection, value is enable or disable"/>
+                     <vnsMParam key="ils" dType="str" validation="enableDisable" description="ils inspection, value is enable or disable"/>
+                     <vnsMParam key="ip_options" dType="str" validation="enableDisable" description="ip-options inspection, value is enable or disable"/>
+                     <vnsMParam key="mgcp" dType="str" validation="enableDisable" description="mgcp inspection, value is enable or disable"/>
+                     <vnsMParam key="netbios" dType="str" validation="enableDisable" description="netbios inspection, value is enable or disable"/>
+                     <vnsMParam key="pptp" dType="str" validation="enableDisable" description="pptp inspection, value is enable or disable"/>
+                     <vnsMParam key="rsh" dType="str" validation="enableDisable" description="rsh inspection, value is enable or disable"/>
+                     <vnsMParam key="rtsp" dType="str" validation="enableDisable" description="rtsp inspection, value is enable or disable"/>
+                     <vnsMParam key="sip" dType="str" validation="enableDisable" description="sip inspection, value is enable or disable"/>
+                     <vnsMParam key="skinny" dType="str" validation="enableDisable" description="skinny inspection, value is enable or disable"/>
+                     <vnsMParam key="snmp" dType="str" validation="enableDisable" description="snmp inspection, value is enable or disable"/>
+                     <vnsMParam key="sqlnet" dType="str" validation="enableDisable" description="sqlnet inspection, value is enable or disable"/>
+                     <vnsMParam key="sunrpc" dType="str" validation="enableDisable" description="sunrpc inspection, value is enable or disable"/>
+                     <vnsMParam key="tftp" dType="str" validation="enableDisable" description="tftp inspection, value is enable or disable"/>
+                     <vnsMParam key="waas" dType="str" validation="enableDisable" description="waas inspection, value is enable or disable"/>
+                     <vnsMParam key="xdmcp" dType="str" validation="enableDisable" description="xdmcp inspection, value is enable or disable"/>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="NetFlow" description="Configure NetFlow report control on internal connector.">
+                  <vnsMParam key="TrafficSelection" mandatory="true" description="Name of the access-list to match for traffic to apply the settings, or 'any'. Default 'any'." />
+                  <vnsMFolder key="NetFlowSettings" description="Set NetFlow event export">
+                     <vnsMFolder key="ExportAllEvent" description="Export All NetFlow events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable all event export to destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                     <vnsMFolder key="ExportCreationEvent" description="Export only flow creation events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow creation event export destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                     <vnsMFolder key="ExportDenyEvent" description="Export only flow denied events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow deny event export destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="IPS"  description="Configure global IPS.">
+               <vnsMParam key="TrafficSelection" dType="str" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+               <vnsMFolder key="IPSSettings" description="Sets IPS mode and fail mode">
+                   <vnsMParam key="operate_mode" mandatory="true" dType="str" validation="IPSOperateMode" description="value must be either inline or promiscuous"/>
+                   <vnsMParam key="fail_mode" mandatory="true" dType="str" validation="IPSFailMode" description="value must be either fail-open or fail-close"/>
+                   <vnsMParam key="sensor" dType="str" description="optional sensor name"/>
+               </vnsMFolder>
+           </vnsMFolder>
+          </vnsMFolder>
+
+          <vnsMFolder key="ExtServicePolicy" description="Configuration for NetFLow reporting and connection limits, application inspection, and NetFflow report for external connector">
+               <vnsMParam key="ServicePolicyState" dType="str" validation="enableDisable" mandatory="true" description="Connector Service Policy enable state. Value: enable or disable."/>
+               <vnsMFolder key="ConnectionLimits" description="Configure connector connection limits. See details at http://www.cisco.com/en/US/docs/security/asa/asa91/configuration/firewall/conns_connlimits.html">
+                  <vnsMParam key="TrafficSelection" dType="str" validation="trafficSel" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+                  <vnsMFolder key="ConnectionSettings" description="Sets connection limits">
+                    <vnsMParam key="conn_max" description="Set the maximum number of all simultaneous connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="conn_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="per_client_max" description="Set the maximum number of all simultaneous connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="per_client_max_embryonic" description="Set the maximum number of TCP embtryonic connections that are allowed per client machine, between 0 and 2000000. Default is 0 which means unlimited connections."/>
+                    <vnsMParam key="random_seq_num" dType="str" validation="enableDisable" description="Enable or disable TCP sequence number randomization, value is enable or disable. Default is enable."/>
+                    <vnsMParam key="timeout_embryonic" dType="str" validation="connToEmb" description="Set the timeout period until a TCP embryonic connection is closed, in hh:mm:ss format between 0:0:5 and 1193:00:00. Default is 0:0:30. 0 means the  which means the connection never times out."/>
+                    <vnsMParam key="timeout_half_closed" dType="str" description="Set the idle timeout period until a half-closed connection is closed, in hh:mm:ss format between 0:5:0(fpr 9.1.(1) and earlier) or 0:0:30(for 9.1(2) and later) and 1193:00:00. Default is 0:10:0."/>
+                   <vnsMFolder key="timeout_idle" description="Connection timeout idle setting">
+                        <vnsMParam key="idle_time" dType="str" validation="connToIdle" description="Set the idle time out period after which an established connection of any protocol closes, in hh:mm:ss format between 0:0:1 and 1193:0:0. The default is 1:0:0. 0 means the connection never times out." />
+                        <vnsMParam key="idle_reset" dType="str" validation="enableDisable" description="It's for TCP taffic, the reset keyword sends a reset to TCP endpoints when the connection timesout. Default is disable." />
+                    </vnsMFolder>
+                    <vnsMFolder key="timeout_dcd" description="Connection timeout DCD setting. You configure DCD when you want idle, but valid hosts to determine the validity of the connections.">
+                        <vnsMParam key="retry_interval" dType="str" validation="connToDcdInt" description="Sets the retry-interval duration to wait after each unresponsive DCD probe before sending out another probe, in hh:mm:ss format between 0:0:1 and 24:0:0. The default is 0:0:15. " />
+                        <vnsMParam key="max_retries" validation="connToDcdRetries" description="Sets the number of consecutive failed retries for DCD before declaring the connection as dead, between 1 and 255. Default is 5." />
+                    </vnsMFolder>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="ApplicationInspection"  description="Configure inspection for external connector">
+                  <vnsMParam key="TrafficSelection"  mandatory="true" description="Name of the access-list to match for traffic to apply the settings, or 'any'. Default 'any'." />
+                  <vnsMFolder key="InspectionSettings" description="Sets inspection type">
+                     <vnsMParam key="dcerpc" dType="str" validation="enableDisable" description="dcerpc inspection, value is enable or disable"/>
+                     <vnsMParam key="dns" dType="str" validation="enableDisable" description="dns inspection, value is enable or disable"/>
+                     <vnsMParam key="dns_preset" dType="str" validation="enableDisable" description="dns preset map inspection, value is enable or disable"/>
+                     <vnsMParam key="esmtp" dType="str" validation="enableDisable" description="esmtp inspection, value is enable or disable"/>
+                     <vnsMParam key="ftp" dType="str" validation="enableDisable" description="ftp inspection, value is enable or disable"/>
+                     <vnsMParam key="ftp_strict" dType="str" validation="enableDisable" description="ftp_strict inspection, value is enable or disable"/>
+                     <vnsMParam key="gtp" dType="str" validation="enableDisable" description="gtp inspection, value is enable or disable"/>
+                     <vnsMParam key="h323_h225" dType="str" validation="enableDisable" description="h323 h225 inspection, value is enable or disable"/>
+                     <vnsMParam key="h323_ras" dType="str" validation="enableDisable" description="h323 ras inspection, value is enable or disable"/>
+                     <vnsMParam key="http" dType="str" validation="enableDisable" description="http inspection, value is enable or disable"/>
+                     <vnsMParam key="icmp" dType="str" validation="enableDisable" description="icmp inspection, value is enable or disable"/>
+                     <vnsMParam key="icmp_error" dType="str" validation="enableDisable" description="icmp error inspection, value is enable or disable"/>
+                     <vnsMParam key="ils" dType="str" validation="enableDisable" description="ils inspection, value is enable or disable"/>
+                     <vnsMParam key="ip_options" dType="str" validation="enableDisable" description="ip-options inspection, value is enable or disable"/>
+                     <vnsMParam key="mgcp" dType="str" validation="enableDisable" description="mgcp inspection, value is enable or disable"/>
+                     <vnsMParam key="netbios" dType="str" validation="enableDisable" description="netbios inspection, value is enable or disable"/>
+                     <vnsMParam key="pptp" dType="str" validation="enableDisable" description="pptp inspection, value is enable or disable"/>
+                     <vnsMParam key="rsh" dType="str" validation="enableDisable" description="rsh inspection, value is enable or disable"/>
+                     <vnsMParam key="rtsp" dType="str" validation="enableDisable" description="rtsp inspection, value is enable or disable"/>
+                     <vnsMParam key="sip" dType="str" validation="enableDisable" description="sip inspection, value is enable or disable"/>
+                     <vnsMParam key="skinny" dType="str" validation="enableDisable" description="skinny inspection, value is enable or disable"/>
+                     <vnsMParam key="snmp" dType="str" validation="enableDisable" description="snmp inspection, value is enable or disable"/>
+                     <vnsMParam key="sqlnet" dType="str" validation="enableDisable" description="sqlnet inspection, value is enable or disable"/>
+                     <vnsMParam key="sunrpc" dType="str" validation="enableDisable" description="sunrpc inspection, value is enable or disable"/>
+                     <vnsMParam key="tftp" dType="str" validation="enableDisable" description="tftp inspection, value is enable or disable"/>
+                     <vnsMParam key="waas" dType="str" validation="enableDisable" description="waas inspection, value is enable or disable"/>
+                     <vnsMParam key="xdmcp" dType="str" validation="enableDisable" description="xdmcp inspection, value is enable or disable"/>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="NetFlow" description="Configure NetFlow report control on external connector.">
+                  <vnsMParam key="TrafficSelection" mandatory="true" description="Name of the access-list to match for traffic to apply the settings, or 'any'. Default 'any'." />
+                  <vnsMFolder key="NetFlowSettings" description="Set NetFlow event export">
+                     <vnsMFolder key="ExportAllEvent" description="Export All NetFlow events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable all event export to destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                     <vnsMFolder key="ExportCreationEvent" description="Export only flow creation events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow creation event export destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                     <vnsMFolder key="ExportDenyEvent" description="Export only flow denied events">
+                        <vnsMParam key="status" dType="str" validation="enableDisable" description="Enable flow deny event export destination collector. Value is 'enable' or 'disable"/>
+                        <vnsMParam key="event_destination" description="Event destination collector. Must be previously defined in the NetFlowObjects"/>
+                     </vnsMFolder>
+                  </vnsMFolder>
+               </vnsMFolder>
+               <vnsMFolder key="IPS"  description="Configure global IPS.">
+               <vnsMParam key="TrafficSelection" dType="str" mandatory="true" description="Name of the access-list to match for traffic to apply the connection limits, or 'any'. Default 'any'." />
+               <vnsMFolder key="IPSSettings" description="Sets IPS mode and fail mode">
+                   <vnsMParam key="operate_mode" mandatory="true" dType="str" validation="IPSOperateMode" description="value must be either inline or promiscuous"/>
+                   <vnsMParam key="fail_mode" mandatory="true" dType="str" validation="IPSFailMode" description="value must be either fail-open or fail-close"/>
+                   <vnsMParam key="sensor" dType="str" description="optional sensor name"/>
+               </vnsMFolder>
+           </vnsMFolder>
+          </vnsMFolder>
+
+      </vnsMFunc>
+    </vnsMDev>
+  </infraInfra>
+</polUni>

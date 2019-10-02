@@ -1,0 +1,11 @@
+<polUni>
+    <vmmProvP vendor="VMware">
+    <vmmDomP name="My-vCenter">
+        <infraRsVlanNs tDn="uni/infra/vlanns-ACILab_VLAN_Pool-dynamic" />
+        <vmmUsrAccP name="defaultAccP" usr="administrator" pwd="C1sco12345" />
+        <vmmCtrlrP name="dCloudDC" hostOrIp="198.18.133.211" dvsVersion="5.5" rootContName="dCloudDC">
+            <vmmRsAcc tDn="uni/vmmp-VMware/dom-My-vCenter/usracc-defaultAccP" />
+        </vmmCtrlrP>
+    </vmmDomP>
+    </vmmProvP>
+</polUni>

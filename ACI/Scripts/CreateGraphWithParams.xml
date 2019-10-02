@@ -1,0 +1,96 @@
+<polUni>
+    <fvTenant name="ACILab">
+    <vnsAbsGraph name = "FWGraph">
+
+    <vnsAbsTermNodeProv name = "Provider">
+        <vnsAbsTermConn name = "C6">
+        </vnsAbsTermConn>
+    </vnsAbsTermNodeProv>
+    
+    <vnsAbsTermNodeCon name = "Consumer">
+        <vnsAbsTermConn name = "C1" >
+        </vnsAbsTermConn>
+    </vnsAbsTermNodeCon>
+
+    <!-- FWNode Provides FW functionality -->
+    <vnsAbsNode name = "FWNode">
+        <vnsRsDefaultScopeToTerm tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/outtmnl"/>
+
+        <vnsAbsFuncConn name = "external" >
+            <vnsRsMConnAtt tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35/mFunc-Firewall/mConn-external" />
+        </vnsAbsFuncConn>
+
+        <vnsAbsFuncConn name = "internal" >
+            <vnsRsMConnAtt tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35/mFunc-Firewall/mConn-internal" />
+        </vnsAbsFuncConn>
+
+        <vnsAbsDevCfg>
+            <vnsAbsFolder key="InterfaceConfig" name="internalIfCfg">
+                <vnsAbsParam key="ipv4_address" name="ipv4_internal" value="10.10.10.103/255.255.255.0"/>
+                <vnsAbsParam key="security_level" name="internal_security_level" value="100"/>
+            </vnsAbsFolder>
+            <vnsAbsFolder key="InterfaceConfig" name="externalIfCfg">
+                <vnsAbsParam key="ipv4_address" name="ipv4_external" value="20.20.20.103/255.255.255.0"/>
+                <vnsAbsParam key="security_level" name="external_security_level" value="50"/>
+            </vnsAbsFolder>
+
+	<vnsAbsFolder name="access-list-foo1" key="AccessList" scopedBy="epg">
+		<vnsAbsFolder name="entry1" key="AccessControlEntry" scopedBy="epg">
+			<vnsAbsParam name="acition-permit" key="action" value="permit"/>
+			<vnsAbsParam name="order1" key="order" value="10"/>
+		</vnsAbsFolder>
+	</vnsAbsFolder>
+
+	<vnsAbsFolder name="access-list-foo2" key="AccessList" scopedBy="epg">
+		<vnsAbsFolder name="entry1" key="AccessControlEntry" scopedBy="epg">
+			<vnsAbsParam name="acition-permit" key="action" value="permit"/>
+			<vnsAbsParam name="order1" key="order" value="10"/>
+		</vnsAbsFolder>
+	</vnsAbsFolder>
+
+        </vnsAbsDevCfg>
+
+        <vnsAbsFuncCfg>
+             <vnsAbsFolder key="ExIntfConfigRelFolder" name="ExtConfig">
+                <vnsAbsCfgRel key="ExIntfConfigRel" name="ExtConfigrel" targetName="externalIfCfg"/>
+                <vnsRsScopeToTerm tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/outtmnl"/>
+                <vnsRsCfgToConn tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-external" />
+             </vnsAbsFolder>
+
+            <vnsAbsFolder key="InIntfConfigRelFolder" name="IntConfig">
+                <vnsAbsCfgRel key="InIntfConfigRel" name="InConfigrel" targetName="internalIfCfg"/>
+                <vnsRsScopeToTerm tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/outtmnl"/>
+                <vnsRsCfgToConn tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-internal" />
+            </vnsAbsFolder>
+
+            <vnsAbsFolder name="IntAccessGroup" key="IntAccessGroup">
+                <vnsAbsCfgRel name="access-list-foo" key="access_list_name" targetName="access-list-foo1"/>
+                <vnsRsScopeToTerm tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/outtmnl"/>
+                <vnsRsCfgToConn tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-internal" />
+                <vnsAbsParam name="direction" key="direction" value="in"/>
+            </vnsAbsFolder>
+
+            <vnsAbsFolder name="ExtAccessGroup" key="ExtAccessGroup">
+                <vnsAbsCfgRel name="access-list-foo" key="access_list_name" targetName="access-list-foo2"/>
+                <vnsRsScopeToTerm tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/outtmnl"/>
+                <vnsRsCfgToConn tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-external" />
+                <vnsAbsParam name="direction" key="direction" value="in"/>
+            </vnsAbsFolder>
+        </vnsAbsFuncCfg>
+
+        <vnsRsNodeToMFunc tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35/mFunc-Firewall"/>
+    </vnsAbsNode>
+
+    <vnsAbsConnection name = "CON1">
+        <vnsRsAbsConnectionConns tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeCon-Consumer/AbsTConn" />
+        <vnsRsAbsConnectionConns tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-external" />
+    </vnsAbsConnection>
+    
+    <vnsAbsConnection name = "CON2">
+        <vnsRsAbsConnectionConns tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsNode-FWNode/AbsFConn-internal" />
+        <vnsRsAbsConnectionConns tDn="uni/tn-ACILab/AbsGraph-FWGraph/AbsTermNodeProv-Provider/AbsTConn" />
+    </vnsAbsConnection>
+
+    </vnsAbsGraph>
+  </fvTenant>
+</polUni>

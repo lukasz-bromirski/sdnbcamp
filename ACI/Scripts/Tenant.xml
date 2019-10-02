@@ -1,0 +1,30 @@
+<polUni>
+    <fvTenant
+        dn="uni/tn-ACILab"
+        name="ACILab">
+        
+        <fvCtx name="ACILab_VRF"/>
+
+        <!-- bridge domain -->
+        <fvBD name="ACILab_BD1">
+          <fvRsCtx tnFvCtxName="ACILab_VRF" />         
+          <fvSubnet ip="10.10.10.10/24">
+          <fvRsBDSubnetToProfile  tnL3extOutName="rout1" tnRtctrlProfileName="profExport" />
+          </fvSubnet>
+
+          <fvSubnet ip="192.168.10.1/24">
+          <fvRsBDSubnetToProfile  tnL3extOutName="rout1" tnRtctrlProfileName="profExport" />
+          </fvSubnet>
+        </fvBD>
+
+
+        <!-- bridge domain -->
+        <fvBD name="ACILab_BD2">
+          <fvRsCtx tnFvCtxName="ACILab_VRF" />
+          <fvSubnet ip="20.20.20.20/24">
+          <fvRsBDSubnetToProfile  tnL3extOutName="rout1" tnRtctrlProfileName="profExport" />
+          </fvSubnet>
+        </fvBD>
+
+    </fvTenant>
+</polUni>

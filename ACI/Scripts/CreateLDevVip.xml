@@ -1,0 +1,32 @@
+<polUni>
+    <fvTenant
+    dn="uni/tn-ACILab"
+    name="ACILab">
+        <vnsLDevVip name="Firewall" devtype = "VIRTUAL"> 
+            <vnsRsMDevAtt tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35"/>
+            <vnsRsALDevToDomP tDn="uni/vmmp-VMware/dom-My-vCenter"/>
+            <vnsCMgmt name="devMgmt"
+                      host="198.18.128.100"
+                      port="443"/>
+            <vnsCCred name="username"
+                      value="admin"/>
+            <vnsCCredSecret name="password"
+                            value="C1sco12345"/>
+        </vnsLDevVip>
+
+        <vnsLDevCtx ctrctNameOrLbl="Web_Con" graphNameOrLbl="FWGraph" nodeNameOrLbl="FWNode">
+            <vnsRsLDevCtxToLDev tDn="uni/tn-ACILab/lDevVip-Firewall"/>
+            <vnsLIfCtx connNameOrLbl="internal">
+                <vnsRsLIfCtxToLIf tDn="uni/tn-ACILab/lDevVip-Firewall/lIf-internal"/>
+		<vnsRsLIfCtxToBD tDn="uni/tn-ACILab/BD-ACILab_BD1"/>
+		<fvSubnet ip="10.10.10.10/24"/>
+            </vnsLIfCtx>
+            <vnsLIfCtx connNameOrLbl="external">
+               	<vnsRsLIfCtxToLIf tDn="uni/tn-ACILab/lDevVip-Firewall/lIf-external"/>
+		<vnsRsLIfCtxToBD tDn="uni/tn-ACILab/BD-ACILab_BD2"/>
+		<fvSubnet ip="20.20.20.20/24"/>
+            </vnsLIfCtx>
+        </vnsLDevCtx>
+
+    </fvTenant>
+</polUni>

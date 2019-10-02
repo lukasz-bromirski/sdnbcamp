@@ -1,0 +1,18 @@
+<polUni>
+    <fvTenant
+    dn="uni/tn-ACILab"
+    name="ACILab">
+        <vnsLDevVip name="Firewall" devtype="VIRTUAL">
+            <vnsCDev name="ASA" vcenterName="dCloudDC" vmName="ASAv">
+                <vnsCIf name="Gig0_0" vnicName="Network adapter 2">
+                </vnsCIf>
+                <vnsCIf name="Gig0_1" vnicName="Network adapter 3">
+                </vnsCIf>
+                <vnsCMgmt name="devMgmt" host="198.18.128.100" port="443" />
+                <vnsCCred name="username" value="admin" />
+                <vnsCCredSecret name="password" value="C1sco12345" />
+            </vnsCDev>
+        </vnsLDevVip>
+
+    </fvTenant>
+</polUni>

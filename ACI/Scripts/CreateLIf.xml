@@ -1,0 +1,16 @@
+<polUni>
+    <fvTenant
+	dn="uni/tn-ACILab"
+	name="ACILab">
+        <vnsLDevVip name="Firewall">
+            <vnsLIf name="external">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35/mIfLbl-external"/>
+                <vnsRsCIfAtt tDn="uni/tn-ACILab/lDevVip-Firewall/cDev-ASA/cIf-Gig0_0"/>
+            </vnsLIf>
+            <vnsLIf name="internal">
+                <vnsRsMetaIf tDn="uni/infra/mDev-CISCO-ASA-1.0.1.35/mIfLbl-internal"/>
+                <vnsRsCIfAtt tDn="uni/tn-ACILab/lDevVip-Firewall/cDev-ASA/cIf-Gig0_1"/>
+            </vnsLIf>
+        </vnsLDevVip>
+    </fvTenant>
+</polUni>

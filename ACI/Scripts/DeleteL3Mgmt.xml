@@ -1,0 +1,5 @@
+<polUni>
+<fvTenant name="mgmt">
+   <l3extOut name="vmm" status="deleted"/>
+</fvTenant>
+</polUni>
