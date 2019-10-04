@@ -5,6 +5,8 @@ This repository contains SDN bootcamp materials, that can be used (obviously) ev
 
 We invite you however to enlist and attend the bootcamp - if you're network engineer, you may even consider it a must :) If you want to join us, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288) and secure your slot!
 
+If you're looking for additional resources, peek [here](https://github.com/lukasz-bromirski/sdnbcamp/blob/master/resources.md).
+
 ## Agenda
 
 ### Day 1:
