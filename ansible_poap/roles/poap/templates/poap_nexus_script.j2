@@ -42,11 +42,11 @@ versions where upgrading will take time
 # Host name and user credentials
 options = {
    "username": "root",
-   "password": "Admin9sisko$",
+   "password": "Admin{{ pod_no }}sisko$",
    "hostname": "{{ common.transfer_hostname }}",
    "transfer_protocol": "scp",
    "mode": "mac",
-   "target_system_image": "nxos.9.2.3.bin",
+   "target_system_image": "nxos.9.3.4.bin",
 }
 
 

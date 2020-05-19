@@ -1,7 +1,7 @@
 
 hostname {{ item.hostname }}
 
-username admin password Admin9sisko$ role network-admin 
+username admin password {{ item.password }} role network-admin 
 
 no ip domain-lookup
 
@@ -36,7 +36,7 @@ interface Ethernet1/10
   shutdown
   
 interface Ethernet1/11
-  shutdown
+ shutdown
   
 interface Ethernet1/12
   shutdown
@@ -195,198 +195,6 @@ interface Ethernet1/63
   shutdown
   
 interface Ethernet1/64
-  shutdown
-  
-interface Ethernet1/65
-  shutdown
-  
-interface Ethernet1/66
-  shutdown
-  
-interface Ethernet1/67
-  shutdown
-  
-interface Ethernet1/68
-  shutdown
-  
-interface Ethernet1/69
-  shutdown
-  
-interface Ethernet1/70
-  shutdown
-  
-interface Ethernet1/71
-  shutdown
-  
-interface Ethernet1/72
-  shutdown
-  
-interface Ethernet1/73
-  shutdown
-  
-interface Ethernet1/74
-  shutdown
-  
-interface Ethernet1/75
-  shutdown
-  
-interface Ethernet1/76
-  shutdown
-  
-interface Ethernet1/77
-  shutdown
-  
-interface Ethernet1/78
-  shutdown
-  
-interface Ethernet1/79
-  shutdown
-  
-interface Ethernet1/80
-  shutdown
-  
-interface Ethernet1/81
-  shutdown
-  
-interface Ethernet1/82
-  shutdown
-  
-interface Ethernet1/83
-  shutdown
-  
-interface Ethernet1/84
-  shutdown
-  
-interface Ethernet1/85
-  shutdown
-  
-interface Ethernet1/86
-  shutdown
-  
-interface Ethernet1/87
-  shutdown
-  
-interface Ethernet1/88
-  shutdown
-  
-interface Ethernet1/89
-  shutdown
-  
-interface Ethernet1/90
-  shutdown
-  
-interface Ethernet1/91
-  shutdown
-  
-interface Ethernet1/92
-  shutdown
-  
-interface Ethernet1/93
-  shutdown
-  
-interface Ethernet1/94
-  shutdown
-  
-interface Ethernet1/95
-  shutdown
-  
-interface Ethernet1/96
-  shutdown
-  
-interface Ethernet1/97
-  shutdown
-  
-interface Ethernet1/98
-  shutdown
-  
-interface Ethernet1/99
-  shutdown
-  
-interface Ethernet1/100
-  shutdown
-  
-interface Ethernet1/101
-  shutdown
-  
-interface Ethernet1/102
-  shutdown
-  
-interface Ethernet1/103
-  shutdown
-  
-interface Ethernet1/104
-  shutdown
-  
-interface Ethernet1/105
-  shutdown
-  
-interface Ethernet1/106
-  shutdown
-  
-interface Ethernet1/107
-  shutdown
-  
-interface Ethernet1/108
-  shutdown
-  
-interface Ethernet1/109
-  shutdown
-  
-interface Ethernet1/110
-  shutdown
-  
-interface Ethernet1/111
-  shutdown
-  
-interface Ethernet1/112
-  shutdown
-  
-interface Ethernet1/113
-  shutdown
-  
-interface Ethernet1/114
-  shutdown
-  
-interface Ethernet1/115
-  shutdown
-  
-interface Ethernet1/116
-  shutdown
-  
-interface Ethernet1/117
-  shutdown
-  
-interface Ethernet1/118
-  shutdown
-  
-interface Ethernet1/119
-  shutdown
-  
-interface Ethernet1/120
-  shutdown
-  
-interface Ethernet1/121
-  shutdown
-  
-interface Ethernet1/122
-  shutdown
-  
-interface Ethernet1/123
-  shutdown
-  
-interface Ethernet1/124
-  shutdown
-  
-interface Ethernet1/125
-  shutdown
-  
-interface Ethernet1/126
-  shutdown
-  
-interface Ethernet1/127
-  shutdown
-  
-interface Ethernet1/128
   shutdown
   
 interface mgmt0
