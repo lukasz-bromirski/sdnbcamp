@@ -1,0 +1,18 @@
+---
+- name: VLAN configuration and validation
+  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
+  connection: local
+  gather_facts: no
+
+  tasks:
+   - name: Ensure VLAN 50 exists with name EXT_DMZ1
+     nxos_vlan:
+      vlan_id: 50
+      name: EXT_DMZ1
+      admin_state: down
+
+   - name: Ensure VLAN 60 doesn't exist
+     nxos_vlan:
+      vlan_id: 60
+      state: absent
+
