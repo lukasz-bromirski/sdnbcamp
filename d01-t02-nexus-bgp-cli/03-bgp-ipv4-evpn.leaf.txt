@@ -2,12 +2,12 @@
 ! BGP IPv4 and EVPN configuration for Nexus 9000 LEAF
 !
 
-router bgp 65000
+router bgp 6500X
  address-family ipv4 unicast
  address-family ipv6 unicast
  address-family l2vpn evpn
  template peer BGP-RR
-   remote-as 65000
+   remote-as 6500X
    update-source loopback0
    address-family ipv4 unicast
    address-family ipv6 unicast
@@ -15,7 +15,7 @@ router bgp 65000
    address-family l2vpn evpn
      send-community
      send-community extended
- neighbor 100.100.1.1
+ neighbor 10.1X.192.1
   inherit peer BGP-RR
- neighbor 100.100.1.2
+ neighbor 10.1X.192.2
   inherit peer BGP-RR
