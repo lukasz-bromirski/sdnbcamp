@@ -1,0 +1,41 @@
+---
+
+- name: "Nexus MP-BGP EVPN enablement"
+  hosts: nexus
+  gather_facts: no
+
+  tasks:
+    - name: Enable EVPN overlay feature
+      nxos_evpn_global:
+       nv_overlay_evpn: true
+
+    - name: Configure L2EVPN RT in template peers
+      nxos_config:
+       lines:
+        - address-family l2vpn evpn
+        - retain route-target all
+       parents: router bgp 65002
+       match: exact
+
+    - name: Configure L2EVPN template for SPINEs
+      when: inventory_hostname in ( 'POD2_SPINE21', 'POD2_SPINE22' )
+      nxos_config:
+       lines:
+        - template peer VTEP-PEERS
+        - address-family l2vpn evpn
+        - send-community
+        - send-community extended
+        - route-reflector-client
+       parents: router bgp 65002
+       match: exact
+
+    - name: Configure L2EVPN template for LEAFs
+      when: inventory_hostname in ( 'POD2_LEAF11', 'POD2_LEAF12' )
+      nxos_config:
+       lines:
+        - template peer BGP-RR
+        - address-family l2vpn evpn
+        - send-community
+        - send-community extended
+       parents: router bgp 65002
+       match: exact
