@@ -5,7 +5,7 @@ This repository contains SDN bootcamp materials, that can be used (obviously) ev
 
 We invite you however to enlist and attend the bootcamp - if you're network engineer, you may even consider it a must :) If you want to join us, please get in touch with [CSH Hector](https://csh.com.pl/szkolenie/?tid=288) and secure your slot!
 
-If you're looking for additional resources, peek [here](https://github.com/lukasz-bromirski/sdnbcamp/blob/master/resources.md).
+If you're looking for additional resources, take a look [here](https://github.com/lukasz-bromirski/sdnbcamp/blob/master/resources.md).
 
 ## Agenda
 
@@ -14,7 +14,7 @@ If you're looking for additional resources, peek [here](https://github.com/lukas
    * SDN - fifteen years in the making - overview of history and future of SDN networks
    * Classical Ethernet recap
       * Configuring VLANs and routing on switches - Cisco Catalyst 9300 and Cisco ISR 4200 routers
-      * Configuring VLANs and rotuing on switches - Cisco Nexus 9000
+      * Configuring VLANs and routing on switches - Cisco Nexus 9000
    * Leaf & Spine DCs
       * Configuring DC flood & learn VXLAN
       * Configuring DC MP-BGP with EVPN
@@ -41,9 +41,8 @@ If you're looking for additional resources, peek [here](https://github.com/lukas
       * Building Ethernet+VXLAN automation
       * Using Postman with NSO API
       * Virtualizing using nso-netsim
-   * VTS - Cisco Virtual Topology System
-      * Introduction
-      * Using VTS with Nexus 9000 and MP-BGP EVPN
+   * NSO - Advanced
+      * Building & using example service - EVPN+VXLAN DC
    
 ### Day 3:
 
