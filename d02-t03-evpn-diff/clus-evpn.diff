@@ -1,8 +1,25 @@
 diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/netsim_devices_init.xml
---- clus-evpn/init_data/netsim_devices_init.xml 2020-06-21 01:20:42.486601437 +0200
-+++ clus-evpn-mod/init_data/netsim_devices_init.xml     2020-05-24 23:25:18.000000000 +0200
-@@ -15,7 +15,7 @@
-      <authgroup>default</authgroup>
+--- clus-evpn/init_data/netsim_devices_init.xml	2020-06-21 01:20:42.000000000 +0200
++++ clus-evpn-mod/init_data/netsim_devices_init.xml	2020-06-21 10:37:27.744250901 +0200
+@@ -1,101 +1,53 @@
+ <devices xmlns="http://tail-f.com/ns/ncs">
+    <device>
+-     <name>LFND-0</name>
+-     <address>127.0.0.1</address>
+-     <port>10022</port>
+-     <ssh>
+-       <host-key>
+-         <algorithm>ssh-rsa</algorithm>
+-         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
+-       </host-key>
+-     </ssh>
++     <name>POD2_LEAF11</name>
++     <address>10.12.1.131</address>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+-     <authgroup>default</authgroup>
++     <authgroup>SDNBOOT</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -10,8 +27,23 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
         </cli>
       </device-type>
     </device>
-@@ -35,7 +35,7 @@
-      <authgroup>default</authgroup>
+    <device>
+-     <name>LFND-1</name>
+-     <address>127.0.0.1</address>
+-     <port>10023</port>
+-     <ssh>
+-       <host-key>
+-         <algorithm>ssh-rsa</algorithm>
+-         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
+-       </host-key>
+-     </ssh>
++     <name>POD2_LEAF12</name>
++     <address>10.12.1.132</address>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+-     <authgroup>default</authgroup>
++     <authgroup>SDNBOOT</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -19,8 +51,23 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
         </cli>
       </device-type>
     </device>
-@@ -55,7 +55,7 @@
-      <authgroup>default</authgroup>
+    <device>
+-     <name>LFND-2</name>
+-     <address>127.0.0.1</address>
+-     <port>10024</port>
+-     <ssh>
+-       <host-key>
+-         <algorithm>ssh-rsa</algorithm>
+-         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
+-       </host-key>
+-     </ssh>
++     <name>POD2_SPINE21</name>
++     <address>10.12.1.133</address>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+-     <authgroup>default</authgroup>
++     <authgroup>SDNBOOT</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -28,27 +75,53 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
         </cli>
       </device-type>
     </device>
-@@ -75,7 +75,7 @@
-      <authgroup>default</authgroup>
+    <device>
+-     <name>BRLFND-0</name>
+-     <address>127.0.0.1</address>
+-     <port>10025</port>
+-     <ssh>
+-       <host-key>
+-         <algorithm>ssh-rsa</algorithm>
+-         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
+-       </host-key>
+-     </ssh>
++     <name>POD2_SPINE22</name>
++     <address>10.12.1.134</address>
+      <state>
+        <admin-state>unlocked</admin-state>
+      </state>
+-     <authgroup>default</authgroup>
++     <authgroup>SDNBOOT</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
-        </cli>
-      </device-type>
-    </device>
-@@ -95,7 +95,7 @@
-      <authgroup>default</authgroup>
-      <device-type>
-        <cli>
+-       </cli>
+-     </device-type>
+-   </device>
+-   <device>
+-     <name>BRLFND-1</name>
+-     <address>127.0.0.1</address>
+-     <port>10026</port>
+-     <ssh>
+-       <host-key>
+-         <algorithm>ssh-rsa</algorithm>
+-         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
+-       </host-key>
+-     </ssh>
+-     <state>
+-       <admin-state>unlocked</admin-state>
+-     </state>
+-     <authgroup>default</authgroup>
+-     <device-type>
+-       <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
 +         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
         </cli>
       </device-type>
     </device>
 diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn-mod/init_data/plant_information_init.xml
---- clus-evpn/init_data/plant_information_init.xml      2020-06-21 01:20:42.486601437 +0200
-+++ clus-evpn-mod/init_data/plant_information_init.xml  2020-06-21 01:46:30.857977846 +0200
+--- clus-evpn/init_data/plant_information_init.xml	2020-06-21 01:20:42.000000000 +0200
++++ clus-evpn-mod/init_data/plant_information_init.xml	2020-06-21 01:46:30.857977846 +0200
 @@ -1,91 +1,25 @@
  <plant-information xmlns="http://com/ciscoas/services/vxlan">
    <plant>
@@ -148,10 +221,10 @@ diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn-mod/init_data
    </global-config>
  </plant-information>
 diff -ruN clus-evpn/project-meta-data.xml clus-evpn-mod/project-meta-data.xml
---- clus-evpn/project-meta-data.xml     2020-06-21 01:20:42.491601538 +0200
-+++ clus-evpn-mod/project-meta-data.xml 2020-06-21 01:47:36.645314757 +0200
+--- clus-evpn/project-meta-data.xml	2020-06-21 01:20:42.000000000 +0200
++++ clus-evpn-mod/project-meta-data.xml	2020-06-21 01:47:36.645314757 +0200
 @@ -5,13 +5,13 @@
-
+ 
      <netsim>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
@@ -170,16 +243,16 @@ diff -ruN clus-evpn/project-meta-data.xml clus-evpn-mod/project-meta-data.xml
          </device>
      </netsim>
 diff -ruN clus-evpn/setup.mk clus-evpn-mod/setup.mk
---- clus-evpn/setup.mk  2020-06-21 01:20:42.491601538 +0200
-+++ clus-evpn-mod/setup.mk      2020-06-21 01:48:16.636127438 +0200
+--- clus-evpn/setup.mk	2020-06-21 01:20:42.000000000 +0200
++++ clus-evpn-mod/setup.mk	2020-06-21 01:48:16.636127438 +0200
 @@ -2,8 +2,8 @@
-
+ 
  PACKAGES = resource-manager vxlan evpn
-
+ 
 -NETWORK = create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 3 LFND-  \
--          create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 2 BRLFND-
+-          create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 2 BRLFND- 
 +NETWORK = create-network packages/cisco-nx-cli-5.15 3 LEAF-  \
 +          create-network packages/cisco-nx-cli-5.15 2 SPINE-
-
+ 
  .PHONY: netsim netsim-clean netsim-start netsim-stop
  netsim:
