@@ -1,0 +1,185 @@
+diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/netsim_devices_init.xml
+--- clus-evpn/init_data/netsim_devices_init.xml 2020-06-21 01:20:42.486601437 +0200
++++ clus-evpn-mod/init_data/netsim_devices_init.xml     2020-05-24 23:25:18.000000000 +0200
+@@ -15,7 +15,7 @@
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+-         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
+        </cli>
+      </device-type>
+    </device>
+@@ -35,7 +35,7 @@
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+-         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
+        </cli>
+      </device-type>
+    </device>
+@@ -55,7 +55,7 @@
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+-         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
+        </cli>
+      </device-type>
+    </device>
+@@ -75,7 +75,7 @@
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+-         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
+        </cli>
+      </device-type>
+    </device>
+@@ -95,7 +95,7 @@
+      <authgroup>default</authgroup>
+      <device-type>
+        <cli>
+-         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
+        </cli>
+      </device-type>
+    </device>
+diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn-mod/init_data/plant_information_init.xml
+--- clus-evpn/init_data/plant_information_init.xml      2020-06-21 01:20:42.486601437 +0200
++++ clus-evpn-mod/init_data/plant_information_init.xml  2020-06-21 01:46:30.857977846 +0200
+@@ -1,91 +1,25 @@
+ <plant-information xmlns="http://com/ciscoas/services/vxlan">
+   <plant>
+-    <dc-name>Vancouver</dc-name>
++    <dc-name>SDNBOOTCAMP</dc-name>
+     <leaf-node>
+-      <name>BRLFND-0</name>
++      <name>SPINE21</name>
+     </leaf-node>
+     <leaf-node>
+-      <name>BRLFND-1</name>
++      <name>SPINE22</name>
+     </leaf-node>
+     <leaf-node>
+-      <name>LFND-0</name>
++      <name>LEAF11</name>
+     </leaf-node>
+     <leaf-node>
+-      <name>LFND-1</name>
++      <name>LEAF12</name>
+     </leaf-node>
+-    <leaf-node>
+-      <name>LFND-2</name>
+-    </leaf-node>
+-    <border-leaf-node>
+-      <name>BRLFND-0</name>
+-      <dci-layer3>
+-        <interface>
+-          <Port-channel>
+-            <id>11</id>
+-            <members>
+-              <Ethernet>
+-                <member-id>2/1</member-id>
+-              </Ethernet>
+-            </members>
+-          </Port-channel>
+-          <Port-channel>
+-            <id>12</id>
+-            <members>
+-              <Ethernet>
+-                <member-id>2/2</member-id>
+-              </Ethernet>
+-            </members>
+-          </Port-channel>
+-        </interface>
+-      </dci-layer3>
+-      <dci-layer2>
+-        <interface>
+-          <Port-channel>
+-            <id>13</id>
+-            <members>
+-              <Ethernet>
+-                <member-id>2/3</member-id>
+-              </Ethernet>
+-            </members>
+-          </Port-channel>
+-        </interface>
+-      </dci-layer2>
+-    </border-leaf-node>
+-    <border-leaf-node>
+-      <name>BRLFND-1</name>
+-      <dci-layer3>
+-        <interface>
+-          <Ethernet>
+-            <id>2/1</id>
+-          </Ethernet>
+-          <Ethernet>
+-            <id>2/2</id>
+-          </Ethernet>
+-        </interface>
+-      </dci-layer3>
+-      <dci-layer2>
+-        <interface>
+-          <Port-channel>
+-            <id>13</id>
+-            <members>
+-              <Ethernet>
+-                <member-id>2/3</member-id>
+-              </Ethernet>
+-            </members>
+-          </Port-channel>
+-        </interface>
+-      </dci-layer2>
+     </border-leaf-node>
+     <as-number xmlns="http://com/ciscoas/services/evpn">
+-      <leaf-nodes>65001</leaf-nodes>
++      <leaf-nodes>65002</leaf-nodes>
+       <dci-nodes>65002</dci-nodes>
+     </as-number>
+   </plant>
+   <global-config>
+-    <tenant-prefix-tag>123</tenant-prefix-tag>
+-    <tenant-route-maps>
+-      <bgp-redistribute-connected>redist-nso-test</bgp-redistribute-connected>
+-    </tenant-route-maps>
+     <nve-source-interface>loopback1</nve-source-interface>
+   </global-config>
+ </plant-information>
+diff -ruN clus-evpn/project-meta-data.xml clus-evpn-mod/project-meta-data.xml
+--- clus-evpn/project-meta-data.xml     2020-06-21 01:20:42.491601538 +0200
++++ clus-evpn-mod/project-meta-data.xml 2020-06-21 01:47:36.645314757 +0200
+@@ -5,13 +5,13 @@
+
+     <netsim>
+         <device>
+-            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
+-            <prefix>LFND-</prefix>
+-            <num-devices>3</num-devices>
++            <name>cisco-nx-cli-5.15</name>
++            <prefix>LEAF-</prefix>
++            <num-devices>2</num-devices>
+         </device>
+         <device>
+-            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
+-            <prefix>BRLFND-</prefix>
++            <name>cisco-nx-cli-5.15</name>
++            <prefix>SPINE-</prefix>
+             <num-devices>2</num-devices>
+         </device>
+     </netsim>
+diff -ruN clus-evpn/setup.mk clus-evpn-mod/setup.mk
+--- clus-evpn/setup.mk  2020-06-21 01:20:42.491601538 +0200
++++ clus-evpn-mod/setup.mk      2020-06-21 01:48:16.636127438 +0200
+@@ -2,8 +2,8 @@
+
+ PACKAGES = resource-manager vxlan evpn
+
+-NETWORK = create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 3 LFND-  \
+-          create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 2 BRLFND-
++NETWORK = create-network packages/cisco-nx-cli-5.15 3 LEAF-  \
++          create-network packages/cisco-nx-cli-5.15 2 SPINE-
+
+ .PHONY: netsim netsim-clean netsim-start netsim-stop
+ netsim:
