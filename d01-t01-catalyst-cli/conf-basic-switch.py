@@ -3,15 +3,23 @@ import re
 import sys
 from cli import configure, cli
 
+# this script should be executed from IOS-XE guestshell
+
+# it's quick & dirty implementation of parsing CSV files and
+# configuring interfaces on Cisco Catalyst switches
+
 if len(sys.argv) != 3:
     raise ValueError('Usage:\nconf-basic-switch.py input.csv device_name_to_match')
 
 input_csv_filename = sys.argv[1]
 input_device_name = sys.argv[2]
 
+# get local (guestshell) hostname from device
 tmp_name = cli("show running-config | i hostname")
 local_switch_name = tmp_name.split(" ")
 
+# main program loop that will parse line by line of CSV file
+# and send configuration commands depending on contents
 with open(input_csv_filename) as f:
     reader = csv.reader(f)
     for row in reader:
