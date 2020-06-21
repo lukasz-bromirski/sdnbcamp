@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "47b797e3-d163-4f7b-9c29-25cf7b958852",
-		"name": "SDN Bootcamp DNAC collection",
+		"name": "Cisco SDA Workshop DNAC collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -291,7 +291,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{HOST}}/api/v2/ippools",
+							"raw": "https://{{HOST}}/api/v2/ippool",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
@@ -299,7 +299,7 @@
 							"path": [
 								"api",
 								"v2",
-								"ippools"
+								"ippool"
 							]
 						}
 					},
