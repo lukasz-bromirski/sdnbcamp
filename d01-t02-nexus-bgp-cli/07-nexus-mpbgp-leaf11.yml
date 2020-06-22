@@ -1,31 +1,31 @@
 ---
 
 - name: "Nexus MP-BGP IPv6 configuration automation"
-  hosts: POD2_LEAF11
-# nexus
+  hosts: PODX_LEAF11
+
   gather_facts: no
 
   tasks:
     - name: Enable MP-BGP for IPv6
       nxos_bgp_af:
-        asn: "65002"
+        asn: "6500X"
         afi: ipv6
         safi: unicast
         state: present
 
     - name: Create neighbor for LEAF11
       nxos_bgp_neighbor:
-        asn: "65002"
-        neighbor: 2001:db8:6502::11:1
-        local_as: "65002"
-        remote_as: "65002"
+        asn: "6500X"
+        neighbor: 2001:db8:650X::11:1
+        local_as: "6500X"
+        remote_as: "6500X"
         description: "LEAF11"
         state: present
 
     - name: Configure IPv6 AF for LEAF11
       nxos_bgp_neighbor_af:
-        asn: "65002"
-        neighbor: 2001:db8:6502::11:1
+        asn: "6500X"
+        neighbor: 2001:db8:650X::11:1
         afi: ipv6
         safi: unicast
         route_reflector_client: true
@@ -33,19 +33,18 @@
 
     - name: Create neighbor for LEAF12
       nxos_bgp_neighbor:
-        asn: "65002"
-        neighbor: 2001:db8:6502::11:5
-        local_as: "65002"
-        remote_as: "65002"
+        asn: "6500X"
+        neighbor: 2001:db8:650X::11:5
+        local_as: "6500X"
+        remote_as: "6500X"
         description: "LEAF12"
         state: present
 
     - name: Configure IPv6 AF for LEAF12
       nxos_bgp_neighbor_af:
-        asn: "65002"
-        neighbor: 2001:db8:6502::11:5
+        asn: "6500X"
+        neighbor: 2001:db8:650X::11:5
         afi: ipv6
         safi: unicast
         route_reflector_client: true
         state: present
-
