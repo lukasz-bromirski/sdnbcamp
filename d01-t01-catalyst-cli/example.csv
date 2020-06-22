@@ -1,0 +1,3 @@
+PODX_SW8,loopback0,L,4.4.4.4,255.255.255.255
+PODX_SW8,Gigabitethernet1/0/4,S,10
+PODX_SW8,Gigabitethernet1/0/5,T
