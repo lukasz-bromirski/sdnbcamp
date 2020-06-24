@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47b797e3-d163-4f7b-9c29-25cf7b958852",
+		"_postman_id": "ae03d00a-4451-4394-8574-f58a4903b22e",
 		"name": "Cisco SDA Workshop DNAC collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -124,6 +124,68 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Discover SW3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"discoveryType\":\"Range\",\r\n  \"preferredMgmtIPMethod\":\"UseLoopBack\",\r\n  \"ipAddressList\":\"10.1{{POD}}.127.3-10.1{{POD}}.127.3\",\r\n  \"ipFilterList\":[],\r\n  \"protocolOrder\":\"ssh\",\r\n  \"cdpLevel\":\"16\",\r\n  \"lldpLevel\":\"16\",\r\n  \"reDiscovery\":true,\r\n  \"globalCredentialIdList\":[\r\n    \"{{CREDENTIALS_CLI_UUID}}\",\r\n    \"{{CREDENTIALS_SNMP_RO_UUID}}\",\r\n    \"{{CREDENTIALS_SNMP_RW_UUID}}\"\r\n  ],\r\n  \"timeout\":\"5\",\r\n  \"retry\":\"3\",\r\n  \"name\":\"SW3 discovery\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/discovery",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"discovery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Discover R1R2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"discoveryType\":\"Range\",\r\n  \"preferredMgmtIPMethod\":\"UseLoopBack\",\r\n  \"ipAddressList\":\"10.1{{POD}}.127.101-10.1{{POD}}.127.102\",\r\n  \"ipFilterList\":[],\r\n  \"protocolOrder\":\"ssh\",\r\n  \"cdpLevel\":\"16\",\r\n  \"lldpLevel\":\"16\",\r\n  \"reDiscovery\":true,\r\n  \"globalCredentialIdList\":[\r\n    \"{{CREDENTIALS_CLI_UUID}}\",\r\n    \"{{CREDENTIALS_SNMP_RO_UUID}}\",\r\n    \"{{CREDENTIALS_SNMP_RW_UUID}}\"\r\n  ],\r\n  \"timeout\":\"5\",\r\n  \"retry\":\"3\",\r\n  \"name\":\"R1R2 discovery\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/discovery",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"discovery"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -217,13 +279,12 @@
 							"raw": "{\r\n   \"Loopback\":\r\n     {\r\n       \"name\": \"2\"\r\n     }\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://{{HOST}}//dna/intent/api/v1/site/{{SITE_UUID}}",
+							"raw": "https://{{HOST}}/dna/intent/api/v1/site/{{SITE_UUID}}",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"dna",
 								"intent",
 								"api",
@@ -262,18 +323,135 @@
 							"raw": "{\r\n\t\"type\":\"area\",\r\n\t\"site\": {\r\n\t\t\"area\": {\r\n\t\t\t\"name\":\"site51\",\r\n\t\t\t\"parentName\":\"global\"\r\n\t\t}\r\n\t}\r\n}\r\n"
 						},
 						"url": {
-							"raw": "https://{{HOST}}//dna/intent/api/v1/site",
+							"raw": "https://{{HOST}}/dna/intent/api/v1/site",
 							"protocol": "https",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"",
 								"dna",
 								"intent",
 								"api",
 								"v1",
 								"site"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Credentials",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"cliCredential\": {\r\n      \"description\": \"POD{{POD}}_CLI_credentials\",\r\n      \"username\": \"cliadmin\",\r\n      \"password\": \"Admin{{POD}}sisko$\",\r\n      \"enablePassword\": \"Admin{{POD}}sisko$\"\r\n    },\r\n    \"snmpV2cRead\": {\r\n      \"description\": \"SNMP_RO\",\r\n      \"readCommunity\": \"cisco\"\r\n    },\r\n    \"snmpV2cWrite\": {\r\n      \"description\": \"SNMP_RW\",\r\n      \"writeCommunity\": \"Admin{{POD}}sisko$\"\r\n    }\r\n  }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/device-credential",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"device-credential"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credentials",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b308f14-f676-4c38-8e7a-74c0265313d7",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"CREDENTIALS_CLI_UUID\", jsonData.cli[0].id);\r",
+									"postman.setEnvironmentVariable(\"CREDENTIALS_SNMP_RO_UUID\", jsonData.snmp_v2_read[0].id);\r",
+									"postman.setEnvironmentVariable(\"CREDENTIALS_SNMP_RW_UUID\", jsonData.snmp_v2_write[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/device-credential",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"device-credential"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Network",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/network",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"network"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Network by site",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/network?siteId={{SITE_UUID}}",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"network"
+							],
+							"query": [
+								{
+									"key": "siteId",
+									"value": "{{SITE_UUID}}"
+								}
 							]
 						}
 					},
@@ -653,6 +831,43 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Reserve IP Pool for Borders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "__runsync",
+								"value": "True"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"groupName\":\"POD{{POD}}_BORDER_EXT\",\r\n\t\"type\":\"generic\",\r\n\t\"_comment\":\"Below enter UUID of site where subnet should be reserved\",\r\n\t\"siteId\":\"{{SITE_UUID}}\",\r\n\t\"ipPools\":[\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv4 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL_OVERLAY_UUID}}\",\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"ipPoolCidr\":\"10.1{{POD}}.128.0/24\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"_comment\":\"Below enter global IPv6 address pool UUID from which subnets should be reserved\",\r\n\t\t\t\"parentUuid\":\"{{POOL6_OVERLAY_UUID}}\",\r\n\t\t\t\"ipPoolOwner\":\"DNAC\",\r\n\t\t\t\"shared\":true,\r\n\t\t\t\"ipPoolCidr\":\"2001:db8:1{{POD}}:128::/64\",\r\n\t\t\t\"context\":[\r\n\t\t\t\t{\r\n\t\t\t\t\t\"owner\":\"DNAC\",\r\n\t\t\t\t\t\"contextKey\":\"slaacSupport\",\r\n\t\t\t\t\t\"contextValue\":true\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t]\r\n}\r\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/ippool/group",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"ippool",
+								"group"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -699,8 +914,1472 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Template",
+			"item": [
+				{
+					"name": "Get tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "44f0a418-c735-4b9d-80ce-c266e6dabc11",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var tag = jsonData.response.find(e => e.name == 'ISR')\r",
+									"console.log(tag.id)\r",
+									"postman.setEnvironmentVariable(\"TAG_ISR_UUID\", tag.id)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/tag",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d96978e-020d-4c79-b403-305a6b66b735",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var tag = jsonData.response.find(e => e.name == 'ISR')\r",
+									"console.log(tag.id)\r",
+									"postman.setEnvironmentVariable(\"TAG_ISR_UUID\", tag.id)\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/tag",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create tag",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":[\r\n        \"TAG\"\r\n    ],\r\n    \"name\":\"ISR\",\r\n    \"description\":\"\",\r\n    \"dynamicRules\":[]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/api/v2/tag",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get project by name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b129c47c-6937-407a-a6a8-404ad7510bac",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"TEMPLATE_PROJECT_UUID\", jsonData[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/template-programmer/project?name=Onboarding Configuration",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"template-programmer",
+								"project"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Onboarding Configuration"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"R1R2_template\",\r\n    \"composite\":false,\r\n    \"containingTemplates\":[],\r\n    \"description\":\"\",\r\n    \"deviceTypes\":[{\"productFamily\":\"Routers\",\"productSeries\":\"Cisco 4000 Series Integrated Services Routers\",\"productType\":\"Cisco 4321 Integrated Services Router\"}],\r\n    \"softwareType\":\"IOS-XE\",\r\n    \"softwareVersion\":null,\r\n    \"templateParams\":[\r\n        {\r\n            \"parameterName\":\"pod\",\r\n            \"notParam\":false,\r\n            \"dataType\":\"INTEGER\",\r\n            \"defaultValue\":null,\r\n            \"description\":null,\r\n            \"required\":true,\r\n            \"displayName\":\"Select POD number\",\r\n            \"instructionText\":null,\r\n            \"group\":null,\r\n            \"order\":1,\r\n            \"selection\":{\r\n                \"selectionType\":\"SINGLE_SELECT\",\r\n                \"defaultSelectedValues\":[\"POD1\"],\r\n                \"selectionValues\":{\r\n                    \"POD1\":\"1\",\r\n                    \"POD2\":\"2\",\r\n                    \"POD3\":\"3\",\r\n                    \"POD4\":\"4\",\r\n                    \"POD5\":\"5\"\r\n                },\r\n                \"id\":null\r\n            },\r\n            \"range\":[],\r\n            \"key\":null,\r\n            \"provider\":null,\r\n            \"binding\":\"\",\r\n            \"paramArray\":false,\r\n            \"id\":\"4a2cf4d3-7f8c-4e5e-8fd0-b8221abf031f\"\r\n        },\r\n        {\r\n            \"parameterName\":\"router\",\r\n            \"notParam\":false,\r\n            \"dataType\":\"STRING\",\r\n            \"defaultValue\":null,\r\n            \"description\":null,\r\n            \"required\":true,\r\n            \"displayName\":null,\r\n            \"instructionText\":null,\r\n            \"group\":null,\r\n            \"order\":2,\r\n            \"selection\":null,\r\n            \"range\":[],\r\n            \"key\":null,\r\n            \"provider\":null,\r\n            \"binding\":\"\",\r\n            \"paramArray\":false,\r\n            \"id\":\"64ffa0e0-feab-4fb4-871d-f9228a1fa43c\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/template-programmer/project/{{TEMPLATE_PROJECT_UUID}}/template",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"template-programmer",
+								"project",
+								"{{TEMPLATE_PROJECT_UUID}}",
+								"template"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Fabric",
+			"item": [
+				{
+					"name": "Create fabric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae69848c-fd90-4c5f-876a-42975a7ffd36",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/fabric",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"fabric"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Site to Fabric",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08578c3f-a6bb-47b3-846e-fe178558a419",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\",\r\n    \"siteNameHierarchy\": \"Global/Polska/Warszawa/BudynekCIA\"\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/fabric-site",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"fabric-site"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add VN to Fabric Site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "136a42ee-7a7f-40f7-89a8-516700a3fed1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\",\r\n    \"siteNameHierarchy\": \"Global/Polska/Warszawa/BudynekCIA\"\r\n  }\r\n]\r\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/fabric-site",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"fabric-site"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add R1 to Fabric as CP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26b80a98-a9f3-411e-ae04-5b6fbd840b22",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"deviceManagementIpAddress\": \"10.1{{POD}}.127.101\",\r\n    \"siteNameHierarchy\": \"Global/Polska/Warszawa/BudynekCIA\"\r\n  }\r\n]\r\n\r\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/control-plane-device",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"control-plane-device"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add R1 to Fabric as B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b0dd7d8a-4018-4f4b-b649-26285a43177c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"deviceManagementIpAddress\": \"10.1{{POD}}.127.101\",\r\n    \"siteNameHierarchy\": \"Global/Polska/Warszawa/BudynekCIA\",\r\n    \"externalDomainRoutingProtocolName\": \"BGP\",\r\n    \"externalConnectivityIpPoolName\": \"string\",\r\n    \"internalAutonomouSystemNumber\": \"6550{{POD}}\",\r\n    \"borderSessionType\": \"ANYWHERE\",\r\n    \"connectedToInternet\": true,\r\n    \"externalConnectivitySettings\": [\r\n      {\r\n        \"interfaceName\": \"GigabitEthernet0/0/0\",\r\n        \"externalAutonomouSystemNumber\": \"65001\",\r\n        \"l3Handoff\": [\r\n          {\r\n            \"virtualNetwork\": {\r\n              \"virtualNetworkName\": \"VN1\"\r\n            }\r\n          }\r\n        ]\r\n      }\r\n    ]  \r\n  }\r\n]\r\n\r\n",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"border-device"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get fabric info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b80b69f5-b58a-40d6-b390-58df395f6694",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/fabric",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"fabric"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CP node",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4bb5c60-339d-45bb-9326-b736707d325e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/control-plane-device?deviceIPAddress=10.15.127.101",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"control-plane-device"
+							],
+							"query": [
+								{
+									"key": "deviceIPAddress",
+									"value": "10.15.127.101"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get B R1 node",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa237604-549a-46c6-8ac8-9eb956d9b5fd",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device?deviceIPAddress=10.1{{POD}}.127.101",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"border-device"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "deviceIPAddress",
+									"value": "10.1{{POD}}.127.101"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get VNs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6f991900-b579-4d7b-a9af-122b338dede9",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device?deviceIPAddress=10.15.127.101",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"border-device"
+							],
+							"query": [
+								{
+									"key": "deviceIPAddress",
+									"value": "10.15.127.101"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get IP Pool for VN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12d360c9-1636-4930-894a-c99e2df9a576",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/virtualnetwork/ippool?ipPoolName=NET131&virtualNetworkName=VN1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"virtualnetwork",
+								"ippool"
+							],
+							"query": [
+								{
+									"key": "ipPoolName",
+									"value": "NET131"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "virtualNetworkName",
+									"value": "VN1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add NET131 Pool to VN1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8312c2d-a4fb-430f-a990-bfdf92f551ce",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"virtualNetworkName\" : \"VN1\",\r\n  \"ipPoolName\" : \"NET131\",\r\n  \"authenticationPolicyName\" : \"10_1{{POD}}_131_0-VN1\",\r\n  \"trafficType\" : \"DATA\",\r\n  \"scalableGroupName\" : \"\",\r\n  \"isL2FloodingEnabled\" : false,\r\n  \"isThisCriticalPool\" : false\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/virtualnetwork/ippool?ipPoolName=NET131&virtualNetworkName=VN1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"virtualnetwork",
+								"ippool"
+							],
+							"query": [
+								{
+									"key": "ipPoolName",
+									"value": "NET131"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "virtualNetworkName",
+									"value": "VN1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add NET132 Pool to VN1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13db098d-2fdd-466e-b039-059adf7d5fba",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"virtualNetworkName\" : \"VN1\",\r\n  \"ipPoolName\" : \"NET132\",\r\n  \"authenticationPolicyName\" : \"10_1{{POD}}_132_0-VN1\",\r\n  \"trafficType\" : \"DATA\",\r\n  \"scalableGroupName\" : \"\",\r\n  \"isL2FloodingEnabled\" : false,\r\n  \"isThisCriticalPool\" : false\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/virtualnetwork/ippool?ipPoolName=NET131&virtualNetworkName=VN1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"virtualnetwork",
+								"ippool"
+							],
+							"query": [
+								{
+									"key": "ipPoolName",
+									"value": "NET131"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "virtualNetworkName",
+									"value": "VN1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add NET133 Pool to VN2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "67cab362-c8cc-4c71-87ec-04438cf0362c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"virtualNetworkName\" : \"VN2\",\r\n  \"ipPoolName\" : \"NET133\",\r\n  \"authenticationPolicyName\" : \"10_1{{POD}}_133_0-VN2\",\r\n  \"trafficType\" : \"DATA\",\r\n  \"scalableGroupName\" : \"\",\r\n  \"isL2FloodingEnabled\" : false,\r\n  \"isThisCriticalPool\" : false\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/virtualnetwork/ippool?ipPoolName=NET131&virtualNetworkName=VN1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"virtualnetwork",
+								"ippool"
+							],
+							"query": [
+								{
+									"key": "ipPoolName",
+									"value": "NET131"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "virtualNetworkName",
+									"value": "VN1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add NET140 Pool to VN1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4cccd015-f890-4575-bbbc-247eec0ed955",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"virtualNetworkName\" : \"VN1\",\r\n  \"ipPoolName\" : \"NET140\",\r\n  \"authenticationPolicyName\" : \"10_1{{POD}}_140_0-VN1\",\r\n  \"trafficType\" : \"VOICE\",\r\n  \"scalableGroupName\" : \"\",\r\n  \"isL2FloodingEnabled\" : false,\r\n  \"isThisCriticalPool\" : false\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/virtualnetwork/ippool?ipPoolName=NET131&virtualNetworkName=VN1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"virtualnetwork",
+								"ippool"
+							],
+							"query": [
+								{
+									"key": "ipPoolName",
+									"value": "NET131"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "virtualNetworkName",
+									"value": "VN1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SW1 Port 1/0/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4901b9f1-fc59-41f2-8735-b74d749f063e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/hostonboarding/user-device?interfaceName=GigabitEthernet1/0/1&device-ip=10.15.127.1",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"hostonboarding",
+								"user-device"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "interfaceName",
+									"value": "GigabitEthernet1/0/1"
+								},
+								{
+									"key": "device-ip",
+									"value": "10.15.127.1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign NET131 to SW1 Port 1/0/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f947c4ac-105d-48c4-bd4d-a4c1ef696568",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"siteNameHierarchy\" : \"Global/Polska/Warszawa/Hector\",\r\n  \"deviceManagementIpAddress\" : \"10.1{{POD}}.127.1\",\r\n  \"interfaceName\" : \"GigabitEthernet1/0/1\",\r\n  \"dataIpAddressPoolName\" : \"NET131\",\r\n  \"voiceIpAddressPoolName\" : \"NET140\",\r\n  \"authenticateTemplateName\" : \"No Authentication\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/hostonboarding/user-device",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"hostonboarding",
+								"user-device"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Auth Template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f684b9e1-a38b-4ff4-bd05-151b13fb09b1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"siteNameHierarchy\" : \"Global/Polska/Warszawa/Hector\",\r\n  \"authenticateTemplateName\": \"NO AUTHENTICATION\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/authentication-profile",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"authentication-profile"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get fabric site info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fcc2643a-7e41-463d-bbca-5b0aaaaee0d8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/fabric-site?siteNameHierarchy=Global/Polska/Warszawa/Budynek%20CIA",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"fabric-site"
+							],
+							"query": [
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "siteNameHierarchy",
+									"value": "Global/Polska/Warszawa/Budynek%20CIA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get B R2 node",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "40c66bcf-5c8b-42c4-8efe-14e0f07f7ec8",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"fabricName\": \"POD{{POD}}_Fabric\"\r\n  }\r\n]",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "https://{{HOST}}/dna/intent/api/v1/business/sda/border-device?deviceIPAddress=10.15.127.101",
+							"protocol": "https",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"dna",
+								"intent",
+								"api",
+								"v1",
+								"business",
+								"sda",
+								"border-device"
+							],
+							"query": [
+								{
+									"key": "deviceIPAddress",
+									"value": "10.15.127.101"
+								},
+								{
+									"key": "Content-",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{PASSWORD}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{USERNAME}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
