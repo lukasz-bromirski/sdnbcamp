@@ -75,6 +75,6 @@
    - name: Configure VLAN mapping
      nxos_config:
       lines:
-       - vn-segment 501240
-      parents: vlan 1240
+       - vn-segment 501X40
+      parents: vlan 1X40
       match: none

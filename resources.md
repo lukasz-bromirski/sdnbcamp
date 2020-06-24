@@ -34,9 +34,14 @@ https://github.com/CiscoDevNet/tetration-ansible-playbooks
 
 # NSO
 
+Cisco DevNet NSO site & sandbox access:
+https://developer.cisco.com/site/nso/
+
 Cisco official NSO master repository at github:
 https://github.com/NSO-developer
 
 Cisco NSO 5 day training:
 https://github.com/NSO-developer/nso-5-day-training
 
+Cisco NSO as Docker:
+https://github.com/NSO-developer/nso-docker

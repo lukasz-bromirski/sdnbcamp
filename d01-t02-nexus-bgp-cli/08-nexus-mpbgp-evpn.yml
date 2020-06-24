@@ -14,11 +14,11 @@
        lines:
         - address-family l2vpn evpn
         - retain route-target all
-       parents: router bgp 65002
+       parents: router bgp 6500X
        match: exact
 
     - name: Configure L2EVPN template for SPINEs
-      when: inventory_hostname in ( 'POD2_SPINE21', 'POD2_SPINE22' )
+      when: inventory_hostname in ( 'PODX_SPINE21', 'PODX_SPINE22' )
       nxos_config:
        lines:
         - template peer VTEP-PEERS
@@ -26,16 +26,16 @@
         - send-community
         - send-community extended
         - route-reflector-client
-       parents: router bgp 65002
+       parents: router bgp 6500X
        match: exact
 
     - name: Configure L2EVPN template for LEAFs
-      when: inventory_hostname in ( 'POD2_LEAF11', 'POD2_LEAF12' )
+      when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
       nxos_config:
        lines:
         - template peer BGP-RR
         - address-family l2vpn evpn
         - send-community
         - send-community extended
-       parents: router bgp 65002
+       parents: router bgp 6500X
        match: exact

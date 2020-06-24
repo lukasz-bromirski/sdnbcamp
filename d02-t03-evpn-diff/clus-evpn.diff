@@ -1,6 +1,128 @@
-diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/netsim_devices_init.xml
---- clus-evpn/init_data/netsim_devices_init.xml	2020-06-21 01:20:42.000000000 +0200
-+++ clus-evpn-mod/init_data/netsim_devices_init.xml	2020-06-21 10:37:27.744250901 +0200
+diff -ruN clus-evpn/init_data/netsim_devices_day0.xml clus-evpn.mod/init_data/netsim_devices_day0.xml
+--- clus-evpn/init_data/netsim_devices_day0.xml	2020-06-21 23:30:36.721587275 +0200
++++ clus-evpn.mod/init_data/netsim_devices_day0.xml	1970-01-01 01:00:00.000000000 +0100
+@@ -1,117 +0,0 @@
+-<devices xmlns="http://tail-f.com/ns/ncs">
+-  <device>
+-    <name>BRLFND-0</name>
+-    <config>
+-      <feature xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp/>
+-        <interface-vlan/>
+-      </feature>
+-      <vlan xmlns="http://tail-f.com/ned/cisco-nx">
+-        <vlan-list>
+-          <id>1</id>
+-        </vlan-list>
+-      </vlan>
+-      <router xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp>
+-          <id>65001</id>
+-          <address-family>
+-            <proto>ipv4</proto>
+-            <type>evpn</type>
+-          </address-family>
+-        </bgp>
+-      </router>
+-    </config>
+-  </device>
+-  <device>
+-    <name>BRLFND-1</name>
+-    <config>
+-      <feature xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp/>
+-        <interface-vlan/>
+-      </feature>
+-      <vlan xmlns="http://tail-f.com/ned/cisco-nx">
+-        <vlan-list>
+-          <id>1</id>
+-        </vlan-list>
+-      </vlan>
+-      <router xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp>
+-          <id>65001</id>
+-          <address-family>
+-            <proto>ipv4</proto>
+-            <type>evpn</type>
+-          </address-family>
+-        </bgp>
+-      </router>
+-    </config>
+-  </device>
+-  <device>
+-    <name>LFND-0</name>
+-    <config>
+-      <feature xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp/>
+-        <interface-vlan/>
+-      </feature>
+-      <vlan xmlns="http://tail-f.com/ned/cisco-nx">
+-        <vlan-list>
+-          <id>1</id>
+-        </vlan-list>
+-      </vlan>
+-      <router xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp>
+-          <id>65001</id>
+-          <address-family>
+-            <proto>ipv4</proto>
+-            <type>evpn</type>
+-          </address-family>
+-        </bgp>
+-      </router>
+-    </config>
+-  </device>
+-  <device>
+-    <name>LFND-1</name>
+-    <config>
+-      <feature xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp/>
+-        <interface-vlan/>
+-      </feature>
+-      <vlan xmlns="http://tail-f.com/ned/cisco-nx">
+-        <vlan-list>
+-          <id>1</id>
+-        </vlan-list>
+-      </vlan>
+-      <router xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp>
+-          <id>65001</id>
+-          <address-family>
+-            <proto>ipv4</proto>
+-            <type>evpn</type>
+-          </address-family>
+-        </bgp>
+-      </router>
+-    </config>
+-  </device>
+-  <device>
+-    <name>LFND-2</name>
+-    <config>
+-      <feature xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp/>
+-        <interface-vlan/>
+-      </feature>
+-      <vlan xmlns="http://tail-f.com/ned/cisco-nx">
+-        <vlan-list>
+-          <id>1</id>
+-        </vlan-list>
+-      </vlan>
+-      <router xmlns="http://tail-f.com/ned/cisco-nx">
+-        <bgp>
+-          <id>65001</id>
+-          <address-family>
+-            <proto>ipv4</proto>
+-            <type>evpn</type>
+-          </address-family>
+-        </bgp>
+-      </router>
+-    </config>
+-  </device>
+-</devices>
+\ No newline at end of file
+diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/netsim_devices_init.xml
+--- clus-evpn/init_data/netsim_devices_init.xml	2020-06-21 23:30:36.721587275 +0200
++++ clus-evpn.mod/init_data/netsim_devices_init.xml	2020-06-21 23:37:56.071405940 +0200
 @@ -1,101 +1,53 @@
  <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -18,8 +140,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
       <state>
         <admin-state>unlocked</admin-state>
       </state>
--     <authgroup>default</authgroup>
-+     <authgroup>SDNBOOT</authgroup>
+      <authgroup>default</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -42,8 +163,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
       <state>
         <admin-state>unlocked</admin-state>
       </state>
--     <authgroup>default</authgroup>
-+     <authgroup>SDNBOOT</authgroup>
+      <authgroup>default</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -66,8 +186,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
       <state>
         <admin-state>unlocked</admin-state>
       </state>
--     <authgroup>default</authgroup>
-+     <authgroup>SDNBOOT</authgroup>
+      <authgroup>default</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -90,8 +209,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
       <state>
         <admin-state>unlocked</admin-state>
       </state>
--     <authgroup>default</authgroup>
-+     <authgroup>SDNBOOT</authgroup>
+      <authgroup>default</authgroup>
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
@@ -119,29 +237,29 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn-mod/init_data/ne
         </cli>
       </device-type>
     </device>
-diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn-mod/init_data/plant_information_init.xml
---- clus-evpn/init_data/plant_information_init.xml	2020-06-21 01:20:42.000000000 +0200
-+++ clus-evpn-mod/init_data/plant_information_init.xml	2020-06-21 01:46:30.857977846 +0200
-@@ -1,91 +1,25 @@
+diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.mod/init_data/plant_information_init.xml
+--- clus-evpn/init_data/plant_information_init.xml	2020-06-21 23:30:36.721587275 +0200
++++ clus-evpn.mod/init_data/plant_information_init.xml	2020-06-21 23:38:06.282610896 +0200
+@@ -1,83 +1,20 @@
  <plant-information xmlns="http://com/ciscoas/services/vxlan">
    <plant>
 -    <dc-name>Vancouver</dc-name>
-+    <dc-name>SDNBOOTCAMP</dc-name>
++    <dc-name>SDNBCMP</dc-name>
      <leaf-node>
 -      <name>BRLFND-0</name>
-+      <name>SPINE21</name>
++      <name>POD2_SPINE21</name>
      </leaf-node>
      <leaf-node>
 -      <name>BRLFND-1</name>
-+      <name>SPINE22</name>
++      <name>POD2_SPINE22</name>
      </leaf-node>
      <leaf-node>
 -      <name>LFND-0</name>
-+      <name>LEAF11</name>
++      <name>POD2_LEAF11</name>
      </leaf-node>
      <leaf-node>
 -      <name>LFND-1</name>
-+      <name>LEAF12</name>
++      <name>POD2_LEAF12</name>
      </leaf-node>
 -    <leaf-node>
 -      <name>LFND-2</name>
@@ -205,34 +323,39 @@ diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn-mod/init_data
 -          </Port-channel>
 -        </interface>
 -      </dci-layer2>
-     </border-leaf-node>
+-    </border-leaf-node>
      <as-number xmlns="http://com/ciscoas/services/evpn">
 -      <leaf-nodes>65001</leaf-nodes>
 +      <leaf-nodes>65002</leaf-nodes>
        <dci-nodes>65002</dci-nodes>
      </as-number>
    </plant>
-   <global-config>
--    <tenant-prefix-tag>123</tenant-prefix-tag>
--    <tenant-route-maps>
--      <bgp-redistribute-connected>redist-nso-test</bgp-redistribute-connected>
--    </tenant-route-maps>
-     <nve-source-interface>loopback1</nve-source-interface>
+@@ -86,6 +23,6 @@
+     <tenant-route-maps>
+       <bgp-redistribute-connected>redist-nso-test</bgp-redistribute-connected>
+     </tenant-route-maps>
+-    <nve-source-interface>loopback1</nve-source-interface>
++    <nve-source-interface>loopback0</nve-source-interface>
    </global-config>
  </plant-information>
-diff -ruN clus-evpn/project-meta-data.xml clus-evpn-mod/project-meta-data.xml
---- clus-evpn/project-meta-data.xml	2020-06-21 01:20:42.000000000 +0200
-+++ clus-evpn-mod/project-meta-data.xml	2020-06-21 01:47:36.645314757 +0200
-@@ -5,13 +5,13 @@
+diff -ruN clus-evpn/project-meta-data.xml clus-evpn.mod/project-meta-data.xml
+--- clus-evpn/project-meta-data.xml	2020-06-21 23:30:36.726587375 +0200
++++ clus-evpn.mod/project-meta-data.xml	2020-06-21 23:41:42.321947253 +0200
+@@ -1,17 +1,17 @@
+ <project-meta-data xmlns="http://tail-f.com/ns/ncs-project">
+     <name>clus-evpn</name>
+-    <project-version>1.6</project-version>
+-    <description>CLUS EVPN Project</description>
++    <project-version>1.7</project-version>
++    <description>Modified CLUS EVPN Project</description>
  
      <netsim>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
 -            <prefix>LFND-</prefix>
--            <num-devices>3</num-devices>
 +            <name>cisco-nx-cli-5.15</name>
 +            <prefix>LEAF-</prefix>
-+            <num-devices>2</num-devices>
+             <num-devices>3</num-devices>
          </device>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
@@ -242,17 +365,3 @@ diff -ruN clus-evpn/project-meta-data.xml clus-evpn-mod/project-meta-data.xml
              <num-devices>2</num-devices>
          </device>
      </netsim>
-diff -ruN clus-evpn/setup.mk clus-evpn-mod/setup.mk
---- clus-evpn/setup.mk	2020-06-21 01:20:42.000000000 +0200
-+++ clus-evpn-mod/setup.mk	2020-06-21 01:48:16.636127438 +0200
-@@ -2,8 +2,8 @@
- 
- PACKAGES = resource-manager vxlan evpn
- 
--NETWORK = create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 3 LFND-  \
--          create-network packages/ncs-4.7.1-cisco-nx-5.7.3.tar.gz 2 BRLFND- 
-+NETWORK = create-network packages/cisco-nx-cli-5.15 3 LEAF-  \
-+          create-network packages/cisco-nx-cli-5.15 2 SPINE-
- 
- .PHONY: netsim netsim-clean netsim-start netsim-stop
- netsim:
