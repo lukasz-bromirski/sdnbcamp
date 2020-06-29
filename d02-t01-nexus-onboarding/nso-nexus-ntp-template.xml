@@ -1,9 +1,11 @@
 <config xmlns="http://tail-f.com/ns/config/1.0">
   <devices xmlns="http://tail-f.com/ns/ncs">
     <template>
-      <name>standard_ntp</name>
-      <config>
-        <ntp xmlns="http://tail-f.com/ned/cisco-nx" tags="replace">
+     <name>SDN-NTP-standard</name>
+      <ned-id>
+       <id xmlns:cisco-nx-cli-5.15="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">cisco-nx-cli-5.15:cisco-nx-cli-5.15</id>
+        <config>
+         <ntp xmlns="http://tail-f.com/ned/cisco-nx" tags="replace"> 
           <server>
             <id>10.1X.126.1</id>
           </server>
@@ -11,8 +13,9 @@
             <id>10.1X.126.2</id>
           </server>
           <source-interface>Loopback0</source-interface>
-        </ntp>
-      </config>
+         </ntp>
+        </config>
+      </ned-id>
     </template>
   </devices>
 </config>
