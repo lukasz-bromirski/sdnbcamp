@@ -66,7 +66,7 @@ print ("vlan " + vlan2)
 print (" name POD" + pod + "_R" + core + "_VN2")
 print
 print ("interface Gi1/" + pod)
-print (" switchport trunk allowed vlan " + vlan1 + " " + vlan2)
+print (" switchport trunk allowed vlan " + vlan1 + "," + vlan2)
 print 
 print ("interface Vlan " + vlan1)
 print (" ip address " + my1 + " 255.255.255.252")
