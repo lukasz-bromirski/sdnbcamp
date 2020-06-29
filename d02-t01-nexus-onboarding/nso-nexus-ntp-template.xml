@@ -1,0 +1,18 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <devices xmlns="http://tail-f.com/ns/ncs">
+    <template>
+      <name>standard_ntp</name>
+      <config>
+        <ntp xmlns="http://tail-f.com/ned/cisco-nx" tags="replace">
+          <server>
+            <id>10.1X.126.1</id>
+          </server>
+          <server>
+            <id>10.1X.126.2</id>
+          </server>
+          <source-interface>Loopback0</source-interface>
+        </ntp>
+      </config>
+    </template>
+  </devices>
+</config>
