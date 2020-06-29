@@ -3,7 +3,6 @@
 !
 
 router bgp 6500X
- router-id 100.100.1.1
  address-family ipv4 unicast
  address-family ipv6 unicast
  template peer VTEP-PEERS

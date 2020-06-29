@@ -28,6 +28,7 @@ with open(input_csv_filename) as f:
          # switchport
          print ("Interface name: " + row[1] + " access VLAN: " + row[3])
          print(['- interface {}'.format(row[1]), 'switchport', 'switchport mode access', 'switchport access vlan {}'.format(row[3]), 'no shutdown'])
+         configure(['vlan {}'.format(row[3]), 'name {}'.format(row[3])])
          configure(['interface {}'.format(row[1]), 'switchport', 'switchport mode access', 'switchport access vlan {} '.format(row[3]), 'no shutdown'])
       elif ( row[2] == 'L' ):
          # loopback

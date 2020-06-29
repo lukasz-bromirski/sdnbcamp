@@ -14,7 +14,7 @@ resource "esxi_guest" "leaf_switch" {
     PODX_LEAF12 = "92"
   }
 
-  disk_store = "ESX5_1.3T_SSD"
+  disk_store = "ESX5_1T_RAID1_SSD"
   ovf_source  = format("/root/download/nexus/nx934_port_2%s1%s.ovf",substr(each.value,0,1), substr(each.value,1,1))
   guest_name = format("POD%s_LEAF1%s", substr(each.value,0,1),substr(each.value,1,1))
 
@@ -63,7 +63,7 @@ resource "esxi_guest" "spine_switch" {
     PODX_SPINE22 = "92"
   }
 
-  disk_store = "ESX5_1.3T_SSD"
+  disk_store = "ESX5_1T_RAID1_SSD"
   ovf_source  = format("/root/download/nexus/nx934_port_2%s2%s.ovf",substr(each.value,0,1), substr(each.value,1,1))
   guest_name = format("POD%s_SPINE2%s", substr(each.value,0,1),substr(each.value,1,1))
 

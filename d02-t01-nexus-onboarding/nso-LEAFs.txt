@@ -1,16 +1,16 @@
-devices device POD2_LEAF11 address 10.12.1.131 authgroup SDNBOOT
+devices device PODX_LEAF11 address 10.1X.1.131 authgroup SDNBOOT
 device-type cli ned-id cisco-nx-cli-5.15
 state admin-state unlocked
 exit
-devices device POD2_LEAF12 address 10.12.1.132 authgroup SDNBOOT
+devices device PODX_LEAF12 address 10.1X.1.132 authgroup SDNBOOT
 device-type cli ned-id cisco-nx-cli-5.15
 state admin-state unlocked
 exit
-devices device POD2_SPINE21 address 10.12.1.133 authgroup SDNBOOT
+devices device PODX_SPINE21 address 10.1X.1.133 authgroup SDNBOOT
 state admin-state unlocked
 device-type cli ned-id cisco-nx-cli-5.15
 exit
-devices device POD2_SPINE22 address 10.12.1.134 authgroup SDNBOOT
+devices device PODX_SPINE22 address 10.1X.1.134 authgroup SDNBOOT
 device-type cli ned-id cisco-nx-cli-5.15
 state admin-state unlocked
 commit

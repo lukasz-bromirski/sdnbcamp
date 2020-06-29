@@ -13,7 +13,7 @@ If you're looking for additional resources, take a look [here](https://github.co
 
    * SDN - fifteen years in the making - overview of history and future of SDN networks
    * Classical Ethernet recap
-      * Configuring VLANs and routing on switches - Cisco Catalyst 9300 and Cisco ISR 4200 routers
+      * Configuring VLANs and routing - Cisco Catalyst 9300 and Cisco ISR 4200 routers
       * Configuring VLANs and routing on switches - Cisco Nexus 9000
    * Leaf & Spine DCs
       * Configuring DC flood & learn VXLAN
@@ -47,11 +47,20 @@ If you're looking for additional resources, take a look [here](https://github.co
 ### Day 3:
 
    * Cisco SDA
+      * Architecture
+      * Basic setup
+      * Configuration, management, orchestration
    
 ### Day 4:
 
    * Cisco ACI
+      * Architecture
+      * Basic setup
+      * Configuration, management, orchestration
    
 ### Day 5:
 
    * Cisco SD-WAN
+      * Architecture
+      * Basic setup
+      * Configuration, management, orchestration

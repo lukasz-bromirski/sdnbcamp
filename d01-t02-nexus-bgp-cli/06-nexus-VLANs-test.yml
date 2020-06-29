@@ -1,4 +1,5 @@
 ---
+
 - name: VLAN configuration and validation
   hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
   connection: local
