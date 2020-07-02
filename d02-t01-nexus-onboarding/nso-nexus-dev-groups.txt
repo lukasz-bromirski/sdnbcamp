@@ -1,0 +1,9 @@
+devices device-group core
+ device-name [ PODX_SPINE21 PODX_SPINE22 ]
+!
+devices device-group access
+ device-name [ PODX_LEAF11 PODX_LEAF12 ]
+!
+devices device-group all
+ device-group [ core access ]
+!

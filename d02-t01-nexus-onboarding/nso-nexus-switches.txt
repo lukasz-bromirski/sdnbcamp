@@ -13,4 +13,4 @@ exit
 devices device PODX_SPINE22 address 10.1X.1.134 authgroup SDNBOOT
 device-type cli ned-id cisco-nx-cli-5.15
 state admin-state unlocked
-commit
+exit
