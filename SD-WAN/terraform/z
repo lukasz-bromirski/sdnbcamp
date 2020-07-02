@@ -1,0 +1,2033 @@
+2020/06/19 22:39:27 [INFO] Terraform version: 0.12.24  
+2020/06/19 22:39:27 [INFO] Go runtime version: go1.12.13
+2020/06/19 22:39:27 [INFO] CLI args: []string{"/root/download/terraform", "plan"}
+2020/06/19 22:39:27 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2020/06/19 22:39:27 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2020/06/19 22:39:27 [INFO] CLI command args: []string{"plan"}
+2020/06/19 22:39:27 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2020/06/19 22:39:27 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2020/06/19 22:39:27 [DEBUG] New state was assigned lineage "4cab17d4-344f-bf76-cff6-f621318d069c"
+2020/06/19 22:39:27 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2020/06/19 22:39:27 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2020/06/19 22:39:27 [DEBUG] checking for provider in "."
+2020/06/19 22:39:27 [DEBUG] checking for provider in "/root/download"
+2020/06/19 22:39:27 [DEBUG] found provider "terraform-provider-esxi_v1.5.2"
+2020/06/19 22:39:27 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2020/06/19 22:39:27 [DEBUG] found provider "terraform-provider-vsphere_v1.19.0_x4"
+2020/06/19 22:39:27 [DEBUG] found valid plugin: "esxi", "1.5.2", "/root/download/terraform-provider-esxi_v1.5.2"
+2020/06/19 22:39:27 [DEBUG] found valid plugin: "vsphere", "1.19.0", "/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4"
+2020/06/19 22:39:27 [DEBUG] checking for provisioner in "."
+2020/06/19 22:39:27 [DEBUG] checking for provisioner in "/root/download"
+2020/06/19 22:39:27 [DEBUG] checking for provisioner in ".terraform/plugins/linux_amd64"
+2020/06/19 22:39:27 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2020/06/19 22:39:27 [INFO] backend/local: starting Plan operation
+2020/06/19 22:39:27 [TRACE] backend/local: requesting state manager for workspace "default"
+2020/06/19 22:39:27 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2020/06/19 22:39:27 [TRACE] backend/local: requesting state lock for workspace "default"
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: preparing to manage state snapshots at terraform.tfstate
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: existing snapshot has lineage "94f4eeca-164a-f2ab-9d88-b5296d03acf0" serial 44
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: locking terraform.tfstate using fcntl flock
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: writing lock metadata to .terraform.tfstate.lock.info
+2020/06/19 22:39:27 [TRACE] backend/local: reading remote state for workspace "default"
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2020/06/19 22:39:27 [TRACE] statemgr.Filesystem: read snapshot with lineage "94f4eeca-164a-f2ab-9d88-b5296d03acf0" serial 44
+2020/06/19 22:39:27 [TRACE] backend/local: retrieving local state snapshot for workspace "default"
+2020/06/19 22:39:27 [TRACE] backend/local: building context for current working directory
+2020/06/19 22:39:27 [TRACE] terraform.NewContext: starting
+2020/06/19 22:39:27 [TRACE] terraform.NewContext: resolving provider version selections
+2020/06/19 22:39:27 [TRACE] terraform.NewContext: loading provider schemas
+2020/06/19 22:39:27 [TRACE] LoadSchemas: retrieving schema for provider type "vsphere"
+2020-06-19T22:39:27.746+0200 [INFO]  plugin: configuring client automatic mTLS
+2020-06-19T22:39:27.798+0200 [DEBUG] plugin: starting plugin: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 args=[/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4]
+2020-06-19T22:39:27.799+0200 [DEBUG] plugin: plugin started: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11313
+2020-06-19T22:39:27.799+0200 [DEBUG] plugin: waiting for RPC address: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4
+2020-06-19T22:39:27.815+0200 [INFO]  plugin.terraform-provider-vsphere_v1.19.0_x4: configuring server automatic mTLS: timestamp=2020-06-19T22:39:27.815+0200
+2020-06-19T22:39:27.859+0200 [DEBUG] plugin: using plugin: version=5
+2020-06-19T22:39:27.859+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: plugin address: address=/tmp/plugin122905703 network=unix timestamp=2020-06-19T22:39:27.859+0200
+2020/06/19 22:39:27 [TRACE] GRPCProvider: GetSchema
+2020/06/19 22:39:27 [TRACE] GRPCProvider: Close
+2020-06-19T22:39:27.961+0200 [DEBUG] plugin: plugin process exited: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11313
+2020-06-19T22:39:27.961+0200 [DEBUG] plugin: plugin exited
+2020/06/19 22:39:27 [TRACE] terraform.NewContext: complete
+2020/06/19 22:39:27 [TRACE] backend/local: finished building terraform.Context
+2020/06/19 22:39:27 [TRACE] backend/local: requesting interactive input, if necessary
+2020/06/19 22:39:27 [TRACE] Context.Input: Prompting for provider arguments
+2020/06/19 22:39:27 [TRACE] Context.Input: Provider provider.vsphere declared at providers.tf:8,1-19
+2020/06/19 22:39:27 [TRACE] Context.Input: Input for provider.vsphere: map[string]cty.Value{}
+2020/06/19 22:39:27 [TRACE] backend/local: running validation operation
+2020/06/19 22:39:27 [INFO] terraform: building graph: GraphTypeValidate
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/06/19 22:39:27 [TRACE] ConfigTransformer: Starting for path: 
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/06/19 22:39:27 [TRACE] StateTransformer: state is empty, so nothing to do
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_resource_pool.pool" (*terraform.NodeValidatableResource) config from hcl.Range{Filename:"controllers.tf", Start:hcl.Pos{Line:3, Column:1, Byte:2}, End:hcl.Pos{Line:3, Column:36, Byte:37}}
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "vsphere_virtual_machine.vmFromLocalOvf" (*terraform.NodeValidatableResource) config from controllers.tf:15,1-52
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "vsphere_host_port_group.pod_portgroups" (*terraform.NodeValidatableResource) config from portgroups.tf:3,1-52
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datacenter.dc" (*terraform.NodeValidatableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:18, Column:1, Byte:346}, End:hcl.Pos{Line:18, Column:31, Byte:376}}
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datastore.datastore" (*terraform.NodeValidatableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:22, Column:1, Byte:397}, End:hcl.Pos{Line:22, Column:37, Byte:433}}
+2020/06/19 22:39:27 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_host.host" (*terraform.NodeValidatableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:27, Column:1, Byte:528}, End:hcl.Pos{Line:27, Column:27, Byte:554}}
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.RootVariableTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/06/19 22:39:27 [TRACE] ProviderConfigTransformer: attaching to "provider.vsphere" provider configuration from providers.tf:8,1-19
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: vsphere_host_port_group.pod_portgroups is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: data.vsphere_resource_pool.pool is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: vsphere_virtual_machine.vmFromLocalOvf is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: data.vsphere_datacenter.dc is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: data.vsphere_datastore.datastore is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: data.vsphere_host.host is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "vsphere_host_port_group.pod_portgroups" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_resource_pool.pool
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "data.vsphere_resource_pool.pool" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "vsphere_virtual_machine.vmFromLocalOvf" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datacenter.dc
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "data.vsphere_datacenter.dc" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datastore.datastore
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "data.vsphere_datastore.datastore" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_host.host
+2020/06/19 22:39:27 [DEBUG] ProviderTransformer: "data.vsphere_host.host" (*terraform.NodeValidatableResource) needs provider.vsphere
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  ------
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/06/19 22:39:27 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datacenter.dc
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datastore.datastore
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_host.host
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_resource_pool.pool
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider.vsphere
+2020/06/19 22:39:27 [TRACE] AttachSchemaTransformer: attaching resource schema to vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "provider.vsphere" references: [var.vsphere_hostname var.vsphere_password var.vsphere_username]
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups" references: [data.vsphere_host.host]
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "data.vsphere_resource_pool.pool" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "var.vsphere_hostname" references: []
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "data.vsphere_host.host" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "var.vsphere_username" references: []
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "var.vsphere_password" references: []
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "vsphere_virtual_machine.vmFromLocalOvf" references: [data.vsphere_resource_pool.pool data.vsphere_host.host data.vsphere_datacenter.dc data.vsphere_datastore.datastore vsphere_host_port_group.pod_portgroups]
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "data.vsphere_datacenter.dc" references: []
+2020/06/19 22:39:27 [DEBUG] ReferenceTransformer: "data.vsphere_datastore.datastore" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.RootTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  root - terraform.graphNodeRoot
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider.vsphere (close) - *terraform.graphNodeCloseProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/06/19 22:39:27 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  data.vsphere_host.host - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    data.vsphere_datacenter.dc - *terraform.NodeValidatableResource
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+  root - terraform.graphNodeRoot
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider.vsphere (close) - *terraform.graphNodeCloseProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+    data.vsphere_host.host - *terraform.NodeValidatableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodeValidatableResource
+    data.vsphere_datastore.datastore - *terraform.NodeValidatableResource
+    data.vsphere_resource_pool.pool - *terraform.NodeValidatableResource
+    vsphere_host_port_group.pod_portgroups - *terraform.NodeValidatableResource
+  ------
+2020/06/19 22:39:27 [DEBUG] Starting graph walk: walkValidate
+2020/06/19 22:39:27 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "var.vsphere_hostname"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "root"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "data.vsphere_datacenter.dc"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "var.vsphere_password"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "provider.vsphere"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "data.vsphere_datastore.datastore"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "data.vsphere_host.host"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "var.vsphere_username"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "provider.vsphere (close)"
+2020/06/19 22:39:27 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "vsphere_host_port_group.pod_portgroups" waiting on "data.vsphere_host.host"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "data.vsphere_resource_pool.pool" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "data.vsphere_datastore.datastore" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "meta.count-boundary (EachMode fixup)" waiting on "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_hostname"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "data.vsphere_datacenter.dc" waiting on "provider.vsphere"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "provider.vsphere (close)" waiting on "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "data.vsphere_datastore.datastore"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_password"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "root" waiting on "provider.vsphere (close)"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "data.vsphere_host.host" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:27 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_username"
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "vsphere_host_port_group.pod_portgroups", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "data.vsphere_resource_pool.pool", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "data.vsphere_datastore.datastore", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "vsphere_virtual_machine.vmFromLocalOvf", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "data.vsphere_datacenter.dc", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "provider.vsphere (close)", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "data.vsphere_host.host", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (EachMode fixup)", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: dependencies changed for "provider.vsphere", sending new deps
+2020/06/19 22:39:27 [TRACE] dag/walk: visiting "var.vsphere_password"
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_password": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_password": evaluating
+2020/06/19 22:39:27 [TRACE] [walkValidate] Entering eval tree: var.vsphere_password
+2020/06/19 22:39:27 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:27 [TRACE] [walkValidate] Exiting eval tree: var.vsphere_password
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_password": visit complete
+2020/06/19 22:39:27 [TRACE] dag/walk: visiting "var.vsphere_hostname"
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_hostname": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_hostname": evaluating
+2020/06/19 22:39:27 [TRACE] [walkValidate] Entering eval tree: var.vsphere_hostname
+2020/06/19 22:39:27 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:27 [TRACE] [walkValidate] Exiting eval tree: var.vsphere_hostname
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_hostname": visit complete
+2020/06/19 22:39:27 [TRACE] dag/walk: visiting "var.vsphere_username"
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_username": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_username": evaluating
+2020/06/19 22:39:27 [TRACE] [walkValidate] Entering eval tree: var.vsphere_username
+2020/06/19 22:39:27 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:27 [TRACE] [walkValidate] Exiting eval tree: var.vsphere_username
+2020/06/19 22:39:27 [TRACE] vertex "var.vsphere_username": visit complete
+2020/06/19 22:39:27 [TRACE] dag/walk: visiting "provider.vsphere"
+2020/06/19 22:39:27 [TRACE] vertex "provider.vsphere": starting visit (*terraform.NodeApplyableProvider)
+2020/06/19 22:39:27 [TRACE] vertex "provider.vsphere": evaluating
+2020/06/19 22:39:27 [TRACE] [walkValidate] Entering eval tree: provider.vsphere
+2020/06/19 22:39:27 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:27 [TRACE] <root>: eval: *terraform.EvalInitProvider
+2020-06-19T22:39:27.969+0200 [INFO]  plugin: configuring client automatic mTLS
+2020-06-19T22:39:28.013+0200 [DEBUG] plugin: starting plugin: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 args=[/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4]
+2020-06-19T22:39:28.013+0200 [DEBUG] plugin: plugin started: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11324
+2020-06-19T22:39:28.013+0200 [DEBUG] plugin: waiting for RPC address: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4
+2020-06-19T22:39:28.030+0200 [INFO]  plugin.terraform-provider-vsphere_v1.19.0_x4: configuring server automatic mTLS: timestamp=2020-06-19T22:39:28.029+0200
+2020-06-19T22:39:28.078+0200 [DEBUG] plugin: using plugin: version=5
+2020-06-19T22:39:28.078+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: plugin address: address=/tmp/plugin625976858 network=unix timestamp=2020-06-19T22:39:28.078+0200
+2020/06/19 22:39:28 [TRACE] BuiltinEvalContext: Initialized "vsphere" provider for provider.vsphere
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalOpFilter
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateProvider
+2020/06/19 22:39:28 [TRACE] buildProviderConfig for provider.vsphere: using explicit config only
+2020/06/19 22:39:28 [TRACE] GRPCProvider: GetSchema
+2020/06/19 22:39:28 [TRACE] GRPCProvider: PrepareProviderConfig
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: provider.vsphere
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": visit complete
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": starting visit (*terraform.NodeValidatableResource)
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalValidateResource
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:28 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "provider.vsphere (close)"
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": starting visit (*terraform.graphNodeCloseProvider)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: provider.vsphere (close)
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalCloseProvider
+2020/06/19 22:39:28 [TRACE] GRPCProvider: Close
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:28 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2020/06/19 22:39:28 [TRACE] vertex "meta.count-boundary (EachMode fixup)": evaluating
+2020/06/19 22:39:28 [TRACE] [walkValidate] Entering eval tree: meta.count-boundary (EachMode fixup)
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: meta.count-boundary (EachMode fixup)
+2020/06/19 22:39:28 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2020-06-19T22:39:28.199+0200 [DEBUG] plugin: plugin process exited: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11324
+2020-06-19T22:39:28.199+0200 [DEBUG] plugin: plugin exited
+2020/06/19 22:39:28 [TRACE] [walkValidate] Exiting eval tree: provider.vsphere (close)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "root"
+2020/06/19 22:39:28 [TRACE] vertex "root": starting visit (terraform.graphNodeRoot)
+2020/06/19 22:39:28 [TRACE] vertex "root": visit complete
+2020/06/19 22:39:28 [INFO] backend/local: plan calling Refresh
+2020/06/19 22:39:28 [INFO] terraform: building graph: GraphTypeRefresh
+2020/06/19 22:39:28 [TRACE] No managed resources in state during refresh; skipping managed resource transformer
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/06/19 22:39:28 [TRACE] ConfigTransformer: Starting for path: 
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/06/19 22:39:28 [TRACE] StateTransformer: state is empty, so nothing to do
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datacenter.dc" (*terraform.NodeRefreshableDataResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:18, Column:1, Byte:346}, End:hcl.Pos{Line:18, Column:31, Byte:376}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datastore.datastore" (*terraform.NodeRefreshableDataResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:22, Column:1, Byte:397}, End:hcl.Pos{Line:22, Column:37, Byte:433}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_host.host" (*terraform.NodeRefreshableDataResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:27, Column:1, Byte:528}, End:hcl.Pos{Line:27, Column:27, Byte:554}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_resource_pool.pool" (*terraform.NodeRefreshableDataResource) config from hcl.Range{Filename:"controllers.tf", Start:hcl.Pos{Line:3, Column:1, Byte:2}, End:hcl.Pos{Line:3, Column:36, Byte:37}}
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootVariableTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/06/19 22:39:28 [TRACE] ProviderConfigTransformer: attaching to "provider.vsphere" provider configuration from providers.tf:8,1-19
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_datacenter.dc is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_datastore.datastore is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_host.host is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_resource_pool.pool is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_datacenter.dc" (*terraform.NodeRefreshableDataResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_datastore.datastore" (*terraform.NodeRefreshableDataResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_host.host
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_host.host" (*terraform.NodeRefreshableDataResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_resource_pool.pool" (*terraform.NodeRefreshableDataResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider.vsphere
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_hostname" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_username" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "provider.vsphere" references: [var.vsphere_password var.vsphere_username var.vsphere_hostname]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datacenter.dc" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datastore.datastore" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_host.host" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_resource_pool.pool" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_password" references: []
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+    data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResource
+    data.vsphere_host.host - *terraform.NodeRefreshableDataResource
+    data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  ------
+2020/06/19 22:39:28 [DEBUG] Starting graph walk: walkRefresh
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "provider.vsphere (close)"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_datacenter.dc" waiting on "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_host.host" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_resource_pool.pool" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere (close)" waiting on "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_datastore.datastore" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere (close)" waiting on "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere (close)" waiting on "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "provider.vsphere", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_datacenter.dc", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_host.host", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_resource_pool.pool", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "provider.vsphere (close)", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_datastore.datastore", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: var.vsphere_username
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: var.vsphere_username
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: var.vsphere_hostname
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: var.vsphere_hostname
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: var.vsphere_password
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: var.vsphere_password
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": starting visit (*terraform.NodeApplyableProvider)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: provider.vsphere
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalInitProvider
+2020-06-19T22:39:28.201+0200 [INFO]  plugin: configuring client automatic mTLS
+2020-06-19T22:39:28.245+0200 [DEBUG] plugin: starting plugin: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 args=[/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4]
+2020-06-19T22:39:28.246+0200 [DEBUG] plugin: plugin started: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11334
+2020-06-19T22:39:28.246+0200 [DEBUG] plugin: waiting for RPC address: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4
+2020-06-19T22:39:28.266+0200 [INFO]  plugin.terraform-provider-vsphere_v1.19.0_x4: configuring server automatic mTLS: timestamp=2020-06-19T22:39:28.265+0200
+2020-06-19T22:39:28.308+0200 [DEBUG] plugin: using plugin: version=5
+2020-06-19T22:39:28.308+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: plugin address: network=unix address=/tmp/plugin237454623 timestamp=2020-06-19T22:39:28.308+0200
+2020/06/19 22:39:28 [TRACE] BuiltinEvalContext: Initialized "vsphere" provider for provider.vsphere
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalOpFilter
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalOpFilter
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalConfigProvider
+2020/06/19 22:39:28 [TRACE] buildProviderConfig for provider.vsphere: using explicit config only
+2020/06/19 22:39:28 [TRACE] GRPCProvider: GetSchema
+2020/06/19 22:39:28 [TRACE] GRPCProvider: Configure
+2020-06-19T22:39:28.409+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] Cached SOAP client session data not valid or persistence not enabled, new session necessary
+2020-06-19T22:39:28.409+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] Creating new SOAP API session on endpoint 10.16.2.4
+2020-06-19T22:39:28.484+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] SOAP API session creation successful
+2020-06-19T22:39:28.484+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] VMWare vSphere Client configured for URL: 10.16.2.4
+2020-06-19T22:39:28.484+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] Setting up REST client
+2020-06-19T22:39:28.795+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:28 [DEBUG] CIS REST client configuration successful
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: provider.vsphere
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": starting visit (*terraform.NodeRefreshableDataResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": expanding dynamic subgraph
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodeRefreshableDataResourceInstance
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [DEBUG] Resource state not found for node "data.vsphere_datacenter.dc", instance data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datacenter.dc" references: []
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": entering dynamic subgraph
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": starting visit (*terraform.NodeRefreshableDataResourceInstance)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: removing state object for data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalReadData
+2020/06/19 22:39:28 [TRACE] EvalReadData: working on data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] Re-validating config for data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] EvalReadData: data.vsphere_datacenter.dc configuration is complete, so reading from provider
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ReadDataSource
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: writing current state object for data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalUpdateStateHook
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": dynamic subgraph completed successfully
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datacenter.dc": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": starting visit (*terraform.NodeRefreshableDataResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": expanding dynamic subgraph
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": starting visit (*terraform.NodeRefreshableDataResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": expanding dynamic subgraph
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_host.host - *terraform.NodeRefreshableDataResourceInstance
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [DEBUG] Resource state not found for node "data.vsphere_host.host", instance data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": starting visit (*terraform.NodeRefreshableDataResource)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": expanding dynamic subgraph
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_host.host" references: []
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": entering dynamic subgraph
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": starting visit (*terraform.NodeRefreshableDataResourceInstance)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: removing state object for data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalReadData
+2020/06/19 22:39:28 [TRACE] EvalReadData: working on data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] Re-validating config for data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_resource_pool.pool - *terraform.NodeRefreshableDataResourceInstance
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [DEBUG] Resource state not found for node "data.vsphere_resource_pool.pool", instance data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_resource_pool.pool" references: []
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": entering dynamic subgraph
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": starting visit (*terraform.NodeRefreshableDataResourceInstance)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: removing state object for data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalReadData
+2020/06/19 22:39:28 [TRACE] EvalReadData: working on data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] EvalReadData: data.vsphere_host.host configuration is complete, so reading from provider
+2020/06/19 22:39:28 [TRACE] Re-validating config for data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ReadDataSource
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_datastore.datastore - *terraform.NodeRefreshableDataResourceInstance
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [DEBUG] Resource state not found for node "data.vsphere_datastore.datastore", instance data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datastore.datastore" references: []
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": entering dynamic subgraph
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": starting visit (*terraform.NodeRefreshableDataResourceInstance)
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: removing state object for data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalReadData
+2020/06/19 22:39:28 [TRACE] EvalReadData: working on data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] Re-validating config for data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ValidateDataSourceConfig
+2020/06/19 22:39:28 [TRACE] EvalReadData: data.vsphere_datastore.datastore configuration is complete, so reading from provider
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ReadDataSource
+2020/06/19 22:39:28 [TRACE] EvalReadData: data.vsphere_resource_pool.pool configuration is complete, so reading from provider
+2020/06/19 22:39:28 [TRACE] GRPCProvider: ReadDataSource
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: writing current state object for data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalUpdateStateHook
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": dynamic subgraph completed successfully
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_datastore.datastore": visit complete
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: writing current state object for data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalUpdateStateHook
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": dynamic subgraph completed successfully
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_host.host": visit complete
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:28 [TRACE] EvalWriteState: writing current state object for data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalUpdateStateHook
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": visit complete
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": dynamic subgraph completed successfully
+2020/06/19 22:39:28 [TRACE] vertex "data.vsphere_resource_pool.pool": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "provider.vsphere (close)"
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": starting visit (*terraform.graphNodeCloseProvider)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": evaluating
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Entering eval tree: provider.vsphere (close)
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalCloseProvider
+2020/06/19 22:39:28 [TRACE] GRPCProvider: Close
+2020-06-19T22:39:28.872+0200 [DEBUG] plugin: plugin process exited: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11334
+2020-06-19T22:39:28.872+0200 [DEBUG] plugin: plugin exited
+2020/06/19 22:39:28 [TRACE] [walkRefresh] Exiting eval tree: provider.vsphere (close)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere (close)": visit complete
+2020/06/19 22:39:28 [INFO] backend/local: plan calling Plan
+2020/06/19 22:39:28 [INFO] terraform: building graph: GraphTypePlan
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2020/06/19 22:39:28 [TRACE] ConfigTransformer: Starting for path: 
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+  data.vsphere_host.host - *terraform.NodePlannableResource
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.LocalTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OutputTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OutputTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.StateTransformer
+2020/06/19 22:39:28 [TRACE] StateTransformer: creating nodes for deposed instance objects only
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "vsphere_host_port_group.pod_portgroups" (*terraform.NodePlannableResource) config from portgroups.tf:3,1-52
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "vsphere_virtual_machine.vmFromLocalOvf" (*terraform.NodePlannableResource) config from controllers.tf:15,1-52
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datastore.datastore" (*terraform.NodePlannableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:22, Column:1, Byte:397}, End:hcl.Pos{Line:22, Column:37, Byte:433}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_host.host" (*terraform.NodePlannableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:27, Column:1, Byte:528}, End:hcl.Pos{Line:27, Column:27, Byte:554}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_resource_pool.pool" (*terraform.NodePlannableResource) config from hcl.Range{Filename:"controllers.tf", Start:hcl.Pos{Line:3, Column:1, Byte:2}, End:hcl.Pos{Line:3, Column:36, Byte:37}}
+2020/06/19 22:39:28 [TRACE] AttachResourceConfigTransformer: attaching to "data.vsphere_datacenter.dc" (*terraform.NodePlannableResource) config from hcl.Range{Filename:"providers.tf", Start:hcl.Pos{Line:18, Column:1, Byte:346}, End:hcl.Pos{Line:18, Column:31, Byte:376}}
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootVariableTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+  data.vsphere_host.host - *terraform.NodePlannableResource
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.MissingProvisionerTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.MissingProvisionerTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ProvisionerTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ProvisionerTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2020/06/19 22:39:28 [TRACE] ProviderConfigTransformer: attaching to "provider.vsphere" provider configuration from providers.tf:8,1-19
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+  data.vsphere_host.host - *terraform.NodePlannableResource
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_datastore.datastore is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: vsphere_virtual_machine.vmFromLocalOvf is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_host.host is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_resource_pool.pool is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: data.vsphere_datacenter.dc is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: vsphere_host_port_group.pod_portgroups is provided by provider.vsphere or inherited equivalent
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_datastore.datastore" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "vsphere_virtual_machine.vmFromLocalOvf" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_host.host
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_host.host" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_resource_pool.pool" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "data.vsphere_datacenter.dc" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] ProviderTransformer: exact match for provider.vsphere serving vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:28 [DEBUG] ProviderTransformer: "vsphere_host_port_group.pod_portgroups" (*terraform.NodePlannableResource) needs provider.vsphere
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  ------
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ParentProviderTransformer
+2020/06/19 22:39:28 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ParentProviderTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.graphTransformerMulti with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_host.host
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_resource_pool.pool
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datacenter.dc
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching resource schema to data.vsphere_datastore.datastore
+2020/06/19 22:39:28 [TRACE] AttachSchemaTransformer: attaching provider config schema to provider.vsphere
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups" references: [data.vsphere_host.host]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "vsphere_virtual_machine.vmFromLocalOvf" references: [data.vsphere_datacenter.dc data.vsphere_datastore.datastore data.vsphere_resource_pool.pool data.vsphere_host.host vsphere_host_port_group.pod_portgroups]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_host.host" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_resource_pool.pool" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datacenter.dc" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_password" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_hostname" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "data.vsphere_datastore.datastore" references: [data.vsphere_datacenter.dc]
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "var.vsphere_username" references: []
+2020/06/19 22:39:28 [DEBUG] ReferenceTransformer: "provider.vsphere" references: [var.vsphere_hostname var.vsphere_password var.vsphere_username]
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.CountBoundaryTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.CountBoundaryTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "data.vsphere_datastore.datastore" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "vsphere_virtual_machine.vmFromLocalOvf" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "data.vsphere_host.host" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "data.vsphere_resource_pool.pool" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "data.vsphere_datacenter.dc" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] ForcedCBDTransformer: "vsphere_host_port_group.pod_portgroups" (*terraform.NodePlannableResource) has no CBD descendent, so skipping
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.CloseProviderTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.CloseProvisionerTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.CloseProvisionerTransformer (no changes)
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.RootTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  root - terraform.graphNodeRoot
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider.vsphere (close) - *terraform.graphNodeCloseProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2020/06/19 22:39:28 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+    provider.vsphere - *terraform.NodeApplyableProvider
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  data.vsphere_host.host - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    data.vsphere_datacenter.dc - *terraform.NodePlannableResource
+  meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  provider.vsphere - *terraform.NodeApplyableProvider
+    var.vsphere_hostname - *terraform.NodeRootVariable
+    var.vsphere_password - *terraform.NodeRootVariable
+    var.vsphere_username - *terraform.NodeRootVariable
+  provider.vsphere (close) - *terraform.graphNodeCloseProvider
+    vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+  root - terraform.graphNodeRoot
+    meta.count-boundary (EachMode fixup) - *terraform.NodeCountBoundary
+    provider.vsphere (close) - *terraform.graphNodeCloseProvider
+  var.vsphere_hostname - *terraform.NodeRootVariable
+  var.vsphere_password - *terraform.NodeRootVariable
+  var.vsphere_username - *terraform.NodeRootVariable
+  vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+    data.vsphere_host.host - *terraform.NodePlannableResource
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResource
+    data.vsphere_datastore.datastore - *terraform.NodePlannableResource
+    data.vsphere_resource_pool.pool - *terraform.NodePlannableResource
+    vsphere_host_port_group.pod_portgroups - *terraform.NodePlannableResource
+  ------
+2020/06/19 22:39:28 [DEBUG] Starting graph walk: walkPlan
+2020/06/19 22:39:28 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "root"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "provider.vsphere (close)"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "data.vsphere_datastore.datastore"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere (close)" waiting on "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "meta.count-boundary (EachMode fixup)" waiting on "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_host.host" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_datacenter.dc" waiting on "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "provider.vsphere" waiting on "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "vsphere_virtual_machine.vmFromLocalOvf" waiting on "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "root" waiting on "provider.vsphere (close)"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_resource_pool.pool" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "vsphere_host_port_group.pod_portgroups" waiting on "data.vsphere_host.host"
+2020/06/19 22:39:28 [TRACE] dag/walk: added edge: "data.vsphere_datastore.datastore" waiting on "data.vsphere_datacenter.dc"
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_datacenter.dc", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "vsphere_host_port_group.pod_portgroups", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (EachMode fixup)", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_host.host", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "provider.vsphere (close)", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_resource_pool.pool", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "data.vsphere_datastore.datastore", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "vsphere_virtual_machine.vmFromLocalOvf", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: dependencies changed for "provider.vsphere", sending new deps
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_password"
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": evaluating
+2020/06/19 22:39:28 [TRACE] [walkPlan] Entering eval tree: var.vsphere_password
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkPlan] Exiting eval tree: var.vsphere_password
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_password": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_hostname"
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": evaluating
+2020/06/19 22:39:28 [TRACE] [walkPlan] Entering eval tree: var.vsphere_hostname
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkPlan] Exiting eval tree: var.vsphere_hostname
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_hostname": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "var.vsphere_username"
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": starting visit (*terraform.NodeRootVariable)
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": evaluating
+2020/06/19 22:39:28 [TRACE] [walkPlan] Entering eval tree: var.vsphere_username
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] [walkPlan] Exiting eval tree: var.vsphere_username
+2020/06/19 22:39:28 [TRACE] vertex "var.vsphere_username": visit complete
+2020/06/19 22:39:28 [TRACE] dag/walk: visiting "provider.vsphere"
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": starting visit (*terraform.NodeApplyableProvider)
+2020/06/19 22:39:28 [TRACE] vertex "provider.vsphere": evaluating
+2020/06/19 22:39:28 [TRACE] [walkPlan] Entering eval tree: provider.vsphere
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalInitProvider
+2020-06-19T22:39:28.876+0200 [INFO]  plugin: configuring client automatic mTLS
+2020-06-19T22:39:28.916+0200 [DEBUG] plugin: starting plugin: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 args=[/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4]
+2020-06-19T22:39:28.916+0200 [DEBUG] plugin: plugin started: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11343
+2020-06-19T22:39:28.916+0200 [DEBUG] plugin: waiting for RPC address: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4
+2020-06-19T22:39:28.936+0200 [INFO]  plugin.terraform-provider-vsphere_v1.19.0_x4: configuring server automatic mTLS: timestamp=2020-06-19T22:39:28.936+0200
+2020-06-19T22:39:28.983+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: plugin address: address=/tmp/plugin453743771 network=unix timestamp=2020-06-19T22:39:28.983+0200
+2020-06-19T22:39:28.983+0200 [DEBUG] plugin: using plugin: version=5
+2020/06/19 22:39:28 [TRACE] BuiltinEvalContext: Initialized "vsphere" provider for provider.vsphere
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: terraform.EvalNoop
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalOpFilter
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalOpFilter
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:28 [TRACE] <root>: eval: *terraform.EvalConfigProvider
+2020/06/19 22:39:28 [TRACE] buildProviderConfig for provider.vsphere: using explicit config only
+2020/06/19 22:39:28 [TRACE] GRPCProvider: GetSchema
+2020/06/19 22:39:29 [TRACE] GRPCProvider: Configure
+2020-06-19T22:39:29.085+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] Cached SOAP client session data not valid or persistence not enabled, new session necessary
+2020-06-19T22:39:29.085+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] Creating new SOAP API session on endpoint 10.16.2.4
+2020-06-19T22:39:29.150+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] SOAP API session creation successful
+2020-06-19T22:39:29.150+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] VMWare vSphere Client configured for URL: 10.16.2.4
+2020-06-19T22:39:29.150+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] Setting up REST client
+2020-06-19T22:39:29.480+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] CIS REST client configuration successful
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: provider.vsphere
+2020/06/19 22:39:29 [TRACE] vertex "provider.vsphere": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_datacenter.dc"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_datacenter.dc - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "data.vsphere_datacenter.dc" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "data.vsphere_datacenter.dc"
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_datacenter.dc"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for data.vsphere_datacenter.dc
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_datacenter.dc
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datacenter.dc": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_host.host"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_host.host
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_host.host
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_host.host - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "data.vsphere_host.host" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "data.vsphere_host.host"
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_host.host"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_host.host
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_datastore.datastore"
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for data.vsphere_host.host
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": evaluating
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_datastore.datastore - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_host.host
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_host.host": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "data.vsphere_datastore.datastore" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "data.vsphere_datastore.datastore"
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_datastore.datastore"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for data.vsphere_datastore.datastore
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  vsphere_host_port_group.pod_portgroups["CONTROLLERS"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["INTERNET"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["MPLS"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE1_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE2_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE3_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE4_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE5_CORE"] - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]", instance vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]", instance vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]", instance vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]", instance vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]", instance vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]", instance vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]", instance vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_host_port_group.pod_portgroups[\"MPLS\"]", instance vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]" references: []
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_host_port_group.pod_portgroups[\"MPLS\"]" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer with new graph:
+  root - terraform.graphNodeRoot
+    vsphere_host_port_group.pod_portgroups["CONTROLLERS"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["INTERNET"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["MPLS"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["VE1_CORE"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["VE2_CORE"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["VE3_CORE"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["VE4_CORE"] - *terraform.NodePlannableResourceInstance
+    vsphere_host_port_group.pod_portgroups["VE5_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["CONTROLLERS"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["INTERNET"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["MPLS"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE1_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE2_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE3_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE4_CORE"] - *terraform.NodePlannableResourceInstance
+  vsphere_host_port_group.pod_portgroups["VE5_CORE"] - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "root"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_host_port_group.pod_portgroups[\"MPLS\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"MPLS\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: added edge: "root" waiting on "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]"
+2020/06/19 22:39:29 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_datastore.datastore
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_datastore.datastore": visit complete
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  data.vsphere_resource_pool.pool - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "data.vsphere_resource_pool.pool" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "data.vsphere_resource_pool.pool"
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for data.vsphere_resource_pool.pool
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalIf, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence, early exit err: early exit
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: data.vsphere_resource_pool.pool
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "data.vsphere_resource_pool.pool": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"MPLS\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"MPLS\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"MPLS\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"MPLS\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["INTERNET"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"INTERNET\"]": visit complete
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["VE3_CORE"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE3_CORE\"]": visit complete
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["VE2_CORE"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE2_CORE\"]": visit complete
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["MPLS"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"MPLS\"]": visit complete
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["CONTROLLERS"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"CONTROLLERS\"]": visit complete
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["VE4_CORE"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE4_CORE\"]": visit complete
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["VE5_CORE"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE5_CORE\"]": visit complete
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_host_port_group.pod_portgroups["VE1_CORE"]
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups[\"VE1_CORE\"]": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "root"
+2020/06/19 22:39:29 [TRACE] vertex "root": starting visit (terraform.graphNodeRoot)
+2020/06/19 22:39:29 [TRACE] vertex "root": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_host_port_group.pod_portgroups": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": starting visit (*terraform.NodePlannableResource)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteResourceState
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": expanding dynamic subgraph
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ResourceCountTransformer with new graph:
+  vsphere_virtual_machine.vmFromLocalOvf - *terraform.NodePlannableResourceInstance
+  ------
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.OrphanResourceCountTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.OrphanResourceCountTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2020/06/19 22:39:29 [DEBUG] Resource instance state not found for node "vsphere_virtual_machine.vmFromLocalOvf", instance vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2020/06/19 22:39:29 [DEBUG] ReferenceTransformer: "vsphere_virtual_machine.vmFromLocalOvf" references: []
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.ReferenceTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] Executing graph transform *terraform.RootTransformer
+2020/06/19 22:39:29 [TRACE] Completed graph transform *terraform.RootTransformer (no changes)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": entering dynamic subgraph
+2020/06/19 22:39:29 [TRACE] dag/walk: updating graph
+2020/06/19 22:39:29 [TRACE] dag/walk: added new vertex: "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": starting visit (*terraform.NodePlannableResourceInstance)
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalSequence
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalGetProvider
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalReadState
+2020/06/19 22:39:29 [TRACE] EvalReadState: reading state for vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] EvalReadState: no state present for vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalValidateSelfRef
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalDiff
+2020/06/19 22:39:29 [TRACE] Re-validating config for "vsphere_virtual_machine.vmFromLocalOvf"
+2020/06/19 22:39:29 [TRACE] GRPCProvider: ValidateResourceTypeConfig
+2020/06/19 22:39:29 [TRACE] GRPCProvider: PlanResourceChange
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] vsphere_virtual_machine (ID = <new resource>): Performing diff customization and validation
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] NetworkInterfaceDiffOperation: Beginning diff validation
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] network_interface.0 (key 0 at <new device>): Beginning diff validation
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] network_interface.0 (key 0 at <new device>): Diff validation complete
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] network_interface.1 (key 0 at <new device>): Beginning diff validation
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] network_interface.1 (key 0 at <new device>): Diff validation complete
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] NetworkInterfaceDiffOperation: Diff validation complete
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] VAppDiffOperation: Verifying configuration meets requirements for vApp transport
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] VAppDiffOperation: ISO transport is not supported on this virtual machine or multiple transport options exist
+2020-06-19T22:39:29.520+0200 [DEBUG] plugin.terraform-provider-vsphere_v1.19.0_x4: 2020/06/19 22:39:29 [DEBUG] vsphere_virtual_machine (ID = <new resource>): Diff customization and validation complete
+2020/06/19 22:39:29 [WARN] Provider "registry.terraform.io/-/vsphere" produced an invalid plan for vsphere_virtual_machine.vmFromLocalOvf, but we are tolerating it because it is using the legacy plugin SDK.
+    The following problems may be the cause of any confusing errors from downstream operations:
+      - .run_tools_scripts_after_resume: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .run_tools_scripts_before_guest_standby: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .swap_placement_policy: planned value cty.StringVal("inherit") does not match config value cty.NullVal(cty.String)
+      - .firmware: planned value cty.StringVal("bios") does not match config value cty.NullVal(cty.String)
+      - .memory_limit: planned value cty.NumberIntVal(-1) does not match config value cty.NullVal(cty.Number)
+      - .cpu_limit: planned value cty.NumberIntVal(-1) does not match config value cty.NullVal(cty.Number)
+      - .cpu_share_level: planned value cty.StringVal("normal") does not match config value cty.NullVal(cty.String)
+      - .poweron_timeout: planned value cty.NumberIntVal(300) does not match config value cty.NullVal(cty.Number)
+      - .scsi_controller_count: planned value cty.NumberIntVal(1) does not match config value cty.NullVal(cty.Number)
+      - .wait_for_guest_net_routable: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .shutdown_wait_timeout: planned value cty.NumberIntVal(3) does not match config value cty.NullVal(cty.Number)
+      - .latency_sensitivity: planned value cty.StringVal("normal") does not match config value cty.NullVal(cty.String)
+      - .hv_mode: planned value cty.StringVal("hvAuto") does not match config value cty.NullVal(cty.String)
+      - .force_power_off: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .run_tools_scripts_before_guest_shutdown: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .num_cpus: planned value cty.NumberIntVal(1) does not match config value cty.NullVal(cty.Number)
+      - .ept_rvi_mode: planned value cty.StringVal("automatic") does not match config value cty.NullVal(cty.String)
+      - .memory_share_level: planned value cty.StringVal("normal") does not match config value cty.NullVal(cty.String)
+      - .num_cores_per_socket: planned value cty.NumberIntVal(1) does not match config value cty.NullVal(cty.Number)
+      - .scsi_bus_sharing: planned value cty.StringVal("noSharing") does not match config value cty.NullVal(cty.String)
+      - .boot_retry_delay: planned value cty.NumberIntVal(10000) does not match config value cty.NullVal(cty.Number)
+      - .migrate_wait_timeout: planned value cty.NumberIntVal(30) does not match config value cty.NullVal(cty.Number)
+      - .run_tools_scripts_after_power_on: planned value cty.True does not match config value cty.NullVal(cty.Bool)
+      - .network_interface: block count in plan (0) disagrees with count in config (2)
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCheckPreventDestroy
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteState
+2020/06/19 22:39:29 [TRACE] EvalWriteState: writing current state object for vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalWriteDiff
+2020/06/19 22:39:29 [TRACE] EvalWriteDiff: recorded Create change for vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: vsphere_virtual_machine.vmFromLocalOvf
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": visit complete
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": dynamic subgraph completed successfully
+2020/06/19 22:39:29 [TRACE] vertex "vsphere_virtual_machine.vmFromLocalOvf": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "meta.count-boundary (EachMode fixup)"
+2020/06/19 22:39:29 [TRACE] vertex "meta.count-boundary (EachMode fixup)": starting visit (*terraform.NodeCountBoundary)
+2020/06/19 22:39:29 [TRACE] vertex "meta.count-boundary (EachMode fixup)": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: meta.count-boundary (EachMode fixup)
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "provider.vsphere (close)"
+2020/06/19 22:39:29 [TRACE] vertex "provider.vsphere (close)": starting visit (*terraform.graphNodeCloseProvider)
+2020/06/19 22:39:29 [TRACE] vertex "provider.vsphere (close)": evaluating
+2020/06/19 22:39:29 [TRACE] [walkPlan] Entering eval tree: provider.vsphere (close)
+2020/06/19 22:39:29 [TRACE] <root>: eval: *terraform.EvalCloseProvider
+2020/06/19 22:39:29 [TRACE] GRPCProvider: Close
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: meta.count-boundary (EachMode fixup)
+2020/06/19 22:39:29 [TRACE] vertex "meta.count-boundary (EachMode fixup)": visit complete
+2020-06-19T22:39:29.533+0200 [DEBUG] plugin: plugin process exited: path=/root/sdnbcamp/SDWAN/terraform/.terraform/plugins/linux_amd64/terraform-provider-vsphere_v1.19.0_x4 pid=11343
+2020-06-19T22:39:29.533+0200 [DEBUG] plugin: plugin exited
+2020/06/19 22:39:29 [TRACE] [walkPlan] Exiting eval tree: provider.vsphere (close)
+2020/06/19 22:39:29 [TRACE] vertex "provider.vsphere (close)": visit complete
+2020/06/19 22:39:29 [TRACE] dag/walk: visiting "root"
+2020/06/19 22:39:29 [TRACE] vertex "root": starting visit (terraform.graphNodeRoot)
+2020/06/19 22:39:29 [TRACE] vertex "root": visit complete
+2020/06/19 22:39:29 [INFO] backend/local: plan operation completed
+2020/06/19 22:39:29 [TRACE] statemgr.Filesystem: removing lock metadata file .terraform.tfstate.lock.info
+2020/06/19 22:39:29 [TRACE] statemgr.Filesystem: unlocking terraform.tfstate using fcntl flock

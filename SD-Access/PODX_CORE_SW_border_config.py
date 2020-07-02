@@ -43,7 +43,8 @@ headers["x-auth-token"] = token
 uri = "https://10.1" + pod + ".1.11/dna/intent/api/v1/business/sda/border-device?deviceIPAddress=10.1" + pod + ".127.10" + core
 req = requests.get(uri, headers=headers, verify=False)
 bcfg = req.json()['deviceSettings']['extConnectivitySettings'][0]['l3Handoff']
-#print (json.dumps((bcfg[0]), indent=4))
+#print ("Index 0: \n" + json.dumps((bcfg), indent=4))
+#print ("Index 1: \n" + json.dumps((bcfg[1]), indent=4))
 
 vlan1 = str(bcfg[0]['vlanId'])
 vlan2 = str(bcfg[1]['vlanId'])
@@ -66,7 +67,7 @@ print ("vlan " + vlan2)
 print (" name POD" + pod + "_R" + core + "_VN2")
 print
 print ("interface Gi1/" + pod)
-print (" switchport trunk allowed vlan " + vlan1 + " " + vlan2)
+print (" switchport trunk allowed vlan " + vlan1 + "," + vlan2)
 print 
 print ("interface Vlan " + vlan1)
 print (" ip address " + my1 + " 255.255.255.252")
@@ -75,6 +76,7 @@ print (" no shutdown")
 print
 print ("interface Vlan " + vlan2)
 print (" ip address " + my2 + " 255.255.255.252")
+print (" ipv6 address " + my2v6)
 print (" no shutdown")
 print
 print ("router bgp 65001")
@@ -92,3 +94,4 @@ print (" neighbor " + peer1v6 + " activate")
 print (" neighbor " + peer1v6 + " default-originate")
 print (" neighbor " + peer2v6 + " activate")
 print (" neighbor " + peer2v6 + " default-originate")
+print
