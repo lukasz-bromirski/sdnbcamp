@@ -1,6 +1,0 @@
----
-- name: restart dhcp server
-  service:
-    name=dhcpd.service
-    state=restarted
-

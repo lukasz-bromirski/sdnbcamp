@@ -1,0 +1,27 @@
+---
+
+common:
+  transfer_hostname: '10.1{{ pod_no }}.1.41' 
+
+dhcp_hosts:
+  # PODX
+  - hostname: POD{{ pod_no}}_LEAF11 
+    mac_address: 02:00:fa:b{{ pod_no }}:11:09 
+    fixed_address: '10.1{{ pod_no }}.1.131' 
+    gateway: '10.1{{ pod_no }}.1.254' 
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_LEAF12 
+    mac_address: 02:00:fa:b{{ pod_no }}:12:09 
+    fixed_address: '10.1{{ pod_no }}.1.132' 
+    gateway: '10.1{{ pod_no }}.1.254' 
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_SPINE21
+    mac_address: 02:00:fa:b{{ pod_no }}:21:09 
+    fixed_address: '10.1{{ pod_no }}.1.133' 
+    gateway: '10.1{{ pod_no }}.1.254' 
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_SPINE22 
+    mac_address: 02:00:fa:b{{ pod_no }}:22:09 
+    fixed_address: '10.1{{ pod_no }}.1.134' 
+    gateway: '10.1{{ pod_no }}.1.254' 
+    password: 'Admin{{ pod_no }}sisko$'

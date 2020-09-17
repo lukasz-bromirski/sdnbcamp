@@ -1,0 +1,46 @@
+---
+- name: setup dhcp server 
+  template:
+    src=dhcp.conf.j2
+    dest=/etc/dhcp/dhcpd.conf
+    owner=root
+    group=root
+    mode=0644
+  notify: restart dhcp server
+
+- name: start dhcp serer
+  service:
+    name=dhcpd.service
+    state=started
+    enabled=yes
+
+- name: copy POAP script to TFTP folder
+  template:
+    src=poap_nexus_script.j2
+    dest=/tftpboot/poap_nexus_script.py
+    owner=root
+    group=root
+    mode=0644
+
+- name: copy MD5 updater
+  template:
+    src=recalc.md5
+    dest=/tftpboot/recalc.md5
+    owner=root
+    group=root
+    mode=0755
+
+- name: update MD5 on POAP script
+  script: /tftpboot/recalc.md5
+    chdir=/tftpboot
+ 
+
+- name: setup initial configs for switches
+  template:
+    src=switch.cfg.j2
+    dest=/tftpboot/conf_{{ item.mac_address.upper()|replace(':','') }}.cfg
+    owner=root
+    group=root
+    mode=0644
+  with_items: "{{ dhcp_hosts }}"
+

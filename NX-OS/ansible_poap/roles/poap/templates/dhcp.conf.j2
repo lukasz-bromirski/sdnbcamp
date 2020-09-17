@@ -1,0 +1,22 @@
+default-lease-time 1200;
+max-lease-time 3600;
+
+option tftp-server-address code 150 = ip-address;
+
+subnet 10.1{{pod_no}}.1.0 netmask 255.255.255.0 {
+  range 10.1{{pod_no}}.1.200 10.1{{pod_no}}.1.219;
+  option routers 10.1{{pod_no}}.1.1;
+  option domain-name-servers 8.8.8.8;
+  option domain-name "sdn.lab";
+}
+
+{% for item in dhcp_hosts %}
+host {{item.hostname}} {
+    hardware ethernet {{ item.mac_address }};
+    fixed-address {{ item.fixed_address }};
+    option routers 10.1{{pod_no}}.1.1;
+    option host-name "{{item.hostname}}";
+    option bootfile-name "poap_nexus_script.py";
+    option tftp-server-address 10.1{{pod_no}}.1.41;
+}
+{% endfor %}
