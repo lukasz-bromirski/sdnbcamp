@@ -1,6 +1,6 @@
-vcsa_hostname = "10.11.1.53"
+vcsa_hostname = "pod9-vcenter1.sdn.lab"
 vcsa_username = "administrator@vsphere.local"
-esxi_hostname = "10.11.1.51"
+esxi_hostname = "pod9-esx2.sdn.lab"
 esxi_username =  "root"
-esxi_password =  "Admin1sisko$"
+esxi_password =  "Admin9sisko$"
 

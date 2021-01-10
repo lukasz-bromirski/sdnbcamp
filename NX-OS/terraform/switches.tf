@@ -14,7 +14,7 @@ resource "esxi_guest" "leaf_switch" {
     PODX_LEAF12 = "92"
   }
 
-  disk_store = "datastore1"
+  disk_store = "esx2-ds"
   ovf_source  = format("/root/download/nexus/nx934_port_2%s1%s.ovf",substr(each.value,0,1), substr(each.value,1,1))
   guest_name = format("POD%s_LEAF1%s", substr(each.value,0,1),substr(each.value,1,1))
 
@@ -22,8 +22,8 @@ resource "esxi_guest" "leaf_switch" {
 
   network_interfaces {
      # Mgmt0
-     # SDN_PODX_VM
-     virtual_network = format("SDN_POD%s_VM", substr(each.value,0,1))
+     # (31X8) SDN_PODX_VM
+     virtual_network = format("(31%s8) SDN_POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
      mac_address=format("02:00:fa:b%s:1%s:09", substr(each.value,0,1), substr(each.value,1,1))
   }
   network_interfaces {
@@ -63,7 +63,7 @@ resource "esxi_guest" "spine_switch" {
     PODX_SPINE22 = "92"
   }
 
-  disk_store = "datastore1"
+  disk_store = "esx2-ds"
   ovf_source  = format("/root/download/nexus/nx934_port_2%s2%s.ovf",substr(each.value,0,1), substr(each.value,1,1))
   guest_name = format("POD%s_SPINE2%s", substr(each.value,0,1),substr(each.value,1,1))
 
@@ -71,8 +71,8 @@ resource "esxi_guest" "spine_switch" {
 
   network_interfaces {
      # Mgmt0
-     # SDN_PODX_VM
-     virtual_network = format("SDN_POD%s_VM", substr(each.value,0,1))
+     # (31X8) SDN_PODX_VM
+     virtual_network = format("(31%s8) SDN_POD%s_VM", substr(each.value,0,1), substr(each.value,0,1))
      mac_address=format("02:00:fa:b%s:2%s:09", substr(each.value,0,1), substr(each.value,1,1))
   }
   network_interfaces {
