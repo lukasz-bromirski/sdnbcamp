@@ -39,7 +39,7 @@
    - name: EVPN VNI configuration
      when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
      nxos_evpn_vni:
-       vni: ”501X40”
+       vni: '501X40'
        route_distinguisher: default
        route_distinguisher: auto
        route_target_import: auto
