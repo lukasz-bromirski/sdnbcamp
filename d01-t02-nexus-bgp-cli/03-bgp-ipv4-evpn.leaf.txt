@@ -8,7 +8,7 @@ router bgp 6500X
  address-family l2vpn evpn
  template peer BGP-RR
    remote-as 6500X
-   update-source loopback0
+   update-source loopback100
    address-family ipv4 unicast
    address-family ipv6 unicast
  address-family l2vpn evpn

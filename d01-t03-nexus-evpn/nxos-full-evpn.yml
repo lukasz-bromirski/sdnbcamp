@@ -1,6 +1,6 @@
 ---
 - name: Configure EVPN overlay
-  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
+  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE21 PODX_SPINE22
   connection: local
   gather_facts: no
 
@@ -29,9 +29,9 @@
      nxos_evpn_global:
        nv_overlay_evpn: true
 
-   - name: Make sure AS 65000 is enabled
+   - name: Make sure AS 6500X is enabled
      nxos_bgp:
-      asn: 65000
+      asn: 6500X
       state: present
 
    - name: Check that VNI is configured
