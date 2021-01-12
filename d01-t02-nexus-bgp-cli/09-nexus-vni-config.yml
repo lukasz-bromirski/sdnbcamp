@@ -19,6 +19,11 @@
         access:
          vlan: 1X40
 
+   - name: Ensure VN overlay is enabled
+     nxos_feature:
+      feature: nv overlay
+      state: enabled
+
    - name: Ensure VN-Segment is enabled
      nxos_feature:
       feature: vn-segment-vlan-based
@@ -30,4 +35,31 @@
        - vn-segment 501X40
       parents: vlan 1X40
       match: none
+
+   - name: EVPN VNI configuration
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_evpn_vni:
+       vni: ”501X40”
+       route_distinguisher: auto
+       route_target_import: auto
+       route_target_export: auto
+       route_target_both: default
+
+   - name: VXLAN VTEP NVE interface
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_vxlan_vtep:
+       interface: nve1
+       description: SDN bootcamp NVE interface
+       shutdown: false
+       state: present
+       source_interface: Loopback100
+
+   - name: EVPN NVE protocol change to BGP
+     when: inventory_hostname in ( 'PODX_LEAF11', 'PODX_LEAF12' )
+     nxos_config:
+      lines:
+       - host-reachability protocol bgp
+       - member vni 501X40 mcast-group 230.1.1.1
+      parents: interface nve1
+      match: exact
 

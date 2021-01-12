@@ -1,7 +1,7 @@
 ---
 
 - name: VLAN configuration and validation
-  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE11 PODX_SPINE12
+  hosts: PODX_LEAF11 PODX_LEAF12 PODX_SPINE21 PODX_SPINE22
   connection: local
   gather_facts: no
 
