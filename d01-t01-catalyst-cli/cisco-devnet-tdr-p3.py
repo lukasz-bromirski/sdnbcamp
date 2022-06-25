@@ -84,7 +84,7 @@ while done == False:
         done = True        
 
 # We are done gathering now just print output
-target = open('/bootflash/myoutputfile', 'w')
+target = open('/bootflash/guest-share/tdr-output.txt', 'w')
 target.truncate()
 
 for i in intfs:
