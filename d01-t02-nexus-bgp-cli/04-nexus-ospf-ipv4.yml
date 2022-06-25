@@ -3,7 +3,7 @@
 - name: Enable OSPF feature on all Nexus switches
   connection: local
   gather_facts: no
-  hosts: POD4_SPINE21 POD4_SPINE22 POD4_LEAF11 POD4_LEAF12
+  hosts: PODX_SPINE21 PODX_SPINE22 PODX_LEAF11 PODX_LEAF12
 
   tasks:
     - name: Enable OSPF feature
@@ -11,10 +11,10 @@
         feature: ospf
         state: enabled
 
-- name: OSPF underlay configuration on POD4_SPINE21
+- name: OSPF underlay configuration on PODX_SPINE21
   connection: local
   gather_facts: no
-  hosts: POD4_SPINE21
+  hosts: PODX_SPINE21
 
   tasks:
     - name: Enable OSPFv2 process UNDERLAY
@@ -22,12 +22,12 @@
         config:
           processes:
           - process_id: UNDERLAY
-            router_id: 10.14.126.1
+            router_id: 10.1X.126.1
 
-- name: OSPF underlay configuration on POD4_SPINE22
+- name: OSPF underlay configuration on PODX_SPINE22
   connection: local
   gather_facts: no
-  hosts: POD4_SPINE22
+  hosts: PODX_SPINE22
 
   tasks:
     - name: Enable OSPFv2 process UNDERLAY
@@ -35,7 +35,7 @@
         config:
           processes:
           - process_id: UNDERLAY
-            router_id: 10.14.126.2
+            router_id: 10.1X.126.2
 
 - name: OSPF underlay configuration on POD4_LEAF11
   connection: local
@@ -61,12 +61,12 @@
         config:
           processes:
           - process_id: UNDERLAY
-            router_id: 10.14.126.4
+            router_id: 10.1X.126.4
 
 - name: OSPF UNDERLAY process interface configuration
   connection: local
   gather_facts: no
-  hosts: POD4_SPINE21 POD4_SPINE22 POD4_LEAF11 POD4_LEAF12
+  hosts: PODX_SPINE21 PODX_SPINE22 PODX_LEAF11 PODX_LEAF12
 
   tasks:
     - name: Configure OSPF on Lo0 E1/1 and E1/2
