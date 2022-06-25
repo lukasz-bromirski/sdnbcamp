@@ -1,0 +1,39 @@
+---
+
+- name: PIM global configuration
+  connection: local
+  gather_facts: no
+  hosts: PODX_SPINE21 PODX_SPINE22 PODX_LEAF11 PODX_LEAF12
+
+  tasks:
+    - name: Enable PIM feature
+      cisco.nxos.nxos_feature:
+        feature: pim
+        state: enabled
+
+    - name: Configure SSM range, group and RP
+      cisco.nxos.nxos_pim:
+        ssm_range: 232.0.0.0/8
+
+    - name: Configure PIM RP
+      cisco.nxos.nxos_pim_rp_address:
+        rp_address: 10.1X.126.1
+        state: present
+
+    - name: Enable PIM routing on Lo0
+      cisco.nxos.nxos_pim_interface:
+        interface: Loopback0
+        state: present
+        sparse: yes
+
+    - name: Enable PIM routing on Ethernet1/1
+      cisco.nxos.nxos_pim_interface:
+        interface: Ethernet1/1
+        state: present
+        sparse: yes
+
+    - name: Enable PIM routing on Ethernet1/2
+      cisco.nxos.nxos_pim_interface:
+        interface: Ethernet1/2
+        state: present
+        sparse: yes

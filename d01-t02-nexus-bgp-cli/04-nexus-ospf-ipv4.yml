@@ -1,0 +1,97 @@
+---
+
+- name: Enable OSPF feature on all Nexus switches
+  connection: local
+  gather_facts: no
+  hosts: POD4_SPINE21 POD4_SPINE22 POD4_LEAF11 POD4_LEAF12
+
+  tasks:
+    - name: Enable OSPF feature
+      cisco.nxos.nxos_feature:
+        feature: ospf
+        state: enabled
+
+- name: OSPF underlay configuration on POD4_SPINE21
+  connection: local
+  gather_facts: no
+  hosts: POD4_SPINE21
+
+  tasks:
+    - name: Enable OSPFv2 process UNDERLAY
+      cisco.nxos.nxos_ospfv2:
+        config:
+          processes:
+          - process_id: UNDERLAY
+            router_id: 10.14.126.1
+
+- name: OSPF underlay configuration on POD4_SPINE22
+  connection: local
+  gather_facts: no
+  hosts: POD4_SPINE22
+
+  tasks:
+    - name: Enable OSPFv2 process UNDERLAY
+      cisco.nxos.nxos_ospfv2:
+        config:
+          processes:
+          - process_id: UNDERLAY
+            router_id: 10.14.126.2
+
+- name: OSPF underlay configuration on POD4_LEAF11
+  connection: local
+  gather_facts: no
+  hosts: POD4_LEAF11
+
+  tasks:
+    - name: Enable OSPFv2 process UNDERLAY
+      cisco.nxos.nxos_ospfv2:
+        config:
+          processes:
+          - process_id: UNDERLAY
+            router_id: 10.14.126.3
+
+- name: OSPF underlay configuration on POD4_LEAF12
+  connection: local
+  gather_facts: no
+  hosts: POD4_LEAF12
+
+  tasks:
+    - name: Enable OSPFv2 process UNDERLAY
+      cisco.nxos.nxos_ospfv2:
+        config:
+          processes:
+          - process_id: UNDERLAY
+            router_id: 10.14.126.4
+
+- name: OSPF UNDERLAY process interface configuration
+  connection: local
+  gather_facts: no
+  hosts: POD4_SPINE21 POD4_SPINE22 POD4_LEAF11 POD4_LEAF12
+
+  tasks:
+    - name: Configure OSPF on Lo0 E1/1 and E1/2
+      cisco.nxos.nxos_ospf_interfaces:
+        config:
+          - name: Loopback0
+            address_family:
+            - afi: ipv4
+              processes:
+              - process_id: "UNDERLAY"
+                area:
+                  area_id: 0.0.0.0
+          - name: Ethernet1/1
+            address_family:
+            - afi: ipv4
+              network: point-to-point
+              processes:
+              - process_id: "UNDERLAY"
+                area:
+                  area_id: 0.0.0.0
+          - name: Ethernet1/2
+            address_family:
+            - afi: ipv4
+              network: point-to-point
+              processes:
+              - process_id: "UNDERLAY"
+                area:
+                  area_id: 0.0.0.0
