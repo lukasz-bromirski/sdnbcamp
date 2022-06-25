@@ -26,6 +26,12 @@
         state: present
         sparse: yes
 
+    - name: Enable PIM routing on Lo100
+      cisco.nxos.nxos_pim_interface:
+        interface: Loopback100
+        state: present
+        sparse: yes
+
     - name: Enable PIM routing on Ethernet1/1
       cisco.nxos.nxos_pim_interface:
         interface: Ethernet1/1

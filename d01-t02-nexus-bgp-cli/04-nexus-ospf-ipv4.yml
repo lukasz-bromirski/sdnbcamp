@@ -79,6 +79,13 @@
               - process_id: "UNDERLAY"
                 area:
                   area_id: 0.0.0.0
+          - name: Loopback100
+            address_family:
+            - afi: ipv4
+              processes:
+              - process_id: "UNDERLAY"
+                area:
+                  area_id: 0.0.0.0
           - name: Ethernet1/1
             address_family:
             - afi: ipv4
