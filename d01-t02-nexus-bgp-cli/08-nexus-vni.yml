@@ -1,0 +1,47 @@
+---
+
+- name: "Nexus EVPN VNI configuration"
+  connection: local
+  gather_facts: no
+  hosts: PODX_LEAF11 PODX_LEAF12
+
+  tasks:
+    - name: Ensure VN overlay is enabled
+      cisco.nxos.nxos_feature:
+       feature: "nv overlay"
+       state: enabled
+
+    - name: Ensure EVPN is enabled
+      cisco.nxos.nxos_evpn_global:
+        nv_overlay_evpn: true
+
+    - name: EVPN VNI configuration
+      cisco.nxos.nxos_evpn_vni:
+        vni: 501X40
+        route_distinguisher: auto
+        route_target_import: auto
+        route_target_export: auto
+        route_target_both: default
+        state: present
+
+    - name: Create VXLAN VTEP interface
+      cisco.nxos.nxos_interfaces:
+        config:
+        - name: nve1
+          description: SDN bootcamp NVE interface
+          enabled: true
+
+    - name: VXLAN VTEP NVE interface
+      cisco.nxos.nxos_vxlan_vtep:
+        interface: nve1
+        shutdown: no
+        state: present
+        host_reachability: yes
+        source_interface: Loopback100
+
+    - name: EVPN NVE protocol change to BGP
+      cisco.nxos.nxos_config:
+       lines:
+        - member vni 501X40 mcast-group 230.1.1.1
+       parents: interface nve1
+       match: exact

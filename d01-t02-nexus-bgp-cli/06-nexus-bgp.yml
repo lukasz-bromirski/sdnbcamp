@@ -11,10 +11,10 @@
         feature: bgp
         state: enabled
 
-- name: BGP configuration on PODX_SPINE21
-  connection: local
-  gather_facts: no
-  hosts: PODX_SPINE21
+    - name: BGP configuration on PODX_SPINE21
+      connection: local
+      gather_facts: no
+      hosts: PODX_SPINE21
 
   tasks:
     - name: Configure BGP process

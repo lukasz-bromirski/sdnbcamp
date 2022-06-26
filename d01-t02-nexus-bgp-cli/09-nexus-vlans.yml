@@ -1,0 +1,29 @@
+---
+
+- name: "Nexus VLAN and VNI mapping for servers"
+  hosts: PODX_LEAF11 PODX_LEAF12
+  gather_facts: no
+
+  tasks:
+   - name: Create VLAN 1X40
+     nxos_vlans:
+      config:
+      - vlan_id: 1X40
+        name: SERVERS
+        state: active
+   - name: Ensure interface toward server is in VLAN 1X40
+     nxos_l2_interfaces:
+      config:
+      - name: Ethernet1/3
+        access:
+         vlan: 1X40
+   - name: Ensure VN-Segment is enabled
+     nxos_feature:
+      feature: vn-segment-vlan-based
+      state: enabled
+   - name: Configure VLAN mapping for VN segment
+     nxos_config:
+      lines:
+       - vn-segment 501X40
+      parents: vlan 1X40
+      match: none
