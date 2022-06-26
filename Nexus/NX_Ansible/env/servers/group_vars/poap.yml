@@ -1,0 +1,27 @@
+---
+
+common:
+  transfer_hostname: "10.11.1.1{{ '%02d' % pod_no | int }}" 
+
+dhcp_hosts:
+  # PODX
+  - hostname: POD{{ pod_no }}_LEAF1 
+    mac_address: "02:ca:fe:00:{{ '%02d' % pod_no | int }}:11"
+    fixed_address: "10.11.1{{ '%02d' % pod_no | int }}.1"
+    gateway: "10.11.1{{ '%02d' % pod_no | int }}.254"
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_LEAF2 
+    mac_address: "02:ca:fe:00:{{ '%02d' % pod_no | int }}:12" 
+    fixed_address: "10.11.1{{ '%02d' % pod_no | int }}.2" 
+    gateway: "10.11.1{{ '%02d' % pod_no | int }}.254"
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_SPINE1 
+    mac_address: "02:ca:fe:00:{{ '%02d' % pod_no | int }}:21" 
+    fixed_address: "10.11.1{{ '%02d' % pod_no | int }}.2" 
+    gateway: "10.11.1{{ '%02d' % pod_no | int }}.254"
+    password: 'Admin{{ pod_no }}sisko$'
+  - hostname: POD{{ pod_no }}_SPINE2 
+    mac_address: "02:ca:fe:00:{{ '%02d' % pod_no | int }}:22" 
+    fixed_address: "10.11.1{{ '%02d' % pod_no | int }}.2" 
+    gateway: "10.11.1{{ '%02d' % pod_no | int }}.254"
+    password: 'Admin{{ pod_no }}sisko$'

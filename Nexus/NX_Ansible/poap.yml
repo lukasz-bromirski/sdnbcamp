@@ -1,0 +1,8 @@
+---
+- name: setup poap server
+  hosts: poap
+  remote_user: root
+  become: true
+  roles:
+    - poap
+

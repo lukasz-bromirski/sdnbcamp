@@ -1,0 +1,6 @@
+---
+- name: Restart DHCP server
+  service:
+    name=isc-dhcp-server.service
+    state=restarted
+
