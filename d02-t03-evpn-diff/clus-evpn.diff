@@ -74,7 +74,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_day0.xml clus-evpn.sdnbootcamp/init
    </device>
    <device>
 -    <name>LFND-1</name>
-+    <name>POD2_SPINE22</name>
++    <name>PODX_SPINE22</name>
      <config>
        <feature xmlns="http://tail-f.com/ned/cisco-nx">
          <bgp/>
