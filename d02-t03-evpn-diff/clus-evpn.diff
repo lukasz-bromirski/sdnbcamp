@@ -144,7 +144,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.sdnbootcamp/init
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -167,7 +167,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.sdnbootcamp/init
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -190,7 +190,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.sdnbootcamp/init
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -233,7 +233,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.sdnbootcamp/init
 -     <device-type>
 -       <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
