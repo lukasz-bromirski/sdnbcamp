@@ -37,7 +37,7 @@
           - process_id: UNDERLAY
             router_id: 10.1X.126.2
 
-- name: OSPF underlay configuration on POD4_LEAF11
+- name: OSPF underlay configuration on PODX_LEAF11
   connection: local
   gather_facts: no
   hosts: PODX_LEAF11
@@ -50,7 +50,7 @@
           - process_id: UNDERLAY
             router_id: 10.1X.126.3
 
-- name: OSPF underlay configuration on POD4_LEAF12
+- name: OSPF underlay configuration on PODX_LEAF12
   connection: local
   gather_facts: no
   hosts: PODX_LEAF12
