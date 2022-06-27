@@ -40,7 +40,7 @@
 - name: OSPF underlay configuration on POD4_LEAF11
   connection: local
   gather_facts: no
-  hosts: POD4_LEAF11
+  hosts: PODX_LEAF11
 
   tasks:
     - name: Enable OSPFv2 process UNDERLAY
@@ -48,12 +48,12 @@
         config:
           processes:
           - process_id: UNDERLAY
-            router_id: 10.14.126.3
+            router_id: 10.1X.126.3
 
 - name: OSPF underlay configuration on POD4_LEAF12
   connection: local
   gather_facts: no
-  hosts: POD4_LEAF12
+  hosts: PODX_LEAF12
 
   tasks:
     - name: Enable OSPFv2 process UNDERLAY
