@@ -135,8 +135,8 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
 -       </host-key>
 -     </ssh>
-+     <name>POD2_LEAF11</name>
-+     <address>10.12.1.131</address>
++     <name>PODX_LEAF11</name>
++     <address>10.1X.1.131</address>
       <state>
         <admin-state>unlocked</admin-state>
       </state>
@@ -144,7 +144,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -158,8 +158,8 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
 -       </host-key>
 -     </ssh>
-+     <name>POD2_LEAF12</name>
-+     <address>10.12.1.132</address>
++     <name>PODX_LEAF12</name>
++     <address>10.1X.1.132</address>
       <state>
         <admin-state>unlocked</admin-state>
       </state>
@@ -167,7 +167,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -181,8 +181,8 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
 -       </host-key>
 -     </ssh>
-+     <name>POD2_SPINE21</name>
-+     <address>10.12.1.133</address>
++     <name>PODX_SPINE21</name>
++     <address>10.1X.1.133</address>
       <state>
         <admin-state>unlocked</admin-state>
       </state>
@@ -190,7 +190,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -204,8 +204,8 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -         <key-data>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx/fVQt990inICJ3hQOyt45XNH4CQRMuE9waoE0IOJGnQ5asCBPUq2L/+3TZxscDLUc4TfXupSo57HHMnoWsk8gnLGohWoIZSb07P4iRIuZe0u3hZ0fP8Me6p7FnN8+L5ih7KidDmRyp+4c4akCSXnhd869R9cFbtiaICy01oTLsAnPSI+h2Aw+gYYJl4av73alFvP53PfWFC866go/rbvScCkv3/GOYexWWofGZ8WUgZ3Kyxp/4z7e8bw7gXEvO/qFmiaakAqTlCIwf8VR0D+2Wa8CnzYWYfDeo5sWY4oquuRZpbOzO20gGWscXAfRfxtmLxq4ixNdD4IVvaEPT47 mreis@MAREIS-M-60W8</key-data>
 -       </host-key>
 -     </ssh>
-+     <name>POD2_SPINE22</name>
-+     <address>10.12.1.134</address>
++     <name>PODX_SPINE22</name>
++     <address>10.1X.1.134</address>
       <state>
         <admin-state>unlocked</admin-state>
       </state>
@@ -233,7 +233,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -     <device-type>
 -       <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
++         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
         </cli>
       </device-type>
     </device>
@@ -247,19 +247,19 @@ diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.mod/init_data
 +    <dc-name>SDNBCMP</dc-name>
      <leaf-node>
 -      <name>BRLFND-0</name>
-+      <name>POD2_SPINE21</name>
++      <name>PODX_SPINE21</name>
      </leaf-node>
      <leaf-node>
 -      <name>BRLFND-1</name>
-+      <name>POD2_SPINE22</name>
++      <name>PODX_SPINE22</name>
      </leaf-node>
      <leaf-node>
 -      <name>LFND-0</name>
-+      <name>POD2_LEAF11</name>
++      <name>PODX_LEAF11</name>
      </leaf-node>
      <leaf-node>
 -      <name>LFND-1</name>
-+      <name>POD2_LEAF12</name>
++      <name>PODX_LEAF12</name>
      </leaf-node>
 -    <leaf-node>
 -      <name>LFND-2</name>
@@ -346,21 +346,21 @@ diff -ruN clus-evpn/project-meta-data.xml clus-evpn.mod/project-meta-data.xml
      <name>clus-evpn</name>
 -    <project-version>1.6</project-version>
 -    <description>CLUS EVPN Project</description>
-+    <project-version>1.7</project-version>
-+    <description>Modified CLUS EVPN Project</description>
++    <project-version>1.8</project-version>
++    <description>Modified CLUS EVPN Project for SDN bootcamp</description>
  
      <netsim>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
 -            <prefix>LFND-</prefix>
-+            <name>cisco-nx-cli-5.15</name>
++            <name>cisco-nx-cli-5.22</name>
 +            <prefix>LEAF-</prefix>
              <num-devices>3</num-devices>
          </device>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
 -            <prefix>BRLFND-</prefix>
-+            <name>cisco-nx-cli-5.15</name>
++            <name>cisco-nx-cli-5.22</name>
 +            <prefix>SPINE-</prefix>
              <num-devices>2</num-devices>
          </device>
