@@ -1,6 +1,6 @@
-diff -ruN clus-evpn/init_data/netsim_devices_day0.xml clus-evpn.mod/init_data/netsim_devices_day0.xml
---- clus-evpn/init_data/netsim_devices_day0.xml	2020-06-21 23:30:36.721587275 +0200
-+++ clus-evpn.mod/init_data/netsim_devices_day0.xml	1970-01-01 01:00:00.000000000 +0100
+diff -ruN clus-evpn/init_data/netsim_devices_day0.xml clus-evpn.sdnbootcamp/init_data/netsim_devices_day0.xml
+--- clus-evpn/init_data/netsim_devices_day0.xml	2022-06-27 15:44:54.471251711 +0200
++++ clus-evpn.sdnbootcamp/init_data/netsim_devices_day0.xml	2022-06-27 15:49:15.385045499 +0200
 @@ -1,117 +0,0 @@
 -<devices xmlns="http://tail-f.com/ns/ncs">
 -  <device>
@@ -120,9 +120,9 @@ diff -ruN clus-evpn/init_data/netsim_devices_day0.xml clus-evpn.mod/init_data/ne
 -  </device>
 -</devices>
 \ No newline at end of file
-diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/netsim_devices_init.xml
---- clus-evpn/init_data/netsim_devices_init.xml	2020-06-21 23:30:36.721587275 +0200
-+++ clus-evpn.mod/init_data/netsim_devices_init.xml	2020-06-21 23:37:56.071405940 +0200
+diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.sdnbootcamp/init_data/netsim_devices_init.xml
+--- clus-evpn/init_data/netsim_devices_init.xml	2022-06-27 15:44:54.475251800 +0200
++++ clus-evpn.sdnbootcamp/init_data/netsim_devices_init.xml	2022-06-27 15:53:58.787345301 +0200
 @@ -1,101 +1,53 @@
  <devices xmlns="http://tail-f.com/ns/ncs">
     <device>
@@ -144,7 +144,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
         </cli>
       </device-type>
     </device>
@@ -167,7 +167,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
         </cli>
       </device-type>
     </device>
@@ -190,7 +190,7 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
       <device-type>
         <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
         </cli>
       </device-type>
     </device>
@@ -233,14 +233,14 @@ diff -ruN clus-evpn/init_data/netsim_devices_init.xml clus-evpn.mod/init_data/ne
 -     <device-type>
 -       <cli>
 -         <ned-id xmlns:cisco-nx-id="http://tail-f.com/ned/cisco-nx-id">cisco-nx-id:cisco-nx</ned-id>
-+         <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">id:cisco-nx-cli-5.22</ned-id>
++	 <ned-id xmlns:id="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">id:cisco-nx-cli-5.15</ned-id>
         </cli>
       </device-type>
     </device>
-diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.mod/init_data/plant_information_init.xml
---- clus-evpn/init_data/plant_information_init.xml	2020-06-21 23:30:36.721587275 +0200
-+++ clus-evpn.mod/init_data/plant_information_init.xml	2020-06-21 23:38:06.282610896 +0200
-@@ -1,83 +1,20 @@
+diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.sdnbootcamp/init_data/plant_information_init.xml
+--- clus-evpn/init_data/plant_information_init.xml	2022-06-27 15:44:54.475251800 +0200
++++ clus-evpn.sdnbootcamp/init_data/plant_information_init.xml	2022-06-27 15:56:27.578654568 +0200
+@@ -1,91 +1,27 @@
  <plant-information xmlns="http://com/ciscoas/services/vxlan">
    <plant>
 -    <dc-name>Vancouver</dc-name>
@@ -261,9 +261,9 @@ diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.mod/init_data
 -      <name>LFND-1</name>
 +      <name>PODX_LEAF12</name>
      </leaf-node>
--    <leaf-node>
--      <name>LFND-2</name>
--    </leaf-node>
+     <leaf-node>
+       <name>LFND-2</name>
+     </leaf-node>
 -    <border-leaf-node>
 -      <name>BRLFND-0</name>
 -      <dci-layer3>
@@ -326,36 +326,39 @@ diff -ruN clus-evpn/init_data/plant_information_init.xml clus-evpn.mod/init_data
 -    </border-leaf-node>
      <as-number xmlns="http://com/ciscoas/services/evpn">
 -      <leaf-nodes>65001</leaf-nodes>
-+      <leaf-nodes>65002</leaf-nodes>
-       <dci-nodes>65002</dci-nodes>
+-      <dci-nodes>65002</dci-nodes>
++      <leaf-nodes>6500X</leaf-nodes>
++      <dci-nodes>6500X</dci-nodes>
      </as-number>
    </plant>
-@@ -86,6 +23,6 @@
-     <tenant-route-maps>
-       <bgp-redistribute-connected>redist-nso-test</bgp-redistribute-connected>
-     </tenant-route-maps>
+   <global-config>
+-    <tenant-prefix-tag>123</tenant-prefix-tag>
+-    <tenant-route-maps>
+-      <bgp-redistribute-connected>redist-nso-test</bgp-redistribute-connected>
+-    </tenant-route-maps>
 -    <nve-source-interface>loopback1</nve-source-interface>
-+    <nve-source-interface>loopback0</nve-source-interface>
++    <nve-source-interface>loopback100</nve-source-interface>
    </global-config>
  </plant-information>
-diff -ruN clus-evpn/project-meta-data.xml clus-evpn.mod/project-meta-data.xml
---- clus-evpn/project-meta-data.xml	2020-06-21 23:30:36.726587375 +0200
-+++ clus-evpn.mod/project-meta-data.xml	2020-06-21 23:41:42.321947253 +0200
+diff -ruN clus-evpn/project-meta-data.xml clus-evpn.sdnbootcamp/project-meta-data.xml
+--- clus-evpn/project-meta-data.xml	2022-06-27 15:44:54.479251888 +0200
++++ clus-evpn.sdnbootcamp/project-meta-data.xml	2022-06-27 15:57:55.364607427 +0200
 @@ -1,17 +1,17 @@
  <project-meta-data xmlns="http://tail-f.com/ns/ncs-project">
      <name>clus-evpn</name>
 -    <project-version>1.6</project-version>
 -    <description>CLUS EVPN Project</description>
 +    <project-version>1.8</project-version>
-+    <description>Modified CLUS EVPN Project for SDN bootcamp</description>
++    <description>CLUS EVPN Project adopted to SDN Bootcamp with NSO 5.x</description>
  
      <netsim>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
 -            <prefix>LFND-</prefix>
+-            <num-devices>3</num-devices>
 +            <name>cisco-nx-cli-5.22</name>
 +            <prefix>LEAF-</prefix>
-             <num-devices>3</num-devices>
++            <num-devices>2</num-devices>
          </device>
          <device>
 -            <name>ncs-4.7.1-cisco-nx-5.7.3.tar.gz</name>
