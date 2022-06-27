@@ -3,6 +3,8 @@ hostname {{ item.hostname }}
 
 username admin password {{ item.password }} role network-admin 
 
+feature telnet
+
 no ip domain-lookup
 
 vrf context management

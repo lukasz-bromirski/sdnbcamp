@@ -3,7 +3,7 @@
     <template>
      <name>SDN-NTP-standard</name>
       <ned-id>
-       <id xmlns:cisco-nx-cli-5.15="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.15">cisco-nx-cli-5.15:cisco-nx-cli-5.15</id>
+       <id xmlns:cisco-nx-cli-5.22="http://tail-f.com/ns/ned-id/cisco-nx-cli-5.22">cisco-nx-cli-5.22:cisco-nx-cli-5.22</id>
         <config>
          <ntp xmlns="http://tail-f.com/ned/cisco-nx" tags="replace"> 
           <server>
