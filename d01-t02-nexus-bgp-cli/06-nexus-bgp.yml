@@ -16,143 +16,143 @@
       gather_facts: no
       hosts: PODX_SPINE21
 
-  tasks:
-    - name: Configure BGP process
-      cisco.nxos.nxos_bgp_global:
-        config:
-          as_number: 6500X
-          router_id: 10.1X.126.1               
-          neighbors:
-          - neighbor_address: 10.1X.192.3
-            remote_as: 6500X
-            description: PODX_LEAF11
-            update_source: Loopback100
-          - neighbor_address: 10.1X.192.4
-            remote_as: 6500X
-            description: PODX_LEAF12
-            update_source: Loopback100
+      tasks:
+        - name: Configure BGP process
+          cisco.nxos.nxos_bgp_global:
+            config:
+              as_number: 6500X
+              router_id: 10.1X.126.1               
+              neighbors:
+              - neighbor_address: 10.1X.192.3
+                remote_as: 6500X
+                description: PODX_LEAF11
+                update_source: Loopback100
+              - neighbor_address: 10.1X.192.4
+                remote_as: 6500X
+                description: PODX_LEAF12
+                update_source: Loopback100
 
-- name: BGP configuration on PODX_SPINE22
-  connection: local
-  gather_facts: no
-  hosts: PODX_SPINE22
+    - name: BGP configuration on PODX_SPINE22
+      connection: local
+      gather_facts: no
+      hosts: PODX_SPINE22
 
-  tasks:
-    - name: Configure BGP process
-      cisco.nxos.nxos_bgp_global:
-        config:
-          as_number: 6500X
-          router_id: 10.1X.126.2              
-          neighbors:
-          - neighbor_address: 10.1X.192.3
-            remote_as: 6500X
-            description: PODX_LEAF11
-            update_source: Loopback100
-          - neighbor_address: 10.1X.192.4
-            remote_as: 6500X
-            description: PODX_LEAF12
-            update_source: Loopback100
+      tasks:
+        - name: Configure BGP process
+          cisco.nxos.nxos_bgp_global:
+            config:
+              as_number: 6500X
+              router_id: 10.1X.126.2               
+              neighbors:
+              - neighbor_address: 10.1X.192.3
+                remote_as: 6500X
+                description: PODX_LEAF11
+                update_source: Loopback100
+              - neighbor_address: 10.1X.192.4
+                remote_as: 6500X
+                description: PODX_LEAF12
+                update_source: Loopback100
 
-- name: BGP configuration on PODX_LEAF11
-  connection: local
-  gather_facts: no
-  hosts: PODX_LEAF11
+    - name: BGP configuration on PODX_LEAF11
+      connection: local
+      gather_facts: no
+      hosts: PODX_LEAF11
 
-  tasks:
-    - name: Configure BGP process
-      cisco.nxos.nxos_bgp_global:
-        config:
-          as_number: 6500X
-          router_id: 10.1X.126.3               
-          neighbors:
-          - neighbor_address: 10.1X.192.1
-            remote_as: 6500X
-            description: PODX_SPINE21
-            update_source: Loopback100
-          - neighbor_address: 10.1X.192.2
-            remote_as: 6500X
-            description: PODX_SPINE22
-            update_source: Loopback100
+      tasks:
+        - name: Configure BGP process
+          cisco.nxos.nxos_bgp_global:
+            config:
+              as_number: 6500X
+              router_id: 10.1X.126.3               
+              neighbors:
+              - neighbor_address: 10.1X.192.1
+                remote_as: 6500X
+                description: PODX_SPINE21
+                update_source: Loopback100
+              - neighbor_address: 10.1X.192.2
+                remote_as: 6500X
+                description: PODX_SPINE22
+                update_source: Loopback100
 
-- name: BGP configuration on PODX_LEAF12
-  connection: local
-  gather_facts: no
-  hosts: PODX_LEAF12
+    - name: BGP configuration on PODX_LEAF12
+      connection: local
+      gather_facts: no
+      hosts: PODX_LEAF12
 
-  tasks:
-    - name: Configure BGP process
-      cisco.nxos.nxos_bgp_global:
-        config:
-          as_number: 6500X
-          router_id: 10.1X.126.4              
-          neighbors:
-          - neighbor_address: 10.1X.192.1
-            remote_as: 6500X
-            description: PODX_SPINE21
-            update_source: Loopback100
-          - neighbor_address: 10.1X.192.2
-            remote_as: 6500X
-            description: PODX_SPINE22
-            update_source: Loopback100
+      tasks:
+        - name: Configure BGP process
+          cisco.nxos.nxos_bgp_global:
+            config:
+              as_number: 6500X
+              router_id: 10.1X.126.3               
+              neighbors:
+              - neighbor_address: 10.1X.192.1
+                remote_as: 6500X
+                description: PODX_SPINE21
+                update_source: Loopback100
+              - neighbor_address: 10.1X.192.2
+                remote_as: 6500X
+                description: PODX_SPINE22
+                update_source: Loopback100
 
-- name: BGP AF configuration
-  connection: local
-  gather_facts: no
-  hosts: PODX_SPINE21 PODX_SPINE22 PODX_LEAF11 PODX_LEAF12
+    - name: BGP AF configuration
+      connection: local
+      gather_facts: no
+      hosts: PODX_SPINE21 PODX_SPINE22 PODX_LEAF11 PODX_LEAF12
 
-  tasks:
-    - name: Enable AFI IPv4 unicast
-      cisco.nxos.nxos_bgp_address_family:
-        config:
-          as_number: 6500X
-          address_family:
-            - afi: ipv4
-              safi: unicast
+      tasks:
+        - name: Enable AFI IPv4 unicast
+          cisco.nxos.nxos_bgp_address_family:
+            config:
+              as_number: 6500X
+              address_family:
+              - afi: ipv4
+                safi: unicast
 
-- name: BGP spine configuration
-  connection: local
-  gather_facts: no
-  hosts: PODX_SPINE21 PODX_SPINE22
+    - name: BGP spine configuration
+      connection: local
+      gather_facts: no
+      hosts: PODX_SPINE21 PODX_SPINE22
 
-  tasks:
-    - name: Configure BGP community distribution
-      cisco.nxos.nxos_bgp_neighbor_address_family:
-        config:
-          neighbors:
-          - neighbor_address: 10.1X.192.3
-            address_family:
-            - afi: ipv4
-              safi: unicast
-              send_community:
-                both: yes
-              route_reflector_client: yes
-          - neighbor_address: 10.1X.192.4
-            address_family:
-            - afi: ipv4
-              safi: unicast
-              send_community:
-                both: yes
-              route_reflector_client: yes
+      tasks:
+        - name: Configure BGP community distribution
+          cisco.nxos.nxos_bgp_neighbor_address_family:
+            config:
+              neighbors:
+              - neighbor_address: 10.1X.192.3
+                address_family:
+                - afi: ipv4
+                  safi: unicast
+                  send_community:
+                    both: yes
+                  route_reflector_client: yes
+              - neighbor_address: 10.1X.192.4
+                address_family:
+                - afi: ipv4
+                  safi: unicast
+                  send_community:
+                    both: yes
+                  route_reflector_client: yes
 
-- name: BGP leaf configuration
-  connection: local
-  gather_facts: no
-  hosts: PODX_LEAF11 PODX_LEAF12
+    - name: BGP leaf configuration
+      connection: local
+      gather_facts: no
+      hosts: PODX_LEAF11 PODX_LEAF12
 
-  tasks:
-    - name: Configure BGP community distribution
-      cisco.nxos.nxos_bgp_neighbor_address_family:
-        config:
-          neighbors:
-          - neighbor_address: 10.1X.192.1
-            address_family:
-            - afi: ipv4
-              safi: unicast
-              send_community:
-                both: yes
-          - neighbor_address: 10.1X.192.2
-            address_family:
-            - afi: ipv4
-              safi: unicast
-              send_community:
-                both: yes
+      tasks:
+        - name: Configure BGP community distribution
+          cisco.nxos.nxos_bgp_neighbor_address_family:
+            config:
+              neighbors:
+              - neighbor_address: 10.1X.192.1
+                address_family:
+                - afi: ipv4
+                  safi: unicast
+                  send_community:
+                    both: yes
+              - neighbor_address: 10.1X.192.2
+                address_family:
+                - afi: ipv4
+                  safi: unicast
+                  send_community:
+                    both: yes
