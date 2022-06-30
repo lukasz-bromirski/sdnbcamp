@@ -1,0 +1,68 @@
+<polUni>
+    <fvTenant
+       dn="uni/tn-ACILab"
+       name="ACILab">
+
+        <!-- Application Profile -->
+        <fvAp dn="uni/tn-ACILab/ap-3Tier_App" name="3Tier_App">
+
+            <!-- L3External EPG   -->
+            <fvAEPg
+                dn="uni/tn-ACILab/ap-3Tier_App/epg-L3Ext_EPG"
+                name="L3Ext_EPG">
+                <fvRsBd tnFvBDName="ACILab_BD1" />
+                <fvRsDomAtt
+                    tDn="uni/vmmp-VMware/dom-My-vCenter" />
+                <fvRsCons tnVzBrCPName="Web_Con">
+                </fvRsCons>
+            </fvAEPg>
+
+            <!-- Web EPG  -->
+            <fvAEPg
+                dn="uni/tn-ACILab/ap-3Tier_App/epg-Web_EPG"
+                name="Web_EPG">
+                <fvRsBd tnFvBDName="ACILab_BD1" />
+                <fvRsDomAtt
+                    tDn="uni/vmmp-VMware/dom-My-vCenter" />
+                <fvRsProv tnVzBrCPName="Web_Con">
+                </fvRsProv>
+                <fvRsCons tnVzBrCPName="App_Con">
+                </fvRsCons>
+                <vnsFolderInst ctrctNameOrLbl="Web_Con" graphNameOrLbl="any" nodeNameOrLbl="any" key="fw-subnet-inside" name="fw-subnet-inside">
+                </vnsFolderInst>
+
+                <vnsFolderInst ctrctNameOrLbl="Web_Con" graphNameOrLbl="any" nodeNameOrLbl="any" key="fw-subnet-outside" name="fw-subnet-outside">
+                </vnsFolderInst>
+
+            </fvAEPg>
+
+            <!-- App EPG -->
+            <fvAEPg dn="uni/tn-ACILab/ap-3Tier_App/epg-App_EPG"  name="App_EPG">
+                <fvRsBd tnFvBDName="ACILab_BD1" />
+                <!--fvRsBd tnFvBDName="cokeBD1" /-->
+                <fvRsDomAtt tDn="uni/vmmp-VMware/dom-My-vCenter" />
+                <fvRsCons tnVzBrCPName="DB_Con">
+                </fvRsCons>
+                <fvRsProv tnVzBrCPName="App_Con">
+                </fvRsProv>
+                <vnsFolderInst ctrctNameOrLbl="Web_Con" graphNameOrLbl="any" nodeNameOrLbl="any" key="fw-subnet-inside" name="fw-subnet-inside">
+                </vnsFolderInst>
+
+                <vnsFolderInst ctrctNameOrLbl="Web_Con" graphNameOrLbl="any" nodeNameOrLbl="any" key="fw-subnet-outside" name="fw-subnet-outside">
+                </vnsFolderInst>
+
+            </fvAEPg>
+
+            <!-- DB EPG -->
+            <fvAEPg dn="uni/tn-ACILab/ap-3Tier_App/epg-DB_EPG"  name="DB_EPG">
+                <fvRsBd tnFvBDName="ACILab_BD1" />
+                <!--fvRsBd tnFvBDName="cokeBD1" /-->
+                <fvRsDomAtt tDn="uni/vmmp-VMware/dom-My-vCenter" />
+                <fvRsProv tnVzBrCPName="DB_Con">
+                </fvRsProv>
+            </fvAEPg>
+
+        </fvAp>
+    </fvTenant>
+</polUni>
+
