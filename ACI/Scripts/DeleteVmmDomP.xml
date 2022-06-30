@@ -1,6 +1,0 @@
-<polUni>
-    <vmmProvP vendor="VMware">
-    <vmmDomP name="My-vCenter" status="deleted">
-    </vmmDomP>
-    </vmmProvP>
-</polUni>

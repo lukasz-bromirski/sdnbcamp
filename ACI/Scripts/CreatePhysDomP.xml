@@ -1,5 +1,0 @@
-<polUni>
-<physDomP name="phys">
-     <infraRsVlanNs tDn="uni/infra/vlanns-ACILab_VLAN_Pool-dynamic"/>
-</physDomP>
-</polUni>
