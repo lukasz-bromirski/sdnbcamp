@@ -11,10 +11,10 @@
         feature: bgp
         state: enabled
 
-    - name: BGP configuration on PODX_SPINE21
-      connection: local
-      gather_facts: no
-      hosts: PODX_SPINE21
+- name: BGP configuration on PODX_SPINE21
+  connection: local
+  gather_facts: no
+  hosts: PODX_SPINE21
 
   tasks:
     - name: Configure BGP process
@@ -42,7 +42,7 @@
       cisco.nxos.nxos_bgp_global:
         config:
           as_number: 6500X
-          router_id: 10.1X.126.2              
+          router_id: 10.1X.126.2               
           neighbors:
           - neighbor_address: 10.1X.192.3
             remote_as: 6500X
@@ -84,7 +84,7 @@
       cisco.nxos.nxos_bgp_global:
         config:
           as_number: 6500X
-          router_id: 10.1X.126.4              
+          router_id: 10.1X.126.3               
           neighbors:
           - neighbor_address: 10.1X.192.1
             remote_as: 6500X
@@ -106,8 +106,8 @@
         config:
           as_number: 6500X
           address_family:
-            - afi: ipv4
-              safi: unicast
+          - afi: ipv4
+            safi: unicast
 
 - name: BGP spine configuration
   connection: local
